@@ -99,11 +99,11 @@ params:
         Content: >
             欢迎来到我的博客！
             
-            - 主要记录一些技术知识。
+            - 这里主要分享技术知识，以及一些日常零碎小技巧，方便查阅以及检索。
 
-            - 以及一些个人阅读。
+            - 时不时分享一些感想
 
-            - 还有一些日常零碎技术。
+            - 将学习到的知识记录下来，也不是一件容易的事情。
     socialIcons:
         - name: github
           url: "https://github.com/sacredartr/sacredartr.github.io"

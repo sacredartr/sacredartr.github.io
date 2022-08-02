@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://sacredartr.github.io/sitemap.xml
