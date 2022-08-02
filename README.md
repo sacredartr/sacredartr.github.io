@@ -1,2 +1,0 @@
-# sacredartr.github.io
-blog
