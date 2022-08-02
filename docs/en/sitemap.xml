@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sacredartr.github.io/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/archives/"
+                />
+  </url><url>
     <loc>https://sacredartr.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -24,6 +36,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://sacredartr.github.io/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/search/"
                 />
   </url><url>
     <loc>https://sacredartr.github.io/series/</loc>

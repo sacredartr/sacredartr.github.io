@@ -108,7 +108,7 @@ params:
               url: tags
 
     homeInfoParams:
-        Title: "sacred's blog"
+        Title: "我的博客"
         Content: >
             欢迎来到我的博客！
             
