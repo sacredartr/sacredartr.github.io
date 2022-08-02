@@ -2,11 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://sacredartr.github.io/facategories/</loc>
-  </url><url>
-    <loc>https://sacredartr.github.io/faseries/</loc>
-  </url><url>
-    <loc>https://sacredartr.github.io/fatags/</loc>
+    <loc>https://sacredartr.github.io/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/categories/"
+                />
   </url><url>
     <loc>https://sacredartr.github.io/</loc>
     <xhtml:link
@@ -18,6 +24,30 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://sacredartr.github.io/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/series/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/series/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/tags/"
                 />
   </url>
 </urlset>

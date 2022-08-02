@@ -37,20 +37,22 @@ languages:
                   weight: 10
 
     en:
-        languagedirection: rtl
-        weight: 3
-        title: PaperMod RTL
-        homeInfoParams:
-            Title: "Hi there \U0001F44B"
-            Content: Welcome to RTL layout
+        languageName: "English"
+        weight: 1
         taxonomies:
-          category: FAcategories
-          tag: FAtags
-          series: FAseries
+          category: categories
+          tag: tags
+          series: series
         menu:
             main:
-                - name: FATags
-                  url: fatags
+                - name: Archive
+                  url: archives
+                  weight: 5
+                - name: Search
+                  url: search/
+                  weight: 10
+                - name: Tags
+                  url: tags/
                   weight: 10
 
 outputs:
@@ -95,10 +97,10 @@ params:
     homeInfoParams:
         Title: "sacred's blog"
         Content: >
-            Welcome to demo of hugo's theme PaperMod.
-            - **PaperMod** is a simple but fast and responsive theme with useful feature-set that enhances UX.
-            - Do give a 🌟 on Github !
-            - PaperMod is based on theme [Paper](https://github.com/nanxiaobei/hugo-paper).
+            欢迎来到我的博客.
+            - 主要记录一些技术知识
+            - 以及一些个人阅读
+            - 还有一些日常零碎技术
     socialIcons:
         - name: github
           url: "https://github.com/sacredartr/sacredartr.github.io"
