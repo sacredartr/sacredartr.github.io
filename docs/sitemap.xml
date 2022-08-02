@@ -2,17 +2,12 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <sitemap>
+    <loc>https://sacredartr.github.io/zh/sitemap.xml</loc>
+    
+  </sitemap>
+  
+  <sitemap>
     <loc>https://sacredartr.github.io/en/sitemap.xml</loc>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>https://sacredartr.github.io/fr/sitemap.xml</loc>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>https://sacredartr.github.io/fa/sitemap.xml</loc>
     
   </sitemap>
   

@@ -17,8 +17,8 @@ minify:
     # minifyOutput: true
 
 languages:
-    en:
-        languageName: "English"
+    zh:
+        languageName: "Chinese"
         weight: 1
         taxonomies:
           category: categories
@@ -35,46 +35,8 @@ languages:
                 - name: Tags
                   url: tags/
                   weight: 10
-    fr:
-        languageName: ":fr:"
-        languageAltTitle: French
-        weight: 2
-        title: PaperModL2
-        taxonomies:
-          category: FRcategories
-          tag: FRtags
-          series: FRseries
-        profileMode:
-            enabled: true
-            title: PaperMod
-            imageUrl: "https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f317.svg"
-            imageTitle: ProfileMode image
-            # imageWidth: 120
-            # imageHeight: 120
-            subtitle: "☄️ Fast | ☁️ Fluent | 🌙 Smooth | 📱 Responsive"
-            buttons:
-                - name: Blog
-                  url: posts
-                - name: Profile Mode
-                  url: https://github.com/adityatelange/hugo-PaperMod/wiki/Features#profile-mode
-        menu:
-            main:
-                - name: Archive
-                  url: archives/
-                  weight: 5
-                - name: FRTags
-                  url: frtags
-                  weight: 10
-                - name: FRCategories
-                  url: frcategories
-                  weight: 10
-                - name: FRSeries
-                  url: frseries
-                  weight: 10
-                - name: NullLink
-                  url: "#"
 
-    fa:
+    en:
         languagedirection: rtl
         weight: 3
         title: PaperMod RTL
@@ -99,8 +61,8 @@ outputs:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: "Theme PaperMod - https://github.com/adityatelange/hugo-PaperMod"
-    author: Theme PaperMod
+    description: "sacredarte - https://github.com/sacredartr/sacredartr.github.io"
+    author: sacredartr
     # author: ["Me", "You"] # multiple authors
 
     defaultTheme: auto
@@ -119,7 +81,7 @@ params:
 
     profileMode:
         enabled: false
-        title: PaperMod
+        title: sacred
         imageUrl: "#"
         imageTitle: my image
         # imageWidth: 120
