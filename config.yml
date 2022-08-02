@@ -54,6 +54,19 @@ languages:
                 - name: Tags
                   url: tags/
                   weight: 10
+        homeInfoParams:
+          Title: "sacred's blog"
+          Content: >
+            Welcome to my blog!
+            
+            - Here, we mainly share technical knowledge, as well as some small daily tricks for easy access and retrieval.
+
+            - Share some thoughts from time to time
+
+            - It is not easy to record what you have learned.
+          socialIcons:
+          - name: github
+            url: "https://github.com/sacredartr/sacredartr.github.io"
 
 outputs:
     home:
