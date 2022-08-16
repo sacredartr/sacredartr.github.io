@@ -8,6 +8,52 @@
       <url>https://sacredartr.github.io/papermod-cover.png</url>
       <link>https://sacredartr.github.io/papermod-cover.png</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://sacredartr.github.io/zh/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 18 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/zh/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tips</title>
+      <link>https://sacredartr.github.io/zh/categories/tips/</link>
+      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/categories/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tools</title>
+      <link>https://sacredartr.github.io/zh/categories/tools/</link>
+      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/categories/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://sacredartr.github.io/zh/categories/docker/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://sacredartr.github.io/zh/categories/git/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://sacredartr.github.io/zh/categories/linux/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/categories/linux/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

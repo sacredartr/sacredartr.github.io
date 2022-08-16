@@ -33,7 +33,7 @@ languages:
                   url: search/
                   weight: 10
                 - name: Tags
-                  url: tags/
+                  url: zh/tags/
                   weight: 10
 
     en:

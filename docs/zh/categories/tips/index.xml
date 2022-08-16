@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>tips on sacred&#39;s blog</title>
+    <link>https://sacredartr.github.io/zh/categories/tips/</link>
+    <description>Recent content in tips on sacred&#39;s blog</description>
+    <image>
+      <url>https://sacredartr.github.io/papermod-cover.png</url>
+      <link>https://sacredartr.github.io/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 18 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/zh/categories/tips/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tools Daily Tips</title>
+      <link>https://sacredartr.github.io/zh/posts/tools-daily-tips/</link>
+      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/posts/tools-daily-tips/</guid>
+      <description>Tools tips for daily use</description>
+    </item>
+    
+    <item>
+      <title>Docker Daily Tips</title>
+      <link>https://sacredartr.github.io/zh/posts/docker-daily-tips/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/posts/docker-daily-tips/</guid>
+      <description>Docker tips for daily use</description>
+    </item>
+    
+    <item>
+      <title>Git Daily Tips</title>
+      <link>https://sacredartr.github.io/zh/posts/git-daily-tips/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/posts/git-daily-tips/</guid>
+      <description>Git tips for daily use</description>
+    </item>
+    
+    <item>
+      <title>Linux Daily Tips</title>
+      <link>https://sacredartr.github.io/zh/posts/linux-daily-tips/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/posts/linux-daily-tips/</guid>
+      <description>Linux tips for daily use</description>
+    </item>
+    
+  </channel>
+</rss>

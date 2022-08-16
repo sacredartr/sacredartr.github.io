@@ -2,19 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://sacredartr.github.io/archives/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sacredartr.github.io/zh/archives/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sacredartr.github.io/archives/"
-                />
-  </url><url>
     <loc>https://sacredartr.github.io/categories/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -26,7 +15,21 @@
                 href="https://sacredartr.github.io/categories/"
                 />
   </url><url>
+    <loc>https://sacredartr.github.io/posts/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/posts/"
+                />
+  </url><url>
     <loc>https://sacredartr.github.io/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -38,19 +41,8 @@
                 href="https://sacredartr.github.io/"
                 />
   </url><url>
-    <loc>https://sacredartr.github.io/search/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sacredartr.github.io/zh/search/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sacredartr.github.io/search/"
-                />
-  </url><url>
     <loc>https://sacredartr.github.io/series/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -63,6 +55,7 @@
                 />
   </url><url>
     <loc>https://sacredartr.github.io/tags/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -72,6 +65,251 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://sacredartr.github.io/tags/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/categories/tips/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/categories/tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/categories/tips/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/tags/tools/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/tags/tools/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/tags/tools/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/categories/tools/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/categories/tools/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/categories/tools/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/posts/tools-daily-tips/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/posts/tools-daily-tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/posts/tools-daily-tips/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/series/tools-tips/</loc>
+    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/series/tools-tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/series/tools-tips/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/tags/docker/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/tags/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/tags/docker/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/categories/docker/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/categories/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/categories/docker/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/posts/docker-daily-tips/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/posts/docker-daily-tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/posts/docker-daily-tips/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/series/docker-tips/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/series/docker-tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/series/docker-tips/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/tags/git/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/tags/git/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/tags/git/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/categories/git/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/categories/git/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/categories/git/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/posts/git-daily-tips/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/posts/git-daily-tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/posts/git-daily-tips/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/series/git-tips/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/series/git-tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/series/git-tips/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/tags/linux/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/tags/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/tags/linux/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/categories/linux/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/categories/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/categories/linux/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/posts/linux-daily-tips/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/posts/linux-daily-tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/posts/linux-daily-tips/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/series/linux-tips/</loc>
+    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/series/linux-tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/series/linux-tips/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/archives/"
+                />
+  </url><url>
+    <loc>https://sacredartr.github.io/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://sacredartr.github.io/zh/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sacredartr.github.io/search/"
                 />
   </url>
 </urlset>
