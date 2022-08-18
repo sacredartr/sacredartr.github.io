@@ -64,6 +64,24 @@
       <description>Linux tips for daily use</description>
     </item>
     
+    <item>
+      <title>Mysql</title>
+      <link>https://sacredartr.github.io/zh/posts/mysql/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/posts/mysql/</guid>
+      <description>mysql</description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://sacredartr.github.io/zh/posts/python/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/posts/python/</guid>
+      <description>python</description>
+    </item>
+    
     
     
   </channel>

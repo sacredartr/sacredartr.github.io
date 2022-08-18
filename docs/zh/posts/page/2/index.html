@@ -175,6 +175,34 @@
   <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>八月 16, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Linux Daily Tips" href="https://sacredartr.github.io/zh/posts/linux-daily-tips/"></a>
 </article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Mysql
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Mysql 数据库命令 获取所有表名 select `table_name` from information_schema.tables where `table_schema` = &#39;{}&#39; 获取所有列名 select `column_name` from information_schema.columns where `table_name`=&#39;{}&#39; and `table_schema` = &#39;{}&#39; *获取所有库名
+select schema_name as `database` from information_schema.schemata *获取表中所有主键
+select k.column_name from information_schema.table_constraints t join information_schema.key_column_usage k using (constraint_name,table_schema,table_name) where t.constraint_type=&#39;PRIMARY KEY&#39; and t.table_schema=&#39;{}&#39; and t.table_name=&#39;{}&#39; 创建视图 create view {} as select {} from {} 导出数据 mysqldump -uroot -p database table1 table2 &gt; target.sql –skip-opt 不锁表 -d 表示 只导出结构...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>八月 16, 2022</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to Mysql" href="https://sacredartr.github.io/zh/posts/mysql/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Python
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Python pandas常用命令 字符串转日期 dt.datetime.strptime(x, &#39;%Y-%m-%d&#39;).date() pd.to_datetime(x, format=&#39;%Y-%m-%d&#39;) 日期转字符串 dt.datetime.strftime(x, &#39;%Y-%m-%d&#39;) 日期相加 date &#43; dt.timedelta(days=-1) merge pd.merge(left,right,how=&#39;left&#39;,on=&#39;&#39;) apply df[&#39;x&#39;].apply(lambda x: float(x)) groupyby返回第N行 df.groupby(&#34;columns&#34;).nth(N) 写入excel writer = pd.ExcelWriter(&#34;demo.xlsx&#34;) res.to_excel(writer, sheet_name=&#34;middle&#34;, index=False, header=False) res_final.to_excel(writer, sheet_name=&#34;final&#34;, index=False, header=False) 读取excel pd.read_excel(&#39;demo.xlsx&#39;, sheet_name=&#39;middle&#39;) explode 将每行指定columns中的list转为列 df.explode(&#34;dirty&#34;, ignore_index=True) squeeze 将series压缩成一个值 row.squeeze(&#34;columns&#34;) nlargest 前N个 df.nlargest(5, &#34;columns&#34;) nsmallest 后N个 df.nsmallest(5, &#34;columns&#34;) clip 异常值监测 df.clip(50, 60) ffill前向填充 df[&#39;nav&#39;].ffill() bfill后向填充 df[&#39;nav&#39;].bfill() stack 列旋转成行
+unstack 行旋转成列
+行转列特殊实战 df.set_index([df.groupby(&#39;fund_id&#39;).cumcount(), &#39;fund_id&#39;])[column_name].unstack().T 只取数据下三角 df.mask(np.triu(np.ones(df.shape, dtype=np.bool_))) 数字转时间 time....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>八月 16, 2022</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to Python" href="https://sacredartr.github.io/zh/posts/python/"></a>
+</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://sacredartr.github.io/zh/posts/">« 上一页</a>

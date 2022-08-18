@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Python | sacred&#39;s blog</title>
+<meta name="keywords" content="python">
+<meta name="description" content="python">
+<meta name="author" content="sacredartr">
+<link rel="canonical" href="https://sacredartr.github.io/zh/posts/python/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.b183800e2cfbb62c3bce2b2ba56cdb2dd33af76c75cf4550173d5dfebd7c68a6.css" integrity="sha256-sYOADiz7tiw7zisrpWzbLdM692x1z0VQFz1d/r18aKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://sacredartr.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://sacredartr.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://sacredartr.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://sacredartr.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://sacredartr.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://sacredartr.github.io/zh/posts/python/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Python" />
+<meta property="og:description" content="python" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://sacredartr.github.io/zh/posts/python/" /><meta property="og:image" content="https://sacredartr.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-16T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2022-08-16T00:00:00&#43;00:00" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://sacredartr.github.io/papermod-cover.png"/>
+
+<meta name="twitter:title" content="Python"/>
+<meta name="twitter:description" content="python"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://sacredartr.github.io/zh/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Python",
+      "item": "https://sacredartr.github.io/zh/posts/python/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Python",
+  "name": "Python",
+  "description": "python",
+  "keywords": [
+    "python"
+  ],
+  "articleBody": "Python pandas常用命令 字符串转日期 dt.datetime.strptime(x, '%Y-%m-%d').date() pd.to_datetime(x, format='%Y-%m-%d') 日期转字符串 dt.datetime.strftime(x, '%Y-%m-%d') 日期相加 date + dt.timedelta(days=-1) merge pd.merge(left,right,how='left',on='') apply df['x'].apply(lambda x: float(x)) groupyby返回第N行 df.groupby(\"columns\").nth(N) 写入excel writer = pd.ExcelWriter(\"demo.xlsx\") res.to_excel(writer, sheet_name=\"middle\", index=False, header=False) res_final.to_excel(writer, sheet_name=\"final\", index=False, header=False) 读取excel pd.read_excel('demo.xlsx', sheet_name='middle') explode 将每行指定columns中的list转为列 df.explode(\"dirty\", ignore_index=True) squeeze 将series压缩成一个值 row.squeeze(\"columns\") nlargest 前N个 df.nlargest(5, \"columns\") nsmallest 后N个 df.nsmallest(5, \"columns\") clip 异常值监测 df.clip(50, 60) ffill前向填充 df['nav'].ffill() bfill后向填充 df['nav'].bfill() stack 列旋转成行\nunstack 行旋转成列\n行转列特殊实战 df.set_index([df.groupby('fund_id').cumcount(), 'fund_id'])[column_name].unstack().T 只取数据下三角 df.mask(np.triu(np.ones(df.shape, dtype=np.bool_))) 数字转时间 time.strftime(\"%Y-%m-%d %H:%M:%S\", time.localtime(x)) time.strftime(\"%Y-%m-%d %H:%M:%S\", time.localtime(float(x/1000))) datetime.datetime.fromtimestamp(x).strftime('%Y-%m-%d %H:%M:%S') es查询使用 模糊匹配 from elasticsearch import Elasticsearch es_server = Elasticsearch([{'host': '122.152.218.142', 'port': 31696}]) search_body = { \"query\": { \"multi_match\":{ \"query\":\"name\", \"fields\": [\"fund_name\", \"fund_full_name\"] } }, } es_server.search(index='private_fund_info_list3', body=search_body) 精确匹配 from elasticsearch import Elasticsearch es_server = Elasticsearch([{'host': '122.152.218.142', 'port': 31696}]) search_body = { \"query\": { \"multi_match\":{ \"query\":\"name\", \"type\":\"phrase_prefix\", \"fields\": [\"fund_name\", \"fund_full_name\"] } }, } es_server.search(index='private_fund_info_list3', body=search_body) and与or查询 from elasticsearch import Elasticsearch es_server = Elasticsearch([{'host': '122.152.218.142', 'port': 31696}]) search_body = { \"query\": { \"bool\": { \"must\": [{ \"match_phrase\": { \"name\": \"a\" } }], \"should\": [{ \"match_phrase\": { \"city\": \"b\" } }, { \"match_phrase\": { \"city\": \"c\" } }], } }, } es_server.search(index='private_fund_info_list3', body=search_body) url = 'http://122.152.218.142:31696/private_fund_info_list3/_search' body = { \"query\": { \"multi_match\":{ \"query\":\"JR307094\", \"type\":\"phrase_prefix\", \"fields\": [\"fund_id\"] } } } es_bulk from elasticsearch import Elasticsearch from elasticsearch import helpers import pandas as pd from sqlalchemy import create_engine INDEX_NAME = \"test\" actions = [] CHUNKSIZE = 5000 INDEX_MAPPING = { \"properties\": { 'fund_id': {\"type\": \"keyword\"}, 'fund_name': {\"type\": \"text\"}, 'fund_full_name': {\"type\": \"text\"}, } } es = Elasticsearch( ['127.0.0.1'], port=9200 ) es.indices.create(index=INDEX_NAME, ignore=[400]) es.indices.put_mapping(index=INDEX_NAME, doc_type='manager', body=INDEX_MAPPING, ignore=[400]) print(\"Connect to mysql...\") _engine = create_engine(\"sm_data_calc03:N853OVcSIH06Zgm@10.105.13.85:9618\", 'test') df = pd.read_sql(\"\"\"select * from table\"\"\", _engine) for ix, row in df.iterrows(): d = row.dropna().to_dict() action = { '_index': INDEX_NAME, '_type': 'manager', '_source': d } actions.append(action) if ix % CHUNKSIZE == 0: helpers.bulk(es, actions) actions.clear() print('sm_info_es \u003e\u003e\u003e insert or update:{}, take_time:{:.2f}'.format(ix, time.time() - t2)) if len(actions): helpers.bulk(es, actions) pdfplumber 简单使用 import pdfplumber with pdfplumber.open(\"path/to/file.pdf\") as pdf: for page in pdf.pages: text = page.extract_text() print(text) extract_text 方法 将页面的所有字符对象整理到一个字符串中。 若其中一个字符的x1与下一个字符的x0之差大于x_tolerance，则添加空格。 若其中一个字符的doctop与下一个字符的doctop之差大于y_tolerance，则添加换行符。\nchars对象属性 height 字符高度 width 字符宽度 x0 字符左侧到页面左侧的距离 y0 字符底部到页面底部的距离 x1 字符右侧到页面左侧的距离 y1 字符顶部到页面底部的距离 doctop 字符顶部到文档顶部的距离 extract_words 方法 返回所有单词外观及其边界框的列表。 字词被认为是字符序列，其中一个字符的x1和下一个字符的x0之差小于或等于x_tolerance，并且一个字符的doctop和下一个字符的doctop小于或等于y_tolerance。\nextract_tables 方法 使用页面的垂直和水平线（或矩形边缘）作为单元格分隔符。 返回从页面上找到的所有表中提取的文本，并以结构table -\u003e row -\u003e cell的形式表示为列表列表的列表。\nrect 属性 x0 矩形的最左侧到页面左侧的距离 y0 矩形的底部到页面底部的距离 x1 矩形的最右侧到页面左侧的距离 y1 矩形的顶部到页面底部的距离 line 属性 x0 线的最左侧到页面左侧的距离 y0 线的底部到页面底部的距离 x1 线的最右侧到页面左侧的距离 y1 线的顶部到页面底部的距离 edges 属性 rect和line的结合\n",
+  "wordCount" : "375",
+  "inLanguage": "zh",
+  "datePublished": "2022-08-16T00:00:00Z",
+  "dateModified": "2022-08-16T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "sacredartr"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sacredartr.github.io/zh/posts/python/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "sacred's blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sacredartr.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://sacredartr.github.io/zh/" accesskey="h" title="sacred&#39;s blog (Alt + H)">sacred&#39;s blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://sacredartr.github.io/" title="English"
+                            aria-label="English">English</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://sacredartr.github.io/zh/archives" title="Archive">
+                    <span>Archive</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sacredartr.github.io/zh/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://sacredartr.github.io/zh/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://sacredartr.github.io/zh/">主页</a>&nbsp;»&nbsp;<a href="https://sacredartr.github.io/zh/posts/">Posts</a></div>
+    <h1 class="post-title">
+      Python
+    </h1>
+    <div class="post-description">
+      python
+    </div>
+    <div class="post-meta"><span title='2022-08-16 00:00:00 +0000 UTC'>八月 16, 2022</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;sacredartr
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#python" aria-label="Python">Python</a><ul>
+                        
+                <li>
+                    <a href="#pandas%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" aria-label="pandas常用命令">pandas常用命令</a></li>
+                <li>
+                    <a href="#es%e6%9f%a5%e8%af%a2%e4%bd%bf%e7%94%a8" aria-label="es查询使用">es查询使用</a></li>
+                <li>
+                    <a href="#pdfplumber" aria-label="pdfplumber">pdfplumber</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="python">Python<a hidden class="anchor" aria-hidden="true" href="#python">#</a></h1>
+<h2 id="pandas常用命令">pandas常用命令<a hidden class="anchor" aria-hidden="true" href="#pandas常用命令">#</a></h2>
+<ul>
+<li>字符串转日期</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">dt.datetime.strptime(x, &#39;%Y-%m-%d&#39;).date()
+</span></span></span><span class="line"><span class="cl"><span class="go">pd.to_datetime(x, format=&#39;%Y-%m-%d&#39;)
+</span></span></span></code></pre></div><ul>
+<li>日期转字符串</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">dt.datetime.strftime(x, &#39;%Y-%m-%d&#39;)
+</span></span></span></code></pre></div><ul>
+<li>日期相加</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">date + dt.timedelta(days=-1)
+</span></span></span></code></pre></div><ul>
+<li>merge</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">pd.merge(left,right,how=&#39;left&#39;,on=&#39;&#39;)
+</span></span></span></code></pre></div><ul>
+<li>apply</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">df[&#39;x&#39;].apply(lambda x: float(x))
+</span></span></span></code></pre></div><ul>
+<li>groupyby返回第N行</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">df.groupby(&#34;columns&#34;).nth(N)
+</span></span></span></code></pre></div><ul>
+<li>写入excel</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">writer = pd.ExcelWriter(&#34;demo.xlsx&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="go">res.to_excel(writer, sheet_name=&#34;middle&#34;, index=False, header=False)
+</span></span></span><span class="line"><span class="cl"><span class="go">res_final.to_excel(writer, sheet_name=&#34;final&#34;, index=False, header=False)
+</span></span></span></code></pre></div><ul>
+<li>读取excel</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">pd.read_excel(&#39;demo.xlsx&#39;, sheet_name=&#39;middle&#39;)
+</span></span></span></code></pre></div><ul>
+<li>explode 将每行指定columns中的list转为列</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">df.explode(&#34;dirty&#34;, ignore_index=True)
+</span></span></span></code></pre></div><ul>
+<li>squeeze 将series压缩成一个值</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">row.squeeze(&#34;columns&#34;)
+</span></span></span></code></pre></div><ul>
+<li>nlargest 前N个</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">df.nlargest(5, &#34;columns&#34;)
+</span></span></span></code></pre></div><ul>
+<li>nsmallest 后N个</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">df.nsmallest(5, &#34;columns&#34;)
+</span></span></span></code></pre></div><ul>
+<li>clip 异常值监测</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">df.clip(50, 60)
+</span></span></span></code></pre></div><ul>
+<li>ffill前向填充</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">df[&#39;nav&#39;].ffill()
+</span></span></span></code></pre></div><ul>
+<li>bfill后向填充</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">df[&#39;nav&#39;].bfill()
+</span></span></span></code></pre></div><ul>
+<li>stack</li>
+</ul>
+<blockquote>
+<p>列旋转成行</p>
+</blockquote>
+<ul>
+<li>unstack</li>
+</ul>
+<blockquote>
+<p>行旋转成列</p>
+</blockquote>
+<ul>
+<li>行转列特殊实战</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">df.set_index([df.groupby(&#39;fund_id&#39;).cumcount(), &#39;fund_id&#39;])[column_name].unstack().T
+</span></span></span></code></pre></div><ul>
+<li>只取数据下三角</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">df.mask(np.triu(np.ones(df.shape, dtype=np.bool_)))
+</span></span></span></code></pre></div><ul>
+<li>数字转时间</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">time.strftime(&#34;%Y-%m-%d %H:%M:%S&#34;, time.localtime(x))
+</span></span></span><span class="line"><span class="cl"><span class="go">time.strftime(&#34;%Y-%m-%d %H:%M:%S&#34;, time.localtime(float(x/1000)))
+</span></span></span><span class="line"><span class="cl"><span class="go">datetime.datetime.fromtimestamp(x).strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)
+</span></span></span></code></pre></div><h2 id="es查询使用">es查询使用<a hidden class="anchor" aria-hidden="true" href="#es查询使用">#</a></h2>
+<ul>
+<li>模糊匹配</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+</span></span><span class="line"><span class="cl"><span class="n">es_server</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">([{</span><span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;122.152.218.142&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">31696</span><span class="p">}])</span>
+</span></span><span class="line"><span class="cl"><span class="n">search_body</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;multi_match&#34;</span><span class="p">:{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;query&#34;</span><span class="p">:</span><span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;fields&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;fund_name&#34;</span><span class="p">,</span> <span class="s2">&#34;fund_full_name&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">es_server</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;private_fund_info_list3&#39;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">search_body</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>精确匹配</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+</span></span><span class="line"><span class="cl"><span class="n">es_server</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">([{</span><span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;122.152.218.142&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">31696</span><span class="p">}])</span>
+</span></span><span class="line"><span class="cl"><span class="n">search_body</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;multi_match&#34;</span><span class="p">:{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;query&#34;</span><span class="p">:</span><span class="s2">&#34;name&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;type&#34;</span><span class="p">:</span><span class="s2">&#34;phrase_prefix&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;fields&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;fund_name&#34;</span><span class="p">,</span> <span class="s2">&#34;fund_full_name&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">es_server</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;private_fund_info_list3&#39;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">search_body</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>and与or查询</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+</span></span><span class="line"><span class="cl"><span class="n">es_server</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">([{</span><span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;122.152.218.142&#39;</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">31696</span><span class="p">}])</span>
+</span></span><span class="line"><span class="cl"><span class="n">search_body</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="s2">&#34;bool&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="s2">&#34;must&#34;</span><span class="p">:</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl">				<span class="s2">&#34;match_phrase&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;a&#34;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}],</span>
+</span></span><span class="line"><span class="cl">			<span class="s2">&#34;should&#34;</span><span class="p">:</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl">				<span class="s2">&#34;match_phrase&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="s2">&#34;city&#34;</span><span class="p">:</span> <span class="s2">&#34;b&#34;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">},</span>
+</span></span><span class="line"><span class="cl">			<span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="s2">&#34;match_phrase&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">					<span class="s2">&#34;city&#34;</span><span class="p">:</span> <span class="s2">&#34;c&#34;</span>
+</span></span><span class="line"><span class="cl">				<span class="p">}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}],</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="n">es_server</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;private_fund_info_list3&#39;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">search_body</span><span class="p">)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://122.152.218.142:31696/private_fund_info_list3/_search&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">body</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;query&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;multi_match&#34;</span><span class="p">:{</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;query&#34;</span><span class="p">:</span><span class="s2">&#34;JR307094&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;type&#34;</span><span class="p">:</span><span class="s2">&#34;phrase_prefix&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="s2">&#34;fields&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;fund_id&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>es_bulk</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">helpers</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+</span></span><span class="line"><span class="cl"><span class="n">INDEX_NAME</span> <span class="o">=</span> <span class="s2">&#34;test&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">actions</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="n">CHUNKSIZE</span> <span class="o">=</span> <span class="mi">5000</span>
+</span></span><span class="line"><span class="cl"><span class="n">INDEX_MAPPING</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;properties&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;fund_id&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;keyword&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;fund_name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;text&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;fund_full_name&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;text&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">es</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="n">port</span><span class="o">=</span><span class="mi">9200</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">es</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">INDEX_NAME</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="p">[</span><span class="mi">400</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">es</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">put_mapping</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">INDEX_NAME</span><span class="p">,</span> <span class="n">doc_type</span><span class="o">=</span><span class="s1">&#39;manager&#39;</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">INDEX_MAPPING</span><span class="p">,</span> <span class="n">ignore</span><span class="o">=</span><span class="p">[</span><span class="mi">400</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Connect to mysql...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">_engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s2">&#34;sm_data_calc03:N853OVcSIH06Zgm@10.105.13.85:9618&#34;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;select * from table&#34;&#34;&#34;</span><span class="p">,</span> <span class="n">_engine</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">ix</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">action</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;_index&#39;</span><span class="p">:</span> <span class="n">INDEX_NAME</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;_type&#39;</span><span class="p">:</span> <span class="s1">&#39;manager&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;_source&#39;</span><span class="p">:</span> <span class="n">d</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">ix</span> <span class="o">%</span> <span class="n">CHUNKSIZE</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">helpers</span><span class="o">.</span><span class="n">bulk</span><span class="p">(</span><span class="n">es</span><span class="p">,</span> <span class="n">actions</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">actions</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sm_info_es &gt;&gt;&gt; insert or update:</span><span class="si">{}</span><span class="s1">, take_time:</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">actions</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">helpers</span><span class="o">.</span><span class="n">bulk</span><span class="p">(</span><span class="n">es</span><span class="p">,</span> <span class="n">actions</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="pdfplumber">pdfplumber<a hidden class="anchor" aria-hidden="true" href="#pdfplumber">#</a></h2>
+<ul>
+<li>简单使用</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pdfplumber</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">pdfplumber</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&#34;path/to/file.pdf&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pdf</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">pdf</span><span class="o">.</span><span class="n">pages</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">text</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">extract_text</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>extract_text 方法</li>
+</ul>
+<blockquote>
+<p>将页面的所有字符对象整理到一个字符串中。</br>
+若其中一个字符的x1与下一个字符的x0之差大于x_tolerance，则添加空格。</br>
+若其中一个字符的doctop与下一个字符的doctop之差大于y_tolerance，则添加换行符。</br></p>
+</blockquote>
+<ul>
+<li>chars对象属性</li>
+</ul>
+<blockquote>
+<ul>
+<li>height 字符高度</li>
+<li>width 字符宽度</li>
+<li>x0 字符左侧到页面左侧的距离</li>
+<li>y0 字符底部到页面底部的距离</li>
+<li>x1 字符右侧到页面左侧的距离</li>
+<li>y1 字符顶部到页面底部的距离</li>
+<li>doctop 字符顶部到文档顶部的距离</li>
+</ul>
+</blockquote>
+<ul>
+<li>extract_words 方法</li>
+</ul>
+<blockquote>
+<p>返回所有单词外观及其边界框的列表。</br>
+字词被认为是字符序列，其中一个字符的x1和下一个字符的x0之差小于或等于x_tolerance，并且一个字符的doctop和下一个字符的doctop小于或等于y_tolerance。</br></p>
+</blockquote>
+<ul>
+<li>extract_tables 方法</li>
+</ul>
+<blockquote>
+<p>使用页面的垂直和水平线（或矩形边缘）作为单元格分隔符。</br>
+返回从页面上找到的所有表中提取的文本，并以结构table -&gt; row -&gt; cell的形式表示为列表列表的列表。</p>
+</blockquote>
+<ul>
+<li>rect 属性</li>
+</ul>
+<blockquote>
+<ul>
+<li>x0 矩形的最左侧到页面左侧的距离</li>
+<li>y0 矩形的底部到页面底部的距离</li>
+<li>x1 矩形的最右侧到页面左侧的距离</li>
+<li>y1 矩形的顶部到页面底部的距离</li>
+</ul>
+</blockquote>
+<ul>
+<li>line 属性</li>
+</ul>
+<blockquote>
+<ul>
+<li>x0 线的最左侧到页面左侧的距离</li>
+<li>y0 线的底部到页面底部的距离</li>
+<li>x1 线的最右侧到页面左侧的距离</li>
+<li>y1 线的顶部到页面底部的距离</li>
+</ul>
+</blockquote>
+<ul>
+<li>edges 属性</li>
+</ul>
+<blockquote>
+<p>rect和line的结合</p>
+</blockquote>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://sacredartr.github.io/zh/tags/python/">python</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://sacredartr.github.io/zh/posts/mysql/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Mysql</span>
+  </a>
+</nav>
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Python on twitter"
+        href="https://twitter.com/intent/tweet/?text=Python&amp;url=https%3a%2f%2fsacredartr.github.io%2fzh%2fposts%2fpython%2f&amp;hashtags=python">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Python on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsacredartr.github.io%2fzh%2fposts%2fpython%2f&amp;title=Python&amp;summary=Python&amp;source=https%3a%2f%2fsacredartr.github.io%2fzh%2fposts%2fpython%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Python on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fsacredartr.github.io%2fzh%2fposts%2fpython%2f&title=Python">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Python on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsacredartr.github.io%2fzh%2fposts%2fpython%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Python on whatsapp"
+        href="https://api.whatsapp.com/send?text=Python%20-%20https%3a%2f%2fsacredartr.github.io%2fzh%2fposts%2fpython%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Python on telegram"
+        href="https://telegram.me/share/url?text=Python&amp;url=https%3a%2f%2fsacredartr.github.io%2fzh%2fposts%2fpython%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://sacredartr.github.io/zh/">sacred&#39;s blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '复制';
+
+        function copyingDone() {
+            copybutton.innerHTML = '已复制！';
+            setTimeout(() => {
+                copybutton.innerHTML = '复制';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

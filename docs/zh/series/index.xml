@@ -64,5 +64,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Mysql</title>
+      <link>https://sacredartr.github.io/zh/series/mysql/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/series/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://sacredartr.github.io/zh/series/python/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/series/python/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
