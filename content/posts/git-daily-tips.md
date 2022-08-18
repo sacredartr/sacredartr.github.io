@@ -21,4 +21,5 @@ git commit --amend
 ## git case sensitive
 ```console
 git config core.ignorecase false
+git mv -f old new
 ```

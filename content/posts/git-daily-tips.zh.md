@@ -21,5 +21,6 @@ git commit --amend
 ## git 区分大小写
 ```console
 git config core.ignorecase false
+git mv -f old new
 ```
 
