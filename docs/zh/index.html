@@ -192,6 +192,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Nlp
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>词频统计 # encoding: utf-8 import jieba import pandas as pd import datetime as dt class wordCount(): def __init__(self): self.pre_data() def pre_data(self): jieba.load_userdict(&#39;./dict.txt&#39;) stopwords = pd.read_table(&#39;./stop.txt&#39;) self.stop_list = stopwords[&#34;stop_word&#34;].tolist() self.stop_list.append(&#34;\n&#34;) def run(self, year, month): start = dt.date(year, month, 1) if month == 6: end = dt.date(year, month, 30) else: end = dt.date(year, month, 31) sql = &#34;&#34;&#34;select fund_id, report_date, outlook as sentence from manager_viewpoint where report_date between &#39;{}&#39; and &#39;{}&#39;&#34;&#34;&#34;.format(dt.datetime.strftime(start, &#39;%Y-%m-%d&#39;), dt....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-08-18 00:00:00 +0000 UTC'>八月 18, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to Nlp" href="https://sacredartr.github.io/zh/posts/nlp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Tools Daily Tips
     </h2>
   </header>
@@ -208,7 +220,7 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Docker Daily Tips 清空所有容器 docker stop $(docker ps -q) &amp;&amp; docker rm $(docker ps -aq) docker 拉镜像:error response from daemon yum install bind-utils dig @114.114.114.114 registry-1.docker.io echo &#34;54.175.43.85 registry-1.docker.io&#39;&#34; &gt;&gt; /etc/hosts </p>
+    <p>Docker Daily Tips 清空所有容器 docker stop $(docker ps -q) &amp;&amp; docker rm $(docker ps -aq) docker 拉镜像:error response from daemon yum install bind-utils dig @114.114.114.114 registry-1.docker.io echo &#34;54.175.43.85 registry-1.docker.io&#34; &gt;&gt; /etc/hosts </p>
   </div>
   <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>八月 16, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Docker Daily Tips" href="https://sacredartr.github.io/zh/posts/docker-daily-tips/"></a>
@@ -225,18 +237,11 @@
   <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>八月 16, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Git Daily Tips" href="https://sacredartr.github.io/zh/posts/git-daily-tips/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Linux Daily Tips
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Linux Daily Tips 文件清空 cat /dev/null &gt; file ## xargs ```console ls ./* | xargs -i cp {} /tmp/ sed sed -i &#39;s/password: .*/password: 123456/g&#39; file awk cat file | awk &#39;$1 ~ /th/ {print $1}&#39; 执行命令忽略报错信息 unalias cp 2&gt;/dev/null || true 文件追加内容 echo &#39;content&#39; &gt;&gt; file </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>八月 16, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;sacredartr</footer>
-  <a class="entry-link" aria-label="post link to Linux Daily Tips" href="https://sacredartr.github.io/zh/posts/linux-daily-tips/"></a>
-</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://sacredartr.github.io/zh/page/2/">下一页 »</a>
+  </nav>
+</footer>
     </main>
     
 <footer class="footer">

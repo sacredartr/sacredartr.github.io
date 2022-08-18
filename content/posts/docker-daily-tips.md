@@ -22,5 +22,5 @@ docker stop $(docker ps -q) && docker rm $(docker ps -aq)
 ```
 yum install bind-utils
 dig @114.114.114.114 registry-1.docker.io
-echo "54.175.43.85    registry-1.docker.io'" >> /etc/hosts
+echo "54.175.43.85    registry-1.docker.io" >> /etc/hosts
 ```
