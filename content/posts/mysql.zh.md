@@ -129,7 +129,7 @@ class DataSyncDts():
 
     def download(self):
         try:
-            cred = credential.Credential("AKID72h6NTQxXopY0GbTHsA6pCPTLwNU3zSh", "Woslzxe5HglX9UYLtEyNPFreBRS3KO7Y")
+            cred = credential.Credential("******", "******")
             httpProfile = HttpProfile()
             httpProfile.endpoint = "cdb.tencentcloudapi.com"
 

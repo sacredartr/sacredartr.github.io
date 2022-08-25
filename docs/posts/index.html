@@ -166,14 +166,14 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2>Nlp
+    <h2>NLP
     </h2>
   </header>
   <div class="entry-content">
     <p>Word frequency # encoding: utf-8 import jieba import pandas as pd import datetime as dt class wordCount(): def __init__(self): self.pre_data() def pre_data(self): jieba.load_userdict(&#39;./dict.txt&#39;) stopwords = pd.read_table(&#39;./stop.txt&#39;) self.stop_list = stopwords[&#34;stop_word&#34;].tolist() self.stop_list.append(&#34;\n&#34;) def run(self, year, month): start = dt.date(year, month, 1) if month == 6: end = dt.date(year, month, 30) else: end = dt.date(year, month, 31) sql = &#34;&#34;&#34;select fund_id, report_date, outlook as sentence from manager_viewpoint where report_date between &#39;{}&#39; and &#39;{}&#39;&#34;&#34;&#34;.format(dt.datetime.strftime(start, &#39;%Y-%m-%d&#39;), dt....</p>
   </div>
   <footer class="entry-footer"><span title='2022-08-18 00:00:00 +0000 UTC'>August 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
-  <a class="entry-link" aria-label="post link to Nlp" href="https://sacredartr.github.io/posts/nlp/"></a>
+  <a class="entry-link" aria-label="post link to NLP" href="https://sacredartr.github.io/posts/nlp/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -194,7 +194,7 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Docker Daily Tips clear all containers docker stop $(docker ps -q) &amp;&amp; docker rm $(docker ps -aq) docker pull:error response from daemon yum install bind-utils dig @114.114.114.114 registry-1.docker.io echo &#34;54.175.43.85 registry-1.docker.io&#34; &gt;&gt; /etc/hosts </p>
+    <p>Docker Daily Tips clear all containers docker stop $(docker ps -q) &amp;&amp; docker rm $(docker ps -aq) docker pull:error response from daemon yum install bind-utils dig @114.114.114.114 registry-1.docker.io echo &#34;54.175.43.85 registry-1.docker.io&#34; &gt;&gt; /etc/hosts clear specified containers docker stop $(docker ps -a|grep hours|awk &#39;{print $1}&#39;) &amp;&amp; docker rm $(docker ps -a|grep hours|awk &#39;{print $1}&#39;) </p>
   </div>
   <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>August 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Docker Daily Tips" href="https://sacredartr.github.io/posts/docker-daily-tips/"></a>

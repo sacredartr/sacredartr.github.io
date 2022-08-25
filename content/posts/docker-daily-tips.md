@@ -24,3 +24,8 @@ yum install bind-utils
 dig @114.114.114.114 registry-1.docker.io
 echo "54.175.43.85    registry-1.docker.io" >> /etc/hosts
 ```
+
+## clear specified containers
+```console
+docker stop $(docker ps -a|grep hours|awk '{print $1}') && docker rm $(docker ps -a|grep hours|awk '{print $1}')
+```

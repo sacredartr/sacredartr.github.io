@@ -121,7 +121,7 @@ datetime.datetime.fromtimestamp(x).strftime('%Y-%m-%d %H:%M:%S')
 * 模糊匹配
 ```python
 from elasticsearch import Elasticsearch
-es_server = Elasticsearch([{'host': '122.152.218.142', 'port': 31696}])
+es_server = Elasticsearch([{'host': '172.0.0.1', 'port': 31696}])
 search_body = {
             "query": {
                 "multi_match":{
@@ -136,7 +136,7 @@ es_server.search(index='private_fund_info_list3', body=search_body)
 * 精确匹配
 ```python
 from elasticsearch import Elasticsearch
-es_server = Elasticsearch([{'host': '122.152.218.142', 'port': 31696}])
+es_server = Elasticsearch([{'host': '172.0.0.1', 'port': 31696}])
 search_body = {
             "query": {
                 "multi_match":{
@@ -152,7 +152,7 @@ es_server.search(index='private_fund_info_list3', body=search_body)
 * and与or查询
 ```python
 from elasticsearch import Elasticsearch
-es_server = Elasticsearch([{'host': '122.152.218.142', 'port': 31696}])
+es_server = Elasticsearch([{'host': '172.0.0.1', 'port': 31696}])
 search_body = {
 	"query": {
 		"bool": {
@@ -178,7 +178,7 @@ es_server.search(index='private_fund_info_list3', body=search_body)
 ```
 
 ```python
-url = 'http://122.152.218.142:31696/private_fund_info_list3/_search'
+url = 'http://172.0.0.1:31696/private_fund_info_list3/_search'
 body = {
     "query": {
                 "multi_match":{
@@ -218,7 +218,7 @@ es.indices.put_mapping(index=INDEX_NAME, doc_type='manager', body=INDEX_MAPPING,
 
 
 print("Connect to mysql...")
-_engine = create_engine("sm_data_calc03:N853OVcSIH06Zgm@10.105.13.85:9618", 'test')
+_engine = create_engine("sm_data_calc03:N853OVcSIH06Zgm@172.0.0.1:9618", 'test')
 df = pd.read_sql("""select * from table""", _engine)
 for ix, row in df.iterrows():
     d = row.dropna().to_dict()

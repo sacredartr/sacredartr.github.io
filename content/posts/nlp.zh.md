@@ -1,11 +1,11 @@
 ---
-title: "Nlp"
+title: "NLP"
 date: 2022-08-18
 author: "sacredartr"
 description: "nlp"
 tags: ["nlp"]
 categories: ["nlp"]
-series: ["Nlp"]
+series: ["NLP"]
 aliases: ["nlp"]
 ShowToc: true
 TocOpen: true

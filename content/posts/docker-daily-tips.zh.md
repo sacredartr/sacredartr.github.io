@@ -25,3 +25,8 @@ dig @114.114.114.114 registry-1.docker.io
 echo "54.175.43.85    registry-1.docker.io" >> /etc/hosts
 ```
 
+## 清空指定容器
+```console
+docker stop $(docker ps -a|grep hours|awk '{print $1}') && docker rm $(docker ps -a|grep hours|awk '{print $1}')
+```
+
