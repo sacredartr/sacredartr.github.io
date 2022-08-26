@@ -16,6 +16,7 @@ TocOpen: true
 ## 文件清空
 ```console
 cat /dev/null > file
+```
 
 ## xargs 
 ```console

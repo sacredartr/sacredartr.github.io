@@ -101,8 +101,8 @@
   "keywords": [
     "linux"
   ],
-  "articleBody": "Linux Daily Tips 文件清空 cat /dev/null \u003e file ## xargs ```console ls ./* | xargs -i cp {} /tmp/ sed sed -i 's/password: .*/password: 123456/g' file awk cat file | awk '$1 ~ /th/ {print $1}' 执行命令忽略报错信息 unalias cp 2\u003e/dev/null || true 文件追加内容 echo 'content' \u003e\u003e file ",
-  "wordCount" : "47",
+  "articleBody": "Linux Daily Tips 文件清空 cat /dev/null \u003e file xargs ls ./* | xargs -i cp {} /tmp/ sed sed -i 's/password: .*/password: 123456/g' file awk cat file | awk '$1 ~ /th/ {print $1}' 执行命令忽略报错信息 unalias cp 2\u003e/dev/null || true 文件追加内容 echo 'content' \u003e\u003e file ",
+  "wordCount" : "45",
   "inLanguage": "zh",
   "datePublished": "2022-08-16T00:00:00Z",
   "dateModified": "2022-08-16T00:00:00Z",
@@ -222,6 +222,8 @@
                 <li>
                     <a href="#%e6%96%87%e4%bb%b6%e6%b8%85%e7%a9%ba" aria-label="文件清空">文件清空</a></li>
                 <li>
+                    <a href="#xargs" aria-label="xargs">xargs</a></li>
+                <li>
                     <a href="#sed" aria-label="sed">sed</a></li>
                 <li>
                     <a href="#awk" aria-label="awk">awk</a></li>
@@ -240,10 +242,8 @@
   <div class="post-content"><h1 id="linux-daily-tips">Linux Daily Tips<a hidden class="anchor" aria-hidden="true" href="#linux-daily-tips">#</a></h1>
 <h2 id="文件清空">文件清空<a hidden class="anchor" aria-hidden="true" href="#文件清空">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">cat /dev/null &gt; file
-</span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="gp">#</span><span class="c1"># xargs </span>
-</span></span><span class="line"><span class="cl"><span class="go">```console
-</span></span></span><span class="line"><span class="cl"><span class="go">ls ./* | xargs -i cp {} /tmp/
+</span></span></span></code></pre></div><h2 id="xargs">xargs<a hidden class="anchor" aria-hidden="true" href="#xargs">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">ls ./* | xargs -i cp {} /tmp/
 </span></span></span></code></pre></div><h2 id="sed">sed<a hidden class="anchor" aria-hidden="true" href="#sed">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">sed -i &#39;s/password: .*/password: 123456/g&#39; file
 </span></span></span></code></pre></div><h2 id="awk">awk<a hidden class="anchor" aria-hidden="true" href="#awk">#</a></h2>
