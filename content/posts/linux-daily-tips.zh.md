@@ -42,3 +42,8 @@ unalias cp 2>/dev/null || true
 ```console
 echo 'content' >> file
 ```
+
+## 登陆获取token
+```console
+token=$(curl -X POST "http://$external_ip/api/v1/login" --header 'Content-Type: application/json' --data '{"username": "root","password": "******"}' | awk -F"[,:}]" '{for(i=1;i<=NF;i++){print $(i+1)}}' | tr -d '"' | sed -n 1p)
+```
