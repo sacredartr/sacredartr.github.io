@@ -101,8 +101,8 @@
   "keywords": [
     "docker"
   ],
-  "articleBody": "Docker Daily Tips clear all containers docker stop $(docker ps -q) \u0026\u0026 docker rm $(docker ps -aq) docker pull:error response from daemon yum install bind-utils dig @114.114.114.114 registry-1.docker.io echo \"54.175.43.85 registry-1.docker.io\" \u003e\u003e /etc/hosts clear specified containers docker stop $(docker ps -a|grep hours|awk '{print $1}') \u0026\u0026 docker rm $(docker ps -a|grep hours|awk '{print $1}') ",
-  "wordCount" : "53",
+  "articleBody": "Docker Daily Tips clear all containers docker stop $(docker ps -q) \u0026\u0026 docker rm $(docker ps -aq) docker pull:error response from daemon yum install bind-utils dig @114.114.114.114 registry-1.docker.io echo \"54.175.43.85 registry-1.docker.io\" \u003e\u003e /etc/hosts clear specified containers docker stop $(docker ps -a|grep hours|awk '{print $1}') \u0026\u0026 docker rm $(docker ps -a|grep hours|awk '{print $1}') create docker https registry mkdir -p /opt/docker/registry/certs openssl req -newkey rsa:4096 -nodes -sha256 -keyout /opt/docker/registry/certs/domain.key -x509 -days 365 -out /opt/docker/registry/certs/domain.crt docker run -d --name registry2 -p 5000:5000 -v /opt/docker/registry/certs:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key registry:2 use docker https registry scp /opt/docker/registry/certs/domain.crt /etc/docker/certs.d/registry.docker.com:5000/ca.crt docker pull busybox:latest docker tag busybox registry.docker.com:5000/busybox:latest docker push registry.docker.com:5000/busybox:latest curl -X GET https://registry.docker.com:5000/v2/_catalog -k ",
+  "wordCount" : "109",
   "inLanguage": "en",
   "datePublished": "2022-08-16T00:00:00Z",
   "dateModified": "2022-08-16T00:00:00Z",
@@ -224,7 +224,11 @@
                 <li>
                     <a href="#docker-pullerror-response-from-daemon" aria-label="docker pull:error response from daemon">docker pull:error response from daemon</a></li>
                 <li>
-                    <a href="#clear-specified-containers" aria-label="clear specified containers">clear specified containers</a>
+                    <a href="#clear-specified-containers" aria-label="clear specified containers">clear specified containers</a></li>
+                <li>
+                    <a href="#create-docker-https-registry" aria-label="create docker https registry">create docker https registry</a></li>
+                <li>
+                    <a href="#use-docker-https-registry" aria-label="use docker https registry">use docker https registry</a>
                 </li>
             </ul>
             </li>
@@ -242,6 +246,16 @@ dig @114.114.114.114 registry-1.docker.io
 echo &#34;54.175.43.85    registry-1.docker.io&#34; &gt;&gt; /etc/hosts
 </code></pre><h2 id="clear-specified-containers">clear specified containers<a hidden class="anchor" aria-hidden="true" href="#clear-specified-containers">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">docker stop $(docker ps -a|grep hours|awk &#39;{print $1}&#39;) &amp;&amp; docker rm $(docker ps -a|grep hours|awk &#39;{print $1}&#39;)
+</span></span></span></code></pre></div><h2 id="create-docker-https-registry">create docker https registry<a hidden class="anchor" aria-hidden="true" href="#create-docker-https-registry">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">mkdir -p /opt/docker/registry/certs
+</span></span></span><span class="line"><span class="cl"><span class="go">openssl req -newkey rsa:4096 -nodes -sha256 -keyout /opt/docker/registry/certs/domain.key -x509 -days 365 -out /opt/docker/registry/certs/domain.crt
+</span></span></span><span class="line"><span class="cl"><span class="go">docker run -d --name registry2 -p 5000:5000 -v /opt/docker/registry/certs:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key registry:2
+</span></span></span></code></pre></div><h2 id="use-docker-https-registry">use docker https registry<a hidden class="anchor" aria-hidden="true" href="#use-docker-https-registry">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">scp /opt/docker/registry/certs/domain.crt /etc/docker/certs.d/registry.docker.com:5000/ca.crt
+</span></span></span><span class="line"><span class="cl"><span class="go">docker pull busybox:latest
+</span></span></span><span class="line"><span class="cl"><span class="go">docker tag busybox registry.docker.com:5000/busybox:latest
+</span></span></span><span class="line"><span class="cl"><span class="go">docker push registry.docker.com:5000/busybox:latest
+</span></span></span><span class="line"><span class="cl"><span class="go">curl -X GET https://registry.docker.com:5000/v2/_catalog -k
 </span></span></span></code></pre></div>
 
   </div>
