@@ -45,3 +45,24 @@ docker tag busybox registry.docker.com:5000/busybox:latest
 docker push registry.docker.com:5000/busybox:latest
 curl -X GET https://registry.docker.com:5000/v2/_catalog -k
 ```
+
+## 创建随机镜像
+```Dockerfile
+FROM busybox:latest
+COPY test-data /test-data
+```
+```console
+yum -y install buildah
+```
+```shell
+#!/bin bash
+tag=$1
+for ((i=1;i<=100;i++));
+do 
+echo busybox:v$tag-$i
+dd if=/dev/random of=test-data bs=2M count=1 
+buildah bud --tag busybox:v$tag-$i
+rm -rf test-data
+buildah push localhost/busybox:v$tag-$i docker-daemon:busybox:v$tag-$i
+done
+```
