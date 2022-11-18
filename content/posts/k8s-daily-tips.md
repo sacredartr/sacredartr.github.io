@@ -3,9 +3,9 @@ title: "K8S Daily Tips"
 date: 2022-11-18
 author: "sacredartr"
 description: "K8S tips for daily use"
-tags: ["k8s"]
+tags: ["linux"]
 categories: ["k8s", "tips"]
-series: ["k8s Tips"]
+series: ["K8S Tips"]
 aliases: ["k8s-daily-tips"]
 ShowToc: true
 TocOpen: true
