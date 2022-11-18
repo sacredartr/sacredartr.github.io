@@ -9,13 +9,13 @@
       <link>https://sacredartr.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 18 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>linux</title>
-      <link>https://sacredartr.github.io/tags/linux/</link>
-      <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
+      <title>kubernetes</title>
+      <link>https://sacredartr.github.io/tags/kubernetes/</link>
+      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sacredartr.github.io/tags/linux/</guid>
+      <guid>https://sacredartr.github.io/tags/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -52,6 +52,15 @@
       <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://sacredartr.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://sacredartr.github.io/tags/linux/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/tags/linux/</guid>
       <description></description>
     </item>
     

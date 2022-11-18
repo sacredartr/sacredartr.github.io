@@ -9,16 +9,7 @@
       <link>https://sacredartr.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 18 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/zh/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>K8S Daily Tips</title>
-      <link>https://sacredartr.github.io/zh/posts/k8s-daily-tips/</link>
-      <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://sacredartr.github.io/zh/posts/k8s-daily-tips/</guid>
-      <description>K8S tips for daily use</description>
-    </item>
-    
+    <lastBuildDate>Tue, 16 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/zh/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Daily Tips</title>
       <link>https://sacredartr.github.io/zh/posts/linux-daily-tips/</link>

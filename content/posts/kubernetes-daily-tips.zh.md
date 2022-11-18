@@ -1,19 +1,19 @@
 ---
-title: "K8S Daily Tips"
-date: 2022-11-18
+title: "Kubernetes Daily Tips"
+date: 2022-08-18
 author: "sacredartr"
-description: "K8S tips for daily use"
-tags: ["linux"]
-categories: ["k8s", "tips"]
-series: ["K8S Tips"]
-aliases: ["k8s-daily-tips"]
+description: "Kubernetes tips for daily use"
+tags: ["kubernetes"]
+categories: ["kubernetes", "tips"]
+series: ["Kubernetes Tips"]
+aliases: ["kubernetes-daily-tips"]
 ShowToc: true
 TocOpen: true
 ---
 
-# K8S Daily Tips
+# Kubernetes Daily Tips
 
-## docker add proxy
+## docker 添加代理
 ```shell
 cat>>/etc/profile<<EOF
 export http_proxy=http://$IP:7890
@@ -38,7 +38,7 @@ systemctl daemon-reload
 systemctl restart docker
 ```
 
-## containerd add proxy
+## containerd 添加代理
 ```shell
 cat>>/etc/profile<<EOF
 export http_proxy=http://$IP:7890
@@ -58,7 +58,7 @@ systemctl daemon-reload
 systemctl restart containerd
 ```
 
-## K8S logs container in pod
+## K8S 查看 pod 中 container 的 log
 ```console
 kubectl get pods xxx -o jsonpath={.spec.containers[*].name} -n kube-system
 kubectl logs xxx -c xxxx -n kube-system

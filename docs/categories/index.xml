@@ -9,22 +9,13 @@
       <link>https://sacredartr.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 18 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>k8s</title>
-      <link>https://sacredartr.github.io/categories/k8s/</link>
-      <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
+      <title>kubernetes</title>
+      <link>https://sacredartr.github.io/categories/kubernetes/</link>
+      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://sacredartr.github.io/categories/k8s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tips</title>
-      <link>https://sacredartr.github.io/categories/tips/</link>
-      <pubDate>Fri, 18 Nov 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://sacredartr.github.io/categories/tips/</guid>
+      <guid>https://sacredartr.github.io/categories/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -34,6 +25,15 @@
       <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://sacredartr.github.io/categories/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tips</title>
+      <link>https://sacredartr.github.io/categories/tips/</link>
+      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/categories/tips/</guid>
       <description></description>
     </item>
     
