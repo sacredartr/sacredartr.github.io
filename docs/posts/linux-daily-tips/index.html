@@ -101,8 +101,8 @@
   "keywords": [
     "linux"
   ],
-  "articleBody": "Linux Daily Tips clear file cat /dev/null \u003e file xargs ls ./* | xargs -i cp {} /tmp/ sed sed -i 's/password: .*/password: 123456/g' file awk cat file | awk '$1 ~ /th/ {print $1}' ignore error message unalias cp 2\u003e/dev/null || true file append content echo 'content' \u003e\u003e file login to get token token=$(curl -X POST \"http://$external_ip/api/v1/login\" --header 'Content-Type: application/json' --data '{\"username\": \"root\",\"password\": \"******\"}' | awk -F\"[,:}]\" '{for(i=1;i\u003c=NF;i++){print $(i+1)}}' | tr -d '\"' | sed -n 1p) ",
-  "wordCount" : "78",
+  "articleBody": "Linux Daily Tips clear file cat /dev/null \u003e file xargs ls ./* | xargs -i cp {} /tmp/ sed sed -i 's/password: .*/password: 123456/g' file awk cat file | awk '$1 ~ /th/ {print $1}' ignore error message unalias cp 2\u003e/dev/null || true append content to file echo 'content' \u003e\u003e file login to get token token=$(curl -X POST \"http://$external_ip/api/v1/login\" --header 'Content-Type: application/json' --data '{\"username\": \"root\",\"password\": \"******\"}' | awk -F\"[,:}]\" '{for(i=1;i\u003c=NF;i++){print $(i+1)}}' | tr -d '\"' | sed -n 1p) input when executing command echo yes | sh deploy.sh append content to end of file cat\u003e\u003e/etc/profile\u003c",
+  "wordCount" : "112",
   "inLanguage": "en",
   "datePublished": "2022-08-16T00:00:00Z",
   "dateModified": "2022-08-16T00:00:00Z",
@@ -230,9 +230,15 @@
                 <li>
                     <a href="#ignore-error-message" aria-label="ignore error message">ignore error message</a></li>
                 <li>
-                    <a href="#file-append-content" aria-label="file append content">file append content</a></li>
+                    <a href="#append-content-to-file" aria-label="append content to file">append content to file</a></li>
                 <li>
-                    <a href="#login-to-get-token" aria-label="login to get token">login to get token</a>
+                    <a href="#login-to-get-token" aria-label="login to get token">login to get token</a></li>
+                <li>
+                    <a href="#input-when-executing-command" aria-label="input when executing command">input when executing command</a></li>
+                <li>
+                    <a href="#append-content-to-end-of-file" aria-label="append content to end of file">append content to end of file</a></li>
+                <li>
+                    <a href="#append-content-to-anywhere-in-the-file" aria-label="append content to anywhere in the file">append content to anywhere in the file</a>
                 </li>
             </ul>
             </li>
@@ -252,11 +258,20 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">cat file | awk &#39;$1 ~ /th/ {print $1}&#39;
 </span></span></span></code></pre></div><h2 id="ignore-error-message">ignore error message<a hidden class="anchor" aria-hidden="true" href="#ignore-error-message">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">unalias cp 2&gt;/dev/null || true
-</span></span></span></code></pre></div><h2 id="file-append-content">file append content<a hidden class="anchor" aria-hidden="true" href="#file-append-content">#</a></h2>
+</span></span></span></code></pre></div><h2 id="append-content-to-file">append content to file<a hidden class="anchor" aria-hidden="true" href="#append-content-to-file">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">echo &#39;content&#39; &gt;&gt; file
 </span></span></span></code></pre></div><h2 id="login-to-get-token">login to get token<a hidden class="anchor" aria-hidden="true" href="#login-to-get-token">#</a></h2>
 <pre tabindex="0"><code>token=$(curl -X POST &#34;http://$external_ip/api/v1/login&#34; --header &#39;Content-Type: application/json&#39; --data &#39;{&#34;username&#34;: &#34;root&#34;,&#34;password&#34;: &#34;******&#34;}&#39; | awk -F&#34;[,:}]&#34; &#39;{for(i=1;i&lt;=NF;i++){print $(i+1)}}&#39; | tr -d &#39;&#34;&#39; | sed -n 1p)
-</code></pre>
+</code></pre><h2 id="input-when-executing-command">input when executing command<a hidden class="anchor" aria-hidden="true" href="#input-when-executing-command">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">echo yes | sh deploy.sh
+</span></span></span></code></pre></div><h2 id="append-content-to-end-of-file">append content to end of file<a hidden class="anchor" aria-hidden="true" href="#append-content-to-end-of-file">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">cat&gt;&gt;/etc/profile&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="go">export no_proxy=&#34;localhost, 127.0.0.1&#34;
+</span></span></span><span class="line"><span class="cl"><span class="go">EOF
+</span></span></span></code></pre></div><h2 id="append-content-to-anywhere-in-the-file">append content to anywhere in the file<a hidden class="anchor" aria-hidden="true" href="#append-content-to-anywhere-in-the-file">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">sed -i &#34;21i EnvironmentFile=/etc/clash/env&#34; /etc/systemd/system/containerd.service
+</span></span></span><span class="line"><span class="cl"><span class="go">EOF
+</span></span></span></code></pre></div>
 
   </div>
 

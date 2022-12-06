@@ -101,8 +101,8 @@
   "keywords": [
     "linux"
   ],
-  "articleBody": "Linux Daily Tips 文件清空 cat /dev/null \u003e file xargs ls ./* | xargs -i cp {} /tmp/ sed sed -i 's/password: .*/password: 123456/g' file awk cat file | awk '$1 ~ /th/ {print $1}' 执行命令忽略报错信息 unalias cp 2\u003e/dev/null || true 文件追加内容 echo 'content' \u003e\u003e file 登陆获取token token=$(curl -X POST \"http://$external_ip/api/v1/login\" --header 'Content-Type: application/json' --data '{\"username\": \"root\",\"password\": \"******\"}' | awk -F\"[,:}]\" '{for(i=1;i\u003c=NF;i++){print $(i+1)}}' | tr -d '\"' | sed -n 1p) ",
-  "wordCount" : "70",
+  "articleBody": "Linux Daily Tips 文件清空 cat /dev/null \u003e file xargs ls ./* | xargs -i cp {} /tmp/ sed sed -i 's/password: .*/password: 123456/g' file awk cat file | awk '$1 ~ /th/ {print $1}' 执行命令忽略报错信息 unalias cp 2\u003e/dev/null || true 文件追加内容 echo 'content' \u003e\u003e file 登陆获取token token=$(curl -X POST \"http://$external_ip/api/v1/login\" --header 'Content-Type: application/json' --data '{\"username\": \"root\",\"password\": \"******\"}' | awk -F\"[,:}]\" '{for(i=1;i\u003c=NF;i++){print $(i+1)}}' | tr -d '\"' | sed -n 1p) 执行命令时输入 echo yes | sh deploy.sh 文件尾部追加内容 cat\u003e\u003e/etc/profile\u003c",
+  "wordCount" : "89",
   "inLanguage": "zh",
   "datePublished": "2022-08-16T00:00:00Z",
   "dateModified": "2022-08-16T00:00:00Z",
@@ -232,7 +232,13 @@
                 <li>
                     <a href="#%e6%96%87%e4%bb%b6%e8%bf%bd%e5%8a%a0%e5%86%85%e5%ae%b9" aria-label="文件追加内容">文件追加内容</a></li>
                 <li>
-                    <a href="#%e7%99%bb%e9%99%86%e8%8e%b7%e5%8f%96token" aria-label="登陆获取token">登陆获取token</a>
+                    <a href="#%e7%99%bb%e9%99%86%e8%8e%b7%e5%8f%96token" aria-label="登陆获取token">登陆获取token</a></li>
+                <li>
+                    <a href="#%e6%89%a7%e8%a1%8c%e5%91%bd%e4%bb%a4%e6%97%b6%e8%be%93%e5%85%a5" aria-label="执行命令时输入">执行命令时输入</a></li>
+                <li>
+                    <a href="#%e6%96%87%e4%bb%b6%e5%b0%be%e9%83%a8%e8%bf%bd%e5%8a%a0%e5%86%85%e5%ae%b9" aria-label="文件尾部追加内容">文件尾部追加内容</a></li>
+                <li>
+                    <a href="#%e6%96%87%e4%bb%b6%e4%bb%bb%e6%84%8f%e4%bd%8d%e7%bd%ae%e8%bf%bd%e5%8a%a0%e5%86%85%e5%ae%b9" aria-label="文件任意位置追加内容">文件任意位置追加内容</a>
                 </li>
             </ul>
             </li>
@@ -256,6 +262,15 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">echo &#39;content&#39; &gt;&gt; file
 </span></span></span></code></pre></div><h2 id="登陆获取token">登陆获取token<a hidden class="anchor" aria-hidden="true" href="#登陆获取token">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">token=$(curl -X POST &#34;http://$external_ip/api/v1/login&#34; --header &#39;Content-Type: application/json&#39; --data &#39;{&#34;username&#34;: &#34;root&#34;,&#34;password&#34;: &#34;******&#34;}&#39; | awk -F&#34;[,:}]&#34; &#39;{for(i=1;i&lt;=NF;i++){print $(i+1)}}&#39; | tr -d &#39;&#34;&#39; | sed -n 1p)
+</span></span></span></code></pre></div><h2 id="执行命令时输入">执行命令时输入<a hidden class="anchor" aria-hidden="true" href="#执行命令时输入">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">echo yes | sh deploy.sh
+</span></span></span></code></pre></div><h2 id="文件尾部追加内容">文件尾部追加内容<a hidden class="anchor" aria-hidden="true" href="#文件尾部追加内容">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">cat&gt;&gt;/etc/profile&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="go">export no_proxy=&#34;localhost, 127.0.0.1&#34;
+</span></span></span><span class="line"><span class="cl"><span class="go">EOF
+</span></span></span></code></pre></div><h2 id="文件任意位置追加内容">文件任意位置追加内容<a hidden class="anchor" aria-hidden="true" href="#文件任意位置追加内容">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">sed -i &#34;21i EnvironmentFile=/etc/clash/env&#34; /etc/systemd/system/containerd.service
+</span></span></span><span class="line"><span class="cl"><span class="go">EOF
 </span></span></span></code></pre></div>
 
   </div>

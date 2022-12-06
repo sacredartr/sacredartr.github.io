@@ -18,7 +18,7 @@ TocOpen: true
 cat>>/etc/profile<<EOF
 export http_proxy=http://$IP:7890
 export https_proxy=http://$IP:7890
-export no_proxy="localhost, 127.0.0.1"
+export no_proxy="localhost, 127.0.0.1, 10.244.0.0/18"
 EOF
 source /etc/profile
 rm -rf /etc/clash/env
@@ -26,7 +26,7 @@ mkdir -pv /etc/clash
 cat>/etc/clash/env<<EOF
 http_proxy=http://$IP:7890
 https_proxy=http://$IP:7890
-no_proxy="localhost, 127.0.0.1"
+no_proxy="localhost, 127.0.0.1, 10.244.0.0/18"
 EOF
 mkdir -pv /etc/systemd/system/docker.service.d
 rm -rf /etc/systemd/system/docker.service.d/proxy.conf
@@ -43,7 +43,7 @@ systemctl restart docker
 cat>>/etc/profile<<EOF
 export http_proxy=http://$IP:7890
 export https_proxy=http://$IP:7890
-export no_proxy="localhost, 127.0.0.1"
+export no_proxy="localhost, 127.0.0.1, 10.244.0.0/18"
 EOF
 source /etc/profile
 rm -rf /etc/clash/env
@@ -51,7 +51,7 @@ mkdir -pv /etc/clash
 cat>/etc/clash/env<<EOF
 http_proxy=http://$IP:7890
 https_proxy=http://$IP:7890
-no_proxy="localhost, 127.0.0.1"
+no_proxy="localhost, 127.0.0.1, 10.244.0.0/18"
 EOF
 sed -i "21i EnvironmentFile=/etc/clash/env" /etc/systemd/system/containerd.service
 systemctl daemon-reload

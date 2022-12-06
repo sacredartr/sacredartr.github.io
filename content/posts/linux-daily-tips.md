@@ -38,7 +38,7 @@ cat file | awk '$1 ~ /th/ {print $1}'
 unalias cp 2>/dev/null || true
 ```
 
-## file append content
+## append content to file
 ```console
 echo 'content' >> file
 ```
@@ -46,4 +46,22 @@ echo 'content' >> file
 ## login to get token
 ```
 token=$(curl -X POST "http://$external_ip/api/v1/login" --header 'Content-Type: application/json' --data '{"username": "root","password": "******"}' | awk -F"[,:}]" '{for(i=1;i<=NF;i++){print $(i+1)}}' | tr -d '"' | sed -n 1p)
+```
+
+## input when executing command
+```console
+echo yes | sh deploy.sh
+```
+
+## append content to end of file
+```console
+cat>>/etc/profile<<EOF
+export no_proxy="localhost, 127.0.0.1"
+EOF
+```
+
+## append content to anywhere in the file
+```console
+sed -i "21i EnvironmentFile=/etc/clash/env" /etc/systemd/system/containerd.service
+EOF
 ```

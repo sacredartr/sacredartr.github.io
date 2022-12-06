@@ -47,3 +47,20 @@ echo 'content' >> file
 ```console
 token=$(curl -X POST "http://$external_ip/api/v1/login" --header 'Content-Type: application/json' --data '{"username": "root","password": "******"}' | awk -F"[,:}]" '{for(i=1;i<=NF;i++){print $(i+1)}}' | tr -d '"' | sed -n 1p)
 ```
+
+## 执行命令时输入
+```console
+echo yes | sh deploy.sh
+```
+
+## 文件尾部追加内容
+```console
+cat>>/etc/profile<<EOF
+export no_proxy="localhost, 127.0.0.1"
+EOF
+```
+## 文件任意位置追加内容
+```console
+sed -i "21i EnvironmentFile=/etc/clash/env" /etc/systemd/system/containerd.service
+EOF
+```
