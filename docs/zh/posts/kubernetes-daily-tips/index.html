@@ -102,7 +102,7 @@
     "kubernetes"
   ],
   "articleBody": "Kubernetes Daily Tips docker 添加代理 cat\u003e\u003e/etc/profile\u003c",
-  "wordCount" : "104",
+  "wordCount" : "82",
   "inLanguage": "zh",
   "datePublished": "2022-08-18T00:00:00Z",
   "dateModified": "2022-08-18T00:00:00Z",
@@ -222,9 +222,7 @@
                 <li>
                     <a href="#docker-%e6%b7%bb%e5%8a%a0%e4%bb%a3%e7%90%86" aria-label="docker 添加代理">docker 添加代理</a></li>
                 <li>
-                    <a href="#containerd-%e6%b7%bb%e5%8a%a0%e4%bb%a3%e7%90%86" aria-label="containerd 添加代理">containerd 添加代理</a></li>
-                <li>
-                    <a href="#k8s-%e6%9f%a5%e7%9c%8b-pod-%e4%b8%ad-container-%e7%9a%84-log" aria-label="K8S 查看 pod 中 container 的 log">K8S 查看 pod 中 container 的 log</a>
+                    <a href="#containerd-%e6%b7%bb%e5%8a%a0%e4%bb%a3%e7%90%86" aria-label="containerd 添加代理">containerd 添加代理</a>
                 </li>
             </ul>
             </li>
@@ -273,10 +271,7 @@
 </span></span><span class="line"><span class="cl">sed -i <span class="s2">&#34;21i EnvironmentFile=/etc/clash/env&#34;</span> /etc/systemd/system/containerd.service
 </span></span><span class="line"><span class="cl">systemctl daemon-reload
 </span></span><span class="line"><span class="cl">systemctl restart containerd
-</span></span></code></pre></div><h2 id="k8s-查看-pod-中-container-的-log">K8S 查看 pod 中 container 的 log<a hidden class="anchor" aria-hidden="true" href="#k8s-查看-pod-中-container-的-log">#</a></h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">kubectl get pods xxx -o jsonpath={.spec.containers[*].name} -n kube-system
-</span></span></span><span class="line"><span class="cl"><span class="go">kubectl logs xxx -c xxxx -n kube-system
-</span></span></span></code></pre></div>
+</span></span></code></pre></div>
 
   </div>
 
@@ -347,7 +342,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://sacredartr.github.io/zh/">sacred&#39;s blog</a></span>
+    <span>&copy; 2023 <a href="https://sacredartr.github.io/zh/">sacred&#39;s blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

@@ -57,9 +57,3 @@ sed -i "21i EnvironmentFile=/etc/clash/env" /etc/systemd/system/containerd.servi
 systemctl daemon-reload
 systemctl restart containerd
 ```
-
-## K8S logs container in pod
-```console
-kubectl get pods xxx -o jsonpath={.spec.containers[*].name} -n kube-system
-kubectl logs xxx -c xxxx -n kube-system
-```

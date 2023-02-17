@@ -23,9 +23,3 @@ git commit --amend
 git config core.ignorecase false
 git mv -f old new
 ```
-
-## git rebase
-```console
-git checkout mywork
-git rebase origin
-```

@@ -24,9 +24,10 @@ https://www.draw.io/index.html
 ```
 
 ## k8s官方文档
-
 ```url
 https://kubernetes.io/zh-cn/
 ```
 
-
+## chart 包
+```url
+https://artifacthub.io/

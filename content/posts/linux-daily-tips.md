@@ -63,5 +63,4 @@ EOF
 ## append content to anywhere in the file
 ```console
 sed -i "21i EnvironmentFile=/etc/clash/env" /etc/systemd/system/containerd.service
-EOF
 ```

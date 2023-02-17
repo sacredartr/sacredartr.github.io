@@ -62,5 +62,4 @@ EOF
 ## 文件任意位置追加内容
 ```console
 sed -i "21i EnvironmentFile=/etc/clash/env" /etc/systemd/system/containerd.service
-EOF
 ```

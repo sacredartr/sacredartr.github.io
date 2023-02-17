@@ -1,6 +1,6 @@
 ---
 title: "Ceph Deploy"
-date: 2022-12-19
+date: 2022-12-19 
 author: "sacredartr"
 description: "ceph deploy"
 tags: ["ceph"]

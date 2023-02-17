@@ -74,6 +74,15 @@
     </item>
     
     
+    <item>
+      <title>Harbor Deploy</title>
+      <link>https://sacredartr.github.io/posts/harbor-deploy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/posts/harbor-deploy/</guid>
+      <description>harbor deploy</description>
+    </item>
+    
     
   </channel>
 </rss>

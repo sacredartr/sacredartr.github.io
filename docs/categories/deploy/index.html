@@ -159,10 +159,22 @@
   <footer class="entry-footer"><span title='2022-12-19 00:00:00 +0000 UTC'>December 19, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Ceph Deploy" href="https://sacredartr.github.io/posts/ceph-deploy/"></a>
 </article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2>Harbor Deploy
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Harbor Deploy prepare kubernetes cluster helm crictl harbor.tar.xz redis.tar.xz pgo.tar.xz deploy pgo-ha # ctr -n k8s.io image import all pakage cd chart # created pgo namespace kubectl create ns pgo # install pgo controller CRD helm install -n pgo pgo . # check pod kubectl -n pgo get pod NAME READY STATUS RESTARTS AGE pgo-694f6b79bc-gpw2h 1/1 Running 0 16s pgo-694f6b79bc-lw9pl 1/1 Running 0 16s pgo-upgrade-76fdb74df8-ldzcr 1/1 Running 0 16s pgo-upgrade-76fdb74df8-zqrft 1/1 Running 0 16s # install ha-postgres kubectl create ns postgres kubectl -n postgres apply -f ha-postgres....</p>
+  </div>
+  <footer class="entry-footer">2 min&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to Harbor Deploy" href="https://sacredartr.github.io/posts/harbor-deploy/"></a>
+</article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2022 <a href="https://sacredartr.github.io/">sacred&#39;s blog</a></span>
+    <span>&copy; 2023 <a href="https://sacredartr.github.io/">sacred&#39;s blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
