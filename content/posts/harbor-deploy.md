@@ -5,7 +5,7 @@ author: "sacredartr"
 description: "harbor deploy"
 tags: ["harbor"]
 categories: ["harbor", "deploy"]
-series: ["harbor Deploy"]
+series: ["Harbor Deploy"]
 aliases: ["harbor-deploy"]
 ShowToc: true
 TocOpen: true
@@ -24,7 +24,7 @@ pgo.tar.xz
 ```
 
 ## deploy pgo-ha
-```
+```shell
 # ctr -n k8s.io image import all pakage
 cd chart
 # created pgo namespace
@@ -57,7 +57,7 @@ kubectl -n postgres get secret harbor-pguser-harbor -o=jsonpath='{@.data.host}' 
 ```
 
 ## deploy redis-ha
-```
+```shell
 # ctr -n k8s.io image import all pakage
 cd chart
 # create redis namespace
@@ -75,7 +75,7 @@ k8s-haproxy redis-redis-ha-haproxy.redis.svc.cluster.local
 ```
 
 ## deploy harbor-ha
-```
+```shell
 # ctr -n k8s.io image import all pakage
 cd chart
 # create namespace

@@ -199,6 +199,18 @@
   <footer class="entry-footer">2 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Harbor Deploy" href="https://sacredartr.github.io/posts/harbor-deploy/"></a>
 </article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Prow Deploy
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Prow Deploy prepare kubernetes cluster github organization &#43; app &#43; webhook user kubectl create clusterrolebinding cluster-admin-binding-&#34;${USER}&#34; --clusterrole=cluster-admin --user=&#34;${USER}&#34; secret openssl rand -hex 20 &gt; /path/to/hook/secret kubectl create secret -n prow generic hmac-token --from-file=hmac=/path/to/hook/secret kubectl create secret -n prow generic github-token --from-file=cert=/path/to/github/cert --from-literal=appid=&lt;&lt;The ID of your app&gt;&gt; deploy kubectl apply -f config-yaml/prow-deploy.yaml set config edit and install app at organization add webhook at github organization/pro update update-config: kubectl -n prow create configmap config --from-file=config....</p>
+  </div>
+  <footer class="entry-footer">1 min&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to Prow Deploy" href="https://sacredartr.github.io/posts/prow-deploy/"></a>
+</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://sacredartr.github.io/posts/">« Prev</a>

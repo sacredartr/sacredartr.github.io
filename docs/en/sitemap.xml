@@ -427,6 +427,14 @@
   </url><url>
     <loc>https://sacredartr.github.io/posts/harbor-deploy/</loc>
   </url><url>
+    <loc>https://sacredartr.github.io/tags/prow/</loc>
+  </url><url>
+    <loc>https://sacredartr.github.io/categories/prow/</loc>
+  </url><url>
+    <loc>https://sacredartr.github.io/series/prow-deploy/</loc>
+  </url><url>
+    <loc>https://sacredartr.github.io/posts/prow-deploy/</loc>
+  </url><url>
     <loc>https://sacredartr.github.io/search/</loc>
     <xhtml:link
                 rel="alternate"

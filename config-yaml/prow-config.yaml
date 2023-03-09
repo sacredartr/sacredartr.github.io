@@ -1,0 +1,103 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: prow
+  name: config
+data:
+  config.yaml: |
+    prowjob_namespace: prow
+    pod_namespace: test-pods
+
+    in_repo_config:
+      enabled:
+        "*": true
+
+    deck:
+     spyglass:
+       lenses:
+       - lens:
+           name: metadata
+         required_files:
+         - started.json|finished.json
+       - lens:
+           config:
+           name: buildlog
+         required_files:
+         - build-log.txt
+       - lens:
+           name: junit
+         required_files:
+         - .*/junit.*\.xml
+       - lens:
+           name: podinfo
+         required_files:
+         - podinfo.json
+
+    plank:
+      job_url_prefix_config:
+        "*": http://8.222.184.235:32173/view/
+      report_templates:
+        '*': >-
+            [Full PR test history](http://8.222.184.235:32173/pr-history?org={{.Spec.Refs.Org}}&repo={{.Spec.Refs.Repo}}&pr={{with index .Spec.Refs.Pulls 0}}{{.Number}}{{end}}).
+            [Your PR dashboard](http://8.222.184.235:32173/pr?query=is:pr+state:open+author:{{with
+            index .Spec.Refs.Pulls 0}}{{.Author}}{{end}}).
+      default_decoration_configs:
+        "*":
+          gcs_configuration:
+            bucket: s3://prow-logs
+            path_strategy: explicit
+          s3_credentials_secret: s3-credentials
+          utility_images:
+            clonerefs: gcr.io/k8s-prow/clonerefs:v20230306-73d997c9e3
+            entrypoint: gcr.io/k8s-prow/entrypoint:v20230306-73d997c9e3
+            initupload: gcr.io/k8s-prow/initupload:v20230306-73d997c9e3
+            sidecar: gcr.io/k8s-prow/sidecar:v20230306-73d997c9e3
+
+    tide:
+      queries:
+      - labels:
+        - lgtm
+        - approved
+        missingLabels:
+        - needs-rebase
+        - do-not-merge/hold
+        - do-not-merge/work-in-progress
+        - do-not-merge/invalid-owners-file
+        orgs:
+        - prow-kubeclipper
+
+    decorate_all_jobs: true
+    presubmits:
+      prow-kubeclipper/kubeclipper:
+        - name: api-test
+          always_run: false
+          decorate: false
+          branches:
+            - main
+          spec:
+            containers:
+              - image: 'docker.io/appleboy/drone-ssh:1.6.1'
+                env:
+                  - name: PLUGIN_HOST
+                    valueFrom:
+                      secretKeyRef:
+                        name: chj-remote
+                        key: host
+                  - name: PLUGIN_USERNAME
+                    valueFrom:
+                      secretKeyRef:
+                        name: chj-remote
+                        key: username
+                  - name: PLUGIN_PASSWORD
+                    valueFrom:
+                      secretKeyRef:
+                        name: chj-remote
+                        key: passwod
+                  - name: PLUGIN_PORT
+                    valueFrom:
+                      secretKeyRef:
+                        name: chj-remote
+                        key: port
+                  - name: PLUGIN_SCRIPT
+                    value: set -e;sh /root/apitest/apitest.sh
+                name: api-test
