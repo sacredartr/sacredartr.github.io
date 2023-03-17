@@ -46,14 +46,5 @@
       <description>Git tips for daily use</description>
     </item>
     
-    <item>
-      <title>Linux Daily Tips</title>
-      <link>https://sacredartr.github.io/zh/posts/linux-daily-tips/</link>
-      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://sacredartr.github.io/zh/posts/linux-daily-tips/</guid>
-      <description>Linux tips for daily use</description>
-    </item>
-    
   </channel>
 </rss>

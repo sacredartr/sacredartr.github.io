@@ -1,6 +1,6 @@
 ---
 title: "Prow Deploy"
-date: 2023-3-09
+date: 2023-03-09
 author: "sacredartr"
 description: "prow deploy"
 tags: ["prow"]

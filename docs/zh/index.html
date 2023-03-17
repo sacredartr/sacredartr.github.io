@@ -196,22 +196,10 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Kubernetes Daily Tips docker 添加代理 cat&gt;&gt;/etc/profile&lt;&lt;EOF export http_proxy=http://$IP:7890 export https_proxy=http://$IP:7890 export no_proxy=&#34;localhost, 127.0.0.1, 10.244.0.0/18&#34; EOF source /etc/profile rm -rf /etc/clash/env mkdir -pv /etc/clash cat&gt;/etc/clash/env&lt;&lt;EOF http_proxy=http://$IP:7890 https_proxy=http://$IP:7890 no_proxy=&#34;localhost, 127.0.0.1, 10.244.0.0/18&#34; EOF mkdir -pv /etc/systemd/system/docker.service.d rm -rf /etc/systemd/system/docker.service.d/proxy.conf cat&gt;/etc/systemd/system/docker.service.d/proxy.conf&lt;&lt;EOF [Service] EnvironmentFile=/etc/clash/env EOF systemctl daemon-reload systemctl restart docker containerd 添加代理 cat&gt;&gt;/etc/profile&lt;&lt;EOF export http_proxy=http://$IP:7890 export https_proxy=http://$IP:7890 export no_proxy=&#34;localhost, 127.0.0.1, 10.244.0.0/18&#34; EOF source /etc/profile rm -rf /etc/clash/env mkdir -pv /etc/clash cat&gt;/etc/clash/env&lt;&lt;EOF http_proxy=http://$IP:7890 https_proxy=http://$IP:7890 no_proxy=&#34;localhost, 127.0.0.1, 10....</p>
+    <p>Kubernetes Daily Tips docker 添加代理 cat&gt;&gt;/etc/profile&lt;&lt;EOF export http_proxy=http://$IP:7890 export https_proxy=http://$IP:7890 export no_proxy=&#34;localhost, 127.0.0.1&#34; EOF source /etc/profile rm -rf /etc/clash/env mkdir -pv /etc/clash cat&gt;/etc/clash/env&lt;&lt;EOF http_proxy=http://$IP:7890 https_proxy=http://$IP:7890 no_proxy=&#34;localhost, 127.0.0.1&#34; EOF mkdir -pv /etc/systemd/system/docker.service.d rm -rf /etc/systemd/system/docker.service.d/proxy.conf cat&gt;/etc/systemd/system/docker.service.d/proxy.conf&lt;&lt;EOF [Service] EnvironmentFile=/etc/clash/env EOF systemctl daemon-reload systemctl restart docker containerd 添加代理 cat&gt;&gt;/etc/profile&lt;&lt;EOF export http_proxy=http://$IP:7890 export https_proxy=http://$IP:7890 export no_proxy=&#34;localhost, 127.0.0.1&#34; EOF source /etc/profile rm -rf /etc/clash/env mkdir -pv /etc/clash cat&gt;/etc/clash/env&lt;&lt;EOF http_proxy=http://$IP:7890 https_proxy=http://$IP:7890 no_proxy=&#34;localhost, 127.0.0.1&#34; EOF sed -i &#34;21i EnvironmentFile=/etc/clash/env&#34; /etc/systemd/system/containerd....</p>
   </div>
   <footer class="entry-footer"><span title='2022-08-18 00:00:00 +0000 UTC'>八月 18, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Kubernetes Daily Tips" href="https://sacredartr.github.io/zh/posts/kubernetes-daily-tips/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>NLP
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>词频统计 # encoding: utf-8 import jieba import pandas as pd import datetime as dt class wordCount(): def __init__(self): self.pre_data() def pre_data(self): jieba.load_userdict(&#39;./dict.txt&#39;) stopwords = pd.read_table(&#39;./stop.txt&#39;) self.stop_list = stopwords[&#34;stop_word&#34;].tolist() self.stop_list.append(&#34;\n&#34;) def run(self, year, month): start = dt.date(year, month, 1) if month == 6: end = dt.date(year, month, 30) else: end = dt.date(year, month, 31) sql = &#34;&#34;&#34;select fund_id, report_date, outlook as sentence from manager_viewpoint where report_date between &#39;{}&#39; and &#39;{}&#39;&#34;&#34;&#34;.format(dt.datetime.strftime(start, &#39;%Y-%m-%d&#39;), dt....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-08-18 00:00:00 +0000 UTC'>八月 18, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;sacredartr</footer>
-  <a class="entry-link" aria-label="post link to NLP" href="https://sacredartr.github.io/zh/posts/nlp/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -236,6 +224,18 @@
   </div>
   <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>八月 16, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Docker Daily Tips" href="https://sacredartr.github.io/zh/posts/docker-daily-tips/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Git Daily Tips
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Git Daily Tips git 后续 提交 git commit --amend git 区分大小写 git config core.ignorecase false git mv -f old new </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>八月 16, 2022</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to Git Daily Tips" href="https://sacredartr.github.io/zh/posts/git-daily-tips/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

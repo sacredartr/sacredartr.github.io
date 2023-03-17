@@ -59,8 +59,8 @@
 <meta property="og:description" content="prow deploy" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sacredartr.github.io/posts/prow-deploy/" /><meta property="og:image" content="https://sacredartr.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
-
-
+<meta property="article:published_time" content="2023-03-09T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2023-03-09T00:00:00&#43;00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -103,8 +103,8 @@
   "articleBody": "Prow Deploy prepare kubernetes cluster github organization + app + webhook user kubectl create clusterrolebinding cluster-admin-binding-\"${USER}\" --clusterrole=cluster-admin --user=\"${USER}\" secret openssl rand -hex 20 \u003e /path/to/hook/secret kubectl create secret -n prow generic hmac-token --from-file=hmac=/path/to/hook/secret kubectl create secret -n prow generic github-token --from-file=cert=/path/to/github/cert --from-literal=appid=\u003c\u003e deploy kubectl apply -f config-yaml/prow-deploy.yaml set config edit and install app at organization add webhook at github organization/pro update update-config: kubectl -n prow create configmap config --from-file=config.yaml=config.yaml --dry-run -o yaml | kubectl -n prow replace configmap config -f - update-plugins: kubectl -n prow create configmap plugins --from-file=plugins.yaml=plugins.yaml --dry-run -o yaml | kubectl -n prow replace configmap plugins -f - update-label-config: kubectl -n test-pods create configmap label-config --from-file=labels.yaml=labels.yaml --dry-run -o yaml | kubectl -n test-pods replace configmap label-config -f - ",
   "wordCount" : "125",
   "inLanguage": "en",
-  "datePublished": "0001-01-01T00:00:00Z",
-  "dateModified": "0001-01-01T00:00:00Z",
+  "datePublished": "2023-03-09T00:00:00Z",
+  "dateModified": "2023-03-09T00:00:00Z",
   "author":{
     "@type": "Person",
     "name": "sacredartr"
@@ -200,7 +200,7 @@
     <div class="post-description">
       prow deploy
     </div>
-    <div class="post-meta">1 min&nbsp;·&nbsp;sacredartr
+    <div class="post-meta"><span title='2023-03-09 00:00:00 +0000 UTC'>March 9, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr
 
 </div>
   </header> <div class="toc">
@@ -266,8 +266,8 @@ add webhook at github organization/pro
       <li><a href="https://sacredartr.github.io/tags/prow/">prow</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://sacredartr.github.io/posts/harbor-deploy/">
-    <span class="title">« Prev</span>
+  <a class="next" href="https://sacredartr.github.io/posts/harbor-deploy/">
+    <span class="title">Next »</span>
     <br>
     <span>Harbor Deploy</span>
   </a>

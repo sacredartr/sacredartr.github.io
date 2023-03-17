@@ -79,58 +79,6 @@
                 href="https://sacredartr.github.io/zh/series/kubernetes-tips/"
                 />
   </url><url>
-    <loc>https://sacredartr.github.io/zh/tags/nlp/</loc>
-    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sacredartr.github.io/tags/nlp/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sacredartr.github.io/zh/tags/nlp/"
-                />
-  </url><url>
-    <loc>https://sacredartr.github.io/zh/categories/nlp/</loc>
-    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sacredartr.github.io/categories/nlp/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sacredartr.github.io/zh/categories/nlp/"
-                />
-  </url><url>
-    <loc>https://sacredartr.github.io/zh/series/nlp/</loc>
-    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sacredartr.github.io/series/nlp/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sacredartr.github.io/zh/series/nlp/"
-                />
-  </url><url>
-    <loc>https://sacredartr.github.io/zh/posts/nlp/</loc>
-    <lastmod>2022-08-18T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sacredartr.github.io/posts/nlp/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sacredartr.github.io/zh/posts/nlp/"
-                />
-  </url><url>
     <loc>https://sacredartr.github.io/zh/posts/</loc>
     <lastmod>2022-08-18T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -350,58 +298,6 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://sacredartr.github.io/zh/series/git-tips/"
-                />
-  </url><url>
-    <loc>https://sacredartr.github.io/zh/tags/linux/</loc>
-    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sacredartr.github.io/tags/linux/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sacredartr.github.io/zh/tags/linux/"
-                />
-  </url><url>
-    <loc>https://sacredartr.github.io/zh/categories/linux/</loc>
-    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sacredartr.github.io/categories/linux/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sacredartr.github.io/zh/categories/linux/"
-                />
-  </url><url>
-    <loc>https://sacredartr.github.io/zh/posts/linux-daily-tips/</loc>
-    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sacredartr.github.io/posts/linux-daily-tips/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sacredartr.github.io/zh/posts/linux-daily-tips/"
-                />
-  </url><url>
-    <loc>https://sacredartr.github.io/zh/series/linux-tips/</loc>
-    <lastmod>2022-08-16T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sacredartr.github.io/series/linux-tips/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh"
-                href="https://sacredartr.github.io/zh/series/linux-tips/"
                 />
   </url><url>
     <loc>https://sacredartr.github.io/zh/tags/mysql/</loc>

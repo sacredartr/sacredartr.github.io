@@ -166,6 +166,30 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Tools Daily Tips
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Tools Daily Tips ASCII text art generator https://textkool.com/en/ascii-art-generator?hl=default&amp;vl=default&amp;font=Red%20Phoenix&amp;text=Your%20text%20here%20 draw https://www.draw.io/index.html kubernetes https://kubernetes.io/ chart package https://artifacthub.io/ </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-08-18 00:00:00 +0000 UTC'>August 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to Tools Daily Tips" href="https://sacredartr.github.io/posts/tools-daily-tips/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Docker Daily Tips
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Docker Daily Tips clear all containers docker stop $(docker ps -q) &amp;&amp; docker rm $(docker ps -aq) docker pull:error response from daemon yum install bind-utils dig @114.114.114.114 registry-1.docker.io echo &#34;54.175.43.85 registry-1.docker.io&#34; &gt;&gt; /etc/hosts clear specified containers docker stop $(docker ps -a|grep hours|awk &#39;{print $1}&#39;) &amp;&amp; docker rm $(docker ps -a|grep hours|awk &#39;{print $1}&#39;) create docker https registry mkdir -p /opt/docker/registry/certs openssl req -newkey rsa:4096 -nodes -sha256 -keyout /opt/docker/registry/certs/domain.key -x509 -days 365 -out /opt/docker/registry/certs/domain....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>August 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to Docker Daily Tips" href="https://sacredartr.github.io/posts/docker-daily-tips/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Git Daily Tips
     </h2>
   </header>
@@ -186,30 +210,6 @@
   </div>
   <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>August 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Linux Daily Tips" href="https://sacredartr.github.io/posts/linux-daily-tips/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Harbor Deploy
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Harbor Deploy prepare kubernetes cluster helm crictl harbor.tar.xz redis.tar.xz pgo.tar.xz deploy pgo-ha # ctr -n k8s.io image import all pakage cd chart # created pgo namespace kubectl create ns pgo # install pgo controller CRD helm install -n pgo pgo . # check pod kubectl -n pgo get pod NAME READY STATUS RESTARTS AGE pgo-694f6b79bc-gpw2h 1/1 Running 0 16s pgo-694f6b79bc-lw9pl 1/1 Running 0 16s pgo-upgrade-76fdb74df8-ldzcr 1/1 Running 0 16s pgo-upgrade-76fdb74df8-zqrft 1/1 Running 0 16s # install ha-postgres kubectl create ns postgres kubectl -n postgres apply -f ha-postgres....</p>
-  </div>
-  <footer class="entry-footer">2 min&nbsp;·&nbsp;sacredartr</footer>
-  <a class="entry-link" aria-label="post link to Harbor Deploy" href="https://sacredartr.github.io/posts/harbor-deploy/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Prow Deploy
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Prow Deploy prepare kubernetes cluster github organization &#43; app &#43; webhook user kubectl create clusterrolebinding cluster-admin-binding-&#34;${USER}&#34; --clusterrole=cluster-admin --user=&#34;${USER}&#34; secret openssl rand -hex 20 &gt; /path/to/hook/secret kubectl create secret -n prow generic hmac-token --from-file=hmac=/path/to/hook/secret kubectl create secret -n prow generic github-token --from-file=cert=/path/to/github/cert --from-literal=appid=&lt;&lt;The ID of your app&gt;&gt; deploy kubectl apply -f config-yaml/prow-deploy.yaml set config edit and install app at organization add webhook at github organization/pro update update-config: kubectl -n prow create configmap config --from-file=config....</p>
-  </div>
-  <footer class="entry-footer">1 min&nbsp;·&nbsp;sacredartr</footer>
-  <a class="entry-link" aria-label="post link to Prow Deploy" href="https://sacredartr.github.io/posts/prow-deploy/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

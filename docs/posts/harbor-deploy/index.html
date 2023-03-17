@@ -59,8 +59,8 @@
 <meta property="og:description" content="harbor deploy" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://sacredartr.github.io/posts/harbor-deploy/" /><meta property="og:image" content="https://sacredartr.github.io/papermod-cover.png"/><meta property="article:section" content="posts" />
-
-
+<meta property="article:published_time" content="2023-02-17T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2023-02-17T00:00:00&#43;00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -103,8 +103,8 @@
   "articleBody": "Harbor Deploy prepare kubernetes cluster helm crictl harbor.tar.xz redis.tar.xz pgo.tar.xz deploy pgo-ha # ctr -n k8s.io image import all pakage cd chart # created pgo namespace kubectl create ns pgo # install pgo controller CRD helm install -n pgo pgo . # check pod kubectl -n pgo get pod NAME READY STATUS RESTARTS AGE pgo-694f6b79bc-gpw2h 1/1 Running 0 16s pgo-694f6b79bc-lw9pl 1/1 Running 0 16s pgo-upgrade-76fdb74df8-ldzcr 1/1 Running 0 16s pgo-upgrade-76fdb74df8-zqrft 1/1 Running 0 16s # install ha-postgres kubectl create ns postgres kubectl -n postgres apply -f ha-postgres.yaml # check pod kubectl -n postgres get pod NAME READY STATUS RESTARTS AGE harbor-backup-c6tq-kzxd5 0/1 Completed 0 5m26s harbor-harbor-ha-instance-8ncb-0 4/4 Running 0 6m16s harbor-harbor-ha-instance-v8np-0 4/4 Running 0 6m16s harbor-pgbouncer-58d57f45d6-82skz 2/2 Running 0 6m15s harbor-pgbouncer-58d57f45d6-rks94 2/2 Running 0 6m15s harbor-repo-host-0 2/2 Running 0 6m16s # get secret kubectl -n postgres get secret harbor-pguser-harbor -o=jsonpath='{@.data.password}' | base64 -d # get host kubectl -n postgres get secret harbor-pguser-harbor -o=jsonpath='{@.data.host}' | base64 -d deploy redis-ha # ctr -n k8s.io image import all pakage cd chart # create redis namespace kubectl create ns redis # install redis helm install -n redis redis . # check pod kubectl -n redis get pod NAME READY STATUS RESTARTS AGE redis-redis-ha-server-0 3/3 Running 0 25s pgo-upgrade-76fdb74df8-zqrft 1/1 Running 0 16s # domain redis+sentienl redis-redis-ha.redis.svc.cluster.local k8s-haproxy redis-redis-ha-haproxy.redis.svc.cluster.local deploy harbor-ha # ctr -n k8s.io image import all pakage cd chart # create namespace kubectl create ns harbor # install harbor helm install -n harbor harbor . # check pod kubectl -n harbor get pod NAME READY STATUS RESTARTS AGE harbor-core-6cb79d76-zcjwn 1/1 Running 0 3m44s harbor-jobservice-6b8bd7d6d9-7247v 1/1 Running 0 3m44s harbor-nginx-7756ccb484-n7vpb 1/1 Running 0 3m44s harbor-portal-57cf48cfc8-7b6tq 1/1 Running 0 10m harbor-registry-cccdf8f69-m8cws 2/2 Running 0 3m44s ",
   "wordCount" : "280",
   "inLanguage": "en",
-  "datePublished": "0001-01-01T00:00:00Z",
-  "dateModified": "0001-01-01T00:00:00Z",
+  "datePublished": "2023-02-17T00:00:00Z",
+  "dateModified": "2023-02-17T00:00:00Z",
   "author":{
     "@type": "Person",
     "name": "sacredartr"
@@ -200,7 +200,7 @@
     <div class="post-description">
       harbor deploy
     </div>
-    <div class="post-meta">2 min&nbsp;·&nbsp;sacredartr
+    <div class="post-meta"><span title='2023-02-17 00:00:00 +0000 UTC'>February 17, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;sacredartr
 
 </div>
   </header> <div class="toc">
@@ -306,15 +306,15 @@ pgo.tar.xz
       <li><a href="https://sacredartr.github.io/tags/harbor/">harbor</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://sacredartr.github.io/posts/linux-daily-tips/">
+  <a class="prev" href="https://sacredartr.github.io/posts/prow-deploy/">
     <span class="title">« Prev</span>
     <br>
-    <span>Linux Daily Tips</span>
+    <span>Prow Deploy</span>
   </a>
-  <a class="next" href="https://sacredartr.github.io/posts/prow-deploy/">
+  <a class="next" href="https://sacredartr.github.io/posts/ceph-deploy/">
     <span class="title">Next »</span>
     <br>
-    <span>Prow Deploy</span>
+    <span>Ceph Deploy</span>
   </a>
 </nav>
 

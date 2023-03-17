@@ -1,6 +1,6 @@
 ---
 title: "Harbor Deploy"
-date: 2023-2-17
+date: 2023-02-17 
 author: "sacredartr"
 description: "harbor deploy"
 tags: ["harbor"]
