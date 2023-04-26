@@ -57,3 +57,32 @@ sed -i "21i EnvironmentFile=/etc/clash/env" /etc/systemd/system/containerd.servi
 systemctl daemon-reload
 systemctl restart containerd
 ```
+
+## patch
+```shell
+kubectl patch  svc mariadb -n cpcs --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"},{"op":"add","path":"/spec/ports/0/nodePort","value":30006}]'
+kubectl patch  svc rabbitmq -n cpcs --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"},{"op":"add","path":"/spec/ports/0/nodePort","value":30007},{"op":"add","path":"/spec/ports/1/nodePort","value":30008},{"op":"add","path":"/spec/ports/2/nodePort","value":30009},{"op":"add","path":"/spec/ports/3/nodePort","value":30010}]'
+```
+
+## delete
+```shell
+kubectl delete --all deploy -n demo
+kubectl delete --all statefulset -n demo
+kubectl delete --all pod -n demo
+kubectl delete --all pvc -n demo
+kubectl delete --all pv -n demo
+kubectl delete ns demo
+```
+
+# images
+```shell
+crictl rmi docker.io/busybox:latest
+ctr -n k8s.io image export busybox.tar.gz docker.io/busybox:latest
+ctr -n k8s.io image import busybox.tar.gz
+ctr -n k8s.io image pull docker.io/busybox:latest
+```
+
+# rollout
+```shell
+kubectl rollout restart deploy busybox
+```

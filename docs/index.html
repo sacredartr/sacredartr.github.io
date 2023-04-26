@@ -180,6 +180,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>keepalived
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>install keepalived yum install -y keepalived set keepalived.conf global_defs { router_id hostname # 标识本节点的字符串，设置为hostname即可 } # 定义脚本来检测服务健康状况 vrrp_script check_run { script &#34;/etc/keepalived/scripts/check.sh&#34; interval 5 # 每5秒检测一次 rise 3 # 连续成功3次才算成功 fall 2 # 连续失败2次才算失败 #weight -20 # 不配置权重值，检测失败就进入故障状态 } vrrp_instance VI_1 { state BACKUP # 节点状态，中心节点为 MASTER，协同节点为 BACKUP interface eth0 # VIP绑定的网卡接口 nopreempt # 设置非抢占模式 virtual_router_id 51 # 虚拟路由id，和备节点保持一致 priority 100 # 优先级，中心节点为 100，协同节点1 为 99，协同节点 2 为 98 mcast_src_ip 10....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-04-26 00:00:00 +0000 UTC'>April 26, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to keepalived" href="https://sacredartr.github.io/posts/keepalived/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Prow Deploy
     </h2>
   </header>
@@ -224,18 +236,6 @@
   </div>
   <footer class="entry-footer"><span title='2022-08-18 00:00:00 +0000 UTC'>August 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Kubernetes Daily Tips" href="https://sacredartr.github.io/posts/kubernetes-daily-tips/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>NLP
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Word frequency # encoding: utf-8 import jieba import pandas as pd import datetime as dt class wordCount(): def __init__(self): self.pre_data() def pre_data(self): jieba.load_userdict(&#39;./dict.txt&#39;) stopwords = pd.read_table(&#39;./stop.txt&#39;) self.stop_list = stopwords[&#34;stop_word&#34;].tolist() self.stop_list.append(&#34;\n&#34;) def run(self, year, month): start = dt.date(year, month, 1) if month == 6: end = dt.date(year, month, 30) else: end = dt.date(year, month, 31) sql = &#34;&#34;&#34;select fund_id, report_date, outlook as sentence from manager_viewpoint where report_date between &#39;{}&#39; and &#39;{}&#39;&#34;&#34;&#34;.format(dt.datetime.strftime(start, &#39;%Y-%m-%d&#39;), dt....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-08-18 00:00:00 +0000 UTC'>August 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
-  <a class="entry-link" aria-label="post link to NLP" href="https://sacredartr.github.io/posts/nlp/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
