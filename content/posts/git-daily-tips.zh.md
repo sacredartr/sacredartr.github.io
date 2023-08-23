@@ -14,13 +14,20 @@ TocOpen: true
 # Git Daily Tips
 
 ## git 后续 提交
-```console
+```shell
 git commit --amend
 ```
 
 ## git 区分大小写
-```console
+```shell
 git config core.ignorecase false
 git mv -f old new
 ```
 
+# submodule
+```shell
+git submodule add <submodule_url>
+git submodule init
+git submodule update
+git submodule update --remote
+```

@@ -153,6 +153,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Kubernetes Daily Tips
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Kubernetes Daily Tips docker add proxy cat&gt;&gt;/etc/profile&lt;&lt;EOF export http_proxy=http://$IP:7890 export https_proxy=http://$IP:7890 export no_proxy=&#34;localhost, 127.0.0.1&#34; EOF source /etc/profile rm -rf /etc/clash/env mkdir -pv /etc/clash cat&gt;/etc/clash/env&lt;&lt;EOF http_proxy=http://$IP:7890 https_proxy=http://$IP:7890 no_proxy=&#34;localhost, 127.0.0.1&#34; EOF mkdir -pv /etc/systemd/system/docker.service.d rm -rf /etc/systemd/system/docker.service.d/proxy.conf cat&gt;/etc/systemd/system/docker.service.d/proxy.conf&lt;&lt;EOF [Service] EnvironmentFile=/etc/clash/env EOF systemctl daemon-reload systemctl restart docker containerd add proxy cat&gt;&gt;/etc/profile&lt;&lt;EOF export http_proxy=http://$IP:7890 export https_proxy=http://$IP:7890 export no_proxy=&#34;localhost, 127.0.0.1&#34; EOF source /etc/profile rm -rf /etc/clash/env mkdir -pv /etc/clash cat&gt;/etc/clash/env&lt;&lt;EOF http_proxy=http://$IP:7890 https_proxy=http://$IP:7890 no_proxy=&#34;localhost, 127.0.0.1&#34; EOF sed -i &#34;21i EnvironmentFile=/etc/clash/env&#34; /etc/systemd/system/containerd....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-08-18 00:00:00 +0000 UTC'>August 18, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to Kubernetes Daily Tips" href="https://sacredartr.github.io/posts/kubernetes-daily-tips/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>NLP
     </h2>
   </header>
@@ -193,26 +205,15 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Git Daily Tips git subsequent commit git commit --amend git case sensitive git config core.ignorecase false git mv -f old new </p>
+    <p>Git Daily Tips git subsequent commit git commit --amend git case sensitive git config core.ignorecase false git mv -f old new submodule git submodule add &lt;submodule_url&gt; git submodule init git submodule update git submodule update --remote </p>
   </div>
   <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>August 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Git Daily Tips" href="https://sacredartr.github.io/posts/git-daily-tips/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Linux Daily Tips
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Linux Daily Tips clear file cat /dev/null &gt; file xargs ls ./* | xargs -i cp {} /tmp/ sed sed -i &#39;s/password: .*/password: 123456/g&#39; file awk cat file | awk &#39;$1 ~ /th/ {print $1}&#39; ignore error message unalias cp 2&gt;/dev/null || true append content to file echo &#39;content&#39; &gt;&gt; file login to get token token=$(curl -X POST &#34;http://$external_ip/api/v1/login&#34; --header &#39;Content-Type: application/json&#39; --data &#39;{&#34;username&#34;: &#34;root&#34;,&#34;password&#34;: &#34;******&#34;}&#39; | awk -F&#34;[,:}]&#34; &#39;{for(i=1;i&lt;=NF;i&#43;&#43;){print $(i&#43;1)}}&#39; | tr -d &#39;&#34;&#39; | sed -n 1p) input when executing command echo yes | sh deploy....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>August 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
-  <a class="entry-link" aria-label="post link to Linux Daily Tips" href="https://sacredartr.github.io/posts/linux-daily-tips/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://sacredartr.github.io/">« Prev</a>
+    <a class="next" href="https://sacredartr.github.io/page/3/">Next »</a>
   </nav>
 </footer>
     </main>

@@ -14,12 +14,20 @@ TocOpen: true
 # Git Daily Tips
 
 ## git subsequent commit
-```console
+```shell
 git commit --amend
 ```
 
 ## git case sensitive
-```console
+```shell
 git config core.ignorecase false
 git mv -f old new
+```
+
+# submodule
+```shell
+git submodule add <submodule_url>
+git submodule init
+git submodule update
+git submodule update --remote
 ```

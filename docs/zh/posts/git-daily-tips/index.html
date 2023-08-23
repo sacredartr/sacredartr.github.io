@@ -101,8 +101,8 @@
   "keywords": [
     "git"
   ],
-  "articleBody": "Git Daily Tips git 后续 提交 git commit --amend git 区分大小写 git config core.ignorecase false git mv -f old new ",
-  "wordCount" : "20",
+  "articleBody": "Git Daily Tips git 后续 提交 git commit --amend git 区分大小写 git config core.ignorecase false git mv -f old new submodule git submodule add git submodule init git submodule update git submodule update --remote ",
+  "wordCount" : "35",
   "inLanguage": "zh",
   "datePublished": "2022-08-16T00:00:00Z",
   "dateModified": "2022-08-16T00:00:00Z",
@@ -222,10 +222,11 @@
                 <li>
                     <a href="#git-%e5%90%8e%e7%bb%ad-%e6%8f%90%e4%ba%a4" aria-label="git 后续 提交">git 后续 提交</a></li>
                 <li>
-                    <a href="#git-%e5%8c%ba%e5%88%86%e5%a4%a7%e5%b0%8f%e5%86%99" aria-label="git 区分大小写">git 区分大小写</a>
+                    <a href="#git-%e5%8c%ba%e5%88%86%e5%a4%a7%e5%b0%8f%e5%86%99" aria-label="git 区分大小写">git 区分大小写</a></li></ul>
                 </li>
-            </ul>
-            </li>
+                <li>
+                    <a href="#submodule" aria-label="submodule">submodule</a>
+                </li>
             </ul>
         </div>
     </details>
@@ -233,11 +234,16 @@
 
   <div class="post-content"><h1 id="git-daily-tips">Git Daily Tips<a hidden class="anchor" aria-hidden="true" href="#git-daily-tips">#</a></h1>
 <h2 id="git-后续-提交">git 后续 提交<a hidden class="anchor" aria-hidden="true" href="#git-后续-提交">#</a></h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">git commit --amend
-</span></span></span></code></pre></div><h2 id="git-区分大小写">git 区分大小写<a hidden class="anchor" aria-hidden="true" href="#git-区分大小写">#</a></h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">git config core.ignorecase false
-</span></span></span><span class="line"><span class="cl"><span class="go">git mv -f old new
-</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git commit --amend
+</span></span></code></pre></div><h2 id="git-区分大小写">git 区分大小写<a hidden class="anchor" aria-hidden="true" href="#git-区分大小写">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config core.ignorecase <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">git mv -f old new
+</span></span></code></pre></div><h1 id="submodule">submodule<a hidden class="anchor" aria-hidden="true" href="#submodule">#</a></h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git submodule add &lt;submodule_url&gt;
+</span></span><span class="line"><span class="cl">git submodule init
+</span></span><span class="line"><span class="cl">git submodule update
+</span></span><span class="line"><span class="cl">git submodule update --remote
+</span></span></code></pre></div>
 
   </div>
 

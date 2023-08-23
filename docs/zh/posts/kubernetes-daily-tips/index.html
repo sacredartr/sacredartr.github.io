@@ -102,7 +102,7 @@
     "kubernetes"
   ],
   "articleBody": "Kubernetes Daily Tips docker 添加代理 cat\u003e\u003e/etc/profile\u003c",
-  "wordCount" : "161",
+  "wordCount" : "181",
   "inLanguage": "zh",
   "datePublished": "2022-08-18T00:00:00Z",
   "dateModified": "2022-08-18T00:00:00Z",
@@ -226,13 +226,16 @@
                 <li>
                     <a href="#patch" aria-label="patch">patch</a></li>
                 <li>
-                    <a href="#delete" aria-label="delete">delete</a></li></ul>
-                </li>
+                    <a href="#delete" aria-label="delete">delete</a></li>
                 <li>
                     <a href="#images" aria-label="images">images</a></li>
                 <li>
-                    <a href="#rollout" aria-label="rollout">rollout</a>
+                    <a href="#rollout" aria-label="rollout">rollout</a></li>
+                <li>
+                    <a href="#namespace-delete-failed" aria-label="namespace delete failed">namespace delete failed</a>
                 </li>
+            </ul>
+            </li>
             </ul>
         </div>
     </details>
@@ -288,14 +291,18 @@
 </span></span><span class="line"><span class="cl">kubectl delete --all pvc -n demo
 </span></span><span class="line"><span class="cl">kubectl delete --all pv -n demo
 </span></span><span class="line"><span class="cl">kubectl delete ns demo
-</span></span></code></pre></div><h1 id="images">images<a hidden class="anchor" aria-hidden="true" href="#images">#</a></h1>
+</span></span></code></pre></div><h2 id="images">images<a hidden class="anchor" aria-hidden="true" href="#images">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">crictl rmi docker.io/busybox:latest
 </span></span><span class="line"><span class="cl">ctr -n k8s.io image <span class="nb">export</span> busybox.tar.gz docker.io/busybox:latest
 </span></span><span class="line"><span class="cl">ctr -n k8s.io image import busybox.tar.gz
 </span></span><span class="line"><span class="cl">ctr -n k8s.io image pull docker.io/busybox:latest
-</span></span></code></pre></div><h1 id="rollout">rollout<a hidden class="anchor" aria-hidden="true" href="#rollout">#</a></h1>
+</span></span></code></pre></div><h2 id="rollout">rollout<a hidden class="anchor" aria-hidden="true" href="#rollout">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl rollout restart deploy busybox
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="namespace-delete-failed">namespace delete failed<a hidden class="anchor" aria-hidden="true" href="#namespace-delete-failed">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">1. kubect  delete crd resource -n caas --force
+</span></span></span><span class="line"><span class="cl"><span class="go">2. kubectl edit crd resource -n caas
+</span></span></span><span class="line"><span class="cl"><span class="go">   remove finalizer 
+</span></span></span></code></pre></div>
 
   </div>
 

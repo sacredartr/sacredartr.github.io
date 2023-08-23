@@ -74,7 +74,7 @@ kubectl delete --all pv -n demo
 kubectl delete ns demo
 ```
 
-# images
+## images
 ```shell
 crictl rmi docker.io/busybox:latest
 ctr -n k8s.io image export busybox.tar.gz docker.io/busybox:latest
@@ -82,7 +82,14 @@ ctr -n k8s.io image import busybox.tar.gz
 ctr -n k8s.io image pull docker.io/busybox:latest
 ```
 
-# rollout
+## rollout
 ```shell
 kubectl rollout restart deploy busybox
+```
+
+## namespace delete failed
+```console
+1. kubect  delete crd resource -n caas --force
+2. kubectl edit crd resource -n caas
+   remove finalizer 
 ```
