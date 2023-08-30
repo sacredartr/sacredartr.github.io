@@ -101,7 +101,7 @@
     "linux"
   ],
   "articleBody": "Linux Daily Tips clear file cat /dev/null \u003e file xargs ls ./* | xargs -i cp {} /tmp/ sed sed -i 's/password: .*/password: 123456/g' file awk cat file | awk '$1 ~ /th/ {print $1}' ignore error message unalias cp 2\u003e/dev/null || true append content to file echo 'content' \u003e\u003e file login to get token token=$(curl -X POST \"http://$external_ip/api/v1/login\" --header 'Content-Type: application/json' --data '{\"username\": \"root\",\"password\": \"******\"}' | awk -F\"[,:}]\" '{for(i=1;i\u003c=NF;i++){print $(i+1)}}' | tr -d '\"' | sed -n 1p) input when executing command echo yes | sh deploy.sh append content to end of file cat\u003e\u003e/etc/profile\u003c",
-  "wordCount" : "111",
+  "wordCount" : "134",
   "inLanguage": "en",
   "datePublished": "2022-08-16T00:00:00Z",
   "dateModified": "2022-08-16T00:00:00Z",
@@ -232,7 +232,9 @@
                 <li>
                     <a href="#append-content-to-end-of-file" aria-label="append content to end of file">append content to end of file</a></li>
                 <li>
-                    <a href="#append-content-to-anywhere-in-the-file" aria-label="append content to anywhere in the file">append content to anywhere in the file</a>
+                    <a href="#append-content-to-anywhere-in-the-file" aria-label="append content to anywhere in the file">append content to anywhere in the file</a></li>
+                <li>
+                    <a href="#execute-shell-on-ssh-command" aria-label="execute shell on ssh command">execute shell on ssh command</a>
                 </li>
             </ul>
             </li>
@@ -264,6 +266,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="go">EOF
 </span></span></span></code></pre></div><h2 id="append-content-to-anywhere-in-the-file">append content to anywhere in the file<a hidden class="anchor" aria-hidden="true" href="#append-content-to-anywhere-in-the-file">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">sed -i &#34;21i EnvironmentFile=/etc/clash/env&#34; /etc/systemd/system/containerd.service
+</span></span></span></code></pre></div><h2 id="execute-shell-on-ssh-command">execute shell on ssh command<a hidden class="anchor" aria-hidden="true" href="#execute-shell-on-ssh-command">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">ssh -i ~/.ssh/key root@${HOST_IP} &#39;bash -s&#39; &lt;&lt; &#39;END&#39;
+</span></span></span><span class="line"><span class="cl"><span class="go">kubectl patch  svc demo -n demo --type=&#39;json&#39; -p &#39;[{&#34;op&#34;:&#34;replace&#34;,&#34;path&#34;:&#34;/spec/type&#34;,&#34;value&#34;:&#34;NodePort&#34;},{&#34;op&#34;:&#34;add&#34;,&#34;path&#34;:&#34;/spec/ports/0/nodePort&#34;,&#34;value&#34;:30011}]&#39;
+</span></span></span><span class="line"><span class="cl"><span class="go">END
 </span></span></span></code></pre></div>
 
   </div>

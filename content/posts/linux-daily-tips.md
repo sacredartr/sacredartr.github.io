@@ -64,3 +64,12 @@ EOF
 ```console
 sed -i "21i EnvironmentFile=/etc/clash/env" /etc/systemd/system/containerd.service
 ```
+
+
+## execute shell on ssh command
+```console
+ssh -i ~/.ssh/key root@${HOST_IP} 'bash -s' << 'END'
+kubectl patch  svc demo -n demo --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"},{"op":"add","path":"/spec/ports/0/nodePort","value":30011}]'
+END
+```
+
