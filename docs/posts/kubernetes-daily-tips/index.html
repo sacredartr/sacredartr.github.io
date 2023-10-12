@@ -102,7 +102,7 @@
     "kubernetes"
   ],
   "articleBody": "Kubernetes Daily Tips docker add proxy cat\u003e\u003e/etc/profile\u003c",
-  "wordCount" : "183",
+  "wordCount" : "208",
   "inLanguage": "en",
   "datePublished": "2022-08-18T00:00:00Z",
   "dateModified": "2022-08-18T00:00:00Z",
@@ -302,6 +302,10 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">1. kubect  delete crd resource -n caas --force
 </span></span></span><span class="line"><span class="cl"><span class="go">2. kubectl edit crd resource -n caas
 </span></span></span><span class="line"><span class="cl"><span class="go">   remove finalizer 
+</span></span></span><span class="line"><span class="cl"><span class="go">3. kubectl get namespace monitoring -o json &gt; monitoring.json
+</span></span></span><span class="line"><span class="cl"><span class="go">   vi monitoring.json remove finalizer
+</span></span></span><span class="line"><span class="cl"><span class="go">   kubectl proxy
+</span></span></span><span class="line"><span class="cl"><span class="go">   curl -k -H &#34;Content-Type: application/json&#34; -X PUT --data-binary @monitoring.json http://127.0.0.1:8001/api/v1/namespaces/monitoring/finalize
 </span></span></span></code></pre></div>
 
   </div>

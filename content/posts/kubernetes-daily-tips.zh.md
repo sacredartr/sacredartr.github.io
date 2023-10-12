@@ -92,4 +92,8 @@ kubectl rollout restart deploy busybox
 1. kubect  delete crd resource -n caas --force
 2. kubectl edit crd resource -n caas
    remove finalizer 
+3. kubectl get namespace monitoring -o json > monitoring.json
+   vi monitoring.json remove finalizer
+   kubectl proxy
+   curl -k -H "Content-Type: application/json" -X PUT --data-binary @monitoring.json http://127.0.0.1:8001/api/v1/namespaces/monitoring/finalize
 ```
