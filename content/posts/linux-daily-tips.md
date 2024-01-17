@@ -65,11 +65,23 @@ EOF
 sed -i "21i EnvironmentFile=/etc/clash/env" /etc/systemd/system/containerd.service
 ```
 
-
 ## execute shell on ssh command
 ```console
 ssh -i ~/.ssh/key root@${HOST_IP} 'bash -s' << 'END'
 kubectl patch  svc demo -n demo --type='json' -p '[{"op":"replace","path":"/spec/type","value":"NodePort"},{"op":"add","path":"/spec/ports/0/nodePort","value":30011}]'
 END
+```
+
+## delete matching directory
+```console
+find /tmp/ -maxdepth 1 -name 'yarn*' | xargs rm -rf
+```
+
+## configure automatic disk mounting
+```console
+# find UUID
+blkid /dev/vdb1
+vi /etc/fstab
+UUID=a7dd2c70-132e-446e-a0f8-41d6547445fb /data ext4 defaults 0 0
 ```
 

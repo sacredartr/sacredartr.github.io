@@ -101,7 +101,7 @@
     "linux"
   ],
   "articleBody": "Linux Daily Tips clear file cat /dev/null \u003e file xargs ls ./* | xargs -i cp {} /tmp/ sed sed -i 's/password: .*/password: 123456/g' file awk cat file | awk '$1 ~ /th/ {print $1}' ignore error message unalias cp 2\u003e/dev/null || true append content to file echo 'content' \u003e\u003e file login to get token token=$(curl -X POST \"http://$external_ip/api/v1/login\" --header 'Content-Type: application/json' --data '{\"username\": \"root\",\"password\": \"******\"}' | awk -F\"[,:}]\" '{for(i=1;i\u003c=NF;i++){print $(i+1)}}' | tr -d '\"' | sed -n 1p) input when executing command echo yes | sh deploy.sh append content to end of file cat\u003e\u003e/etc/profile\u003c",
-  "wordCount" : "134",
+  "wordCount" : "164",
   "inLanguage": "en",
   "datePublished": "2022-08-16T00:00:00Z",
   "dateModified": "2022-08-16T00:00:00Z",
@@ -234,7 +234,11 @@
                 <li>
                     <a href="#append-content-to-anywhere-in-the-file" aria-label="append content to anywhere in the file">append content to anywhere in the file</a></li>
                 <li>
-                    <a href="#execute-shell-on-ssh-command" aria-label="execute shell on ssh command">execute shell on ssh command</a>
+                    <a href="#execute-shell-on-ssh-command" aria-label="execute shell on ssh command">execute shell on ssh command</a></li>
+                <li>
+                    <a href="#delete-matching-directory" aria-label="delete matching directory">delete matching directory</a></li>
+                <li>
+                    <a href="#configure-automatic-disk-mounting" aria-label="configure automatic disk mounting">configure automatic disk mounting</a>
                 </li>
             </ul>
             </li>
@@ -270,6 +274,13 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">ssh -i ~/.ssh/key root@${HOST_IP} &#39;bash -s&#39; &lt;&lt; &#39;END&#39;
 </span></span></span><span class="line"><span class="cl"><span class="go">kubectl patch  svc demo -n demo --type=&#39;json&#39; -p &#39;[{&#34;op&#34;:&#34;replace&#34;,&#34;path&#34;:&#34;/spec/type&#34;,&#34;value&#34;:&#34;NodePort&#34;},{&#34;op&#34;:&#34;add&#34;,&#34;path&#34;:&#34;/spec/ports/0/nodePort&#34;,&#34;value&#34;:30011}]&#39;
 </span></span></span><span class="line"><span class="cl"><span class="go">END
+</span></span></span></code></pre></div><h2 id="delete-matching-directory">delete matching directory<a hidden class="anchor" aria-hidden="true" href="#delete-matching-directory">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">find /tmp/ -maxdepth 1 -name &#39;yarn*&#39; | xargs rm -rf
+</span></span></span></code></pre></div><h2 id="configure-automatic-disk-mounting">configure automatic disk mounting<a hidden class="anchor" aria-hidden="true" href="#configure-automatic-disk-mounting">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">#</span> find UUID
+</span></span><span class="line"><span class="cl"><span class="go">blkid /dev/vdb1
+</span></span></span><span class="line"><span class="cl"><span class="go">vi /etc/fstab
+</span></span></span><span class="line"><span class="cl"><span class="go">UUID=a7dd2c70-132e-446e-a0f8-41d6547445fb /data ext4 defaults 0 0
 </span></span></span></code></pre></div>
 
   </div>
@@ -336,7 +347,7 @@
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://sacredartr.github.io/">sacred&#39;s blog</a></span>
+    <span>&copy; 2024 <a href="https://sacredartr.github.io/">sacred&#39;s blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
