@@ -166,6 +166,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Ceph Deploy
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Ceph Deploy prepare 3 centos x86 |10.0.0.1|2C|4G|50G|mount 50G disk| |10.0.0.2|2C|4G|50G|mount 50G disk| |10.0.0.3|2C|4G|50G|mount50G disk| hostnamectl set-hostname node1 hostnamectl set-hostname node2 hostnamectl set-hostname node3 cat &gt;&gt; /etc/hosts &lt;&lt;EOF 10.0.0.1 node1 10.0.0.2 node2 10.0.0.3 node3 EOF install dependent packages on 3 machine cat &gt; /etc/yum.repos.d/ceph.repo &lt;&lt;EOF [noarch] name=Ceph noarch baseurl=https://mirrors.aliyun.com/ceph/rpm-nautilus/el7/noarch/ enabled=1 gpgcheck=0 [x86_64] name=Ceph x86_64 baseurl=https://mirrors.aliyun.com/ceph/rpm-nautilus/el7/x86_64/ enabled=1 gpgcheck=0 EOF systemctl disable --now firewalld setenforce 0 sed -i &#39;s/^SELINUX=.*/SELINUX=disabled/&#39; /etc/selinux/config yum install -y chrony epel-release wget yum-utils systemctl enable --now chronyd yum install -y openssl-devel openssl-static zlib-devel lzma tk-devel xz-devel bzip2-devel ncurses-devel gdbm-devel readline-devel sqlite-devel gcc libffi-devel lvm2 install python on 3 machine wget https://www....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-12-19 00:00:00 +0000 UTC'>December 19, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to Ceph Deploy" href="https://sacredartr.github.io/posts/ceph-deploy/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Kubernetes Daily Tips
     </h2>
   </header>
@@ -210,18 +222,6 @@
   </div>
   <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>August 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Docker Daily Tips" href="https://sacredartr.github.io/posts/docker-daily-tips/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Git Daily Tips
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Git Daily Tips git subsequent commit git commit --amend git case sensitive git config core.ignorecase false git mv -f old new submodule git submodule add &lt;submodule_url&gt; git submodule init git submodule update git submodule update --remote </p>
-  </div>
-  <footer class="entry-footer"><span title='2022-08-16 00:00:00 +0000 UTC'>August 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
-  <a class="entry-link" aria-label="post link to Git Daily Tips" href="https://sacredartr.github.io/posts/git-daily-tips/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
