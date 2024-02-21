@@ -19,7 +19,6 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" hreflang="en" href="https://sacredartr.github.io/posts/docker-daily-tips/">
-<link rel="alternate" hreflang="zh" href="https://sacredartr.github.io/zh/posts/docker-daily-tips/">
 <noscript>
     <style>
         #theme-toggle,
@@ -101,8 +100,8 @@
   "keywords": [
     "docker"
   ],
-  "articleBody": "Docker Daily Tips clear all containers docker stop $(docker ps -q) \u0026\u0026 docker rm $(docker ps -aq) docker pull:error response from daemon yum install bind-utils dig @114.114.114.114 registry-1.docker.io echo \"54.175.43.85 registry-1.docker.io\" \u003e\u003e /etc/hosts clear specified containers docker stop $(docker ps -a|grep hours|awk '{print $1}') \u0026\u0026 docker rm $(docker ps -a|grep hours|awk '{print $1}') create docker https registry mkdir -p /opt/docker/registry/certs openssl req -newkey rsa:4096 -nodes -sha256 -keyout /opt/docker/registry/certs/domain.key -x509 -days 365 -out /opt/docker/registry/certs/domain.crt docker run -d --name registry2 -p 5000:5000 -v /opt/docker/registry/certs:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key registry:2 use docker https registry scp /opt/docker/registry/certs/domain.crt /etc/docker/certs.d/registry.docker.com:5000/ca.crt docker pull busybox:latest docker tag busybox registry.docker.com:5000/busybox:latest docker push registry.docker.com:5000/busybox:latest curl -X GET https://registry.docker.com:5000/v2/_catalog -k create random image FROM busybox:latest COPY test-data /test-data yum -y install buildah #!/bin bash tag=$1 for ((i=1;i\u003c=100;i++)); do echo busybox:v$tag-$i dd if=/dev/random of=test-data bs=2M count=1 buildah bud --tag busybox:v$tag-$i rm -rf test-data buildah push localhost/busybox:v$tag-$i docker-daemon:busybox:v$tag-$i done ",
-  "wordCount" : "146",
+  "articleBody": "Docker Daily Tips clear all containers docker stop $(docker ps -q) \u0026\u0026 docker rm $(docker ps -aq) docker pull:error response from daemon yum install bind-utils dig @114.114.114.114 registry-1.docker.io echo \"54.175.43.85 registry-1.docker.io\" \u003e\u003e /etc/hosts clear specified containers docker stop $(docker ps -a|grep hours|awk '{print $1}') \u0026\u0026 docker rm $(docker ps -a|grep hours|awk '{print $1}') create docker https registry mkdir -p /opt/docker/registry/certs openssl req -newkey rsa:4096 -nodes -sha256 -keyout /opt/docker/registry/certs/domain.key -x509 -days 365 -out /opt/docker/registry/certs/domain.crt docker run -d --name registry2 -p 5000:5000 -v /opt/docker/registry/certs:/certs -e REGISTRY_HTTP_TLS_CERTIFICATE=/certs/domain.crt -e REGISTRY_HTTP_TLS_KEY=/certs/domain.key registry:2 use docker https registry scp /opt/docker/registry/certs/domain.crt /etc/docker/certs.d/registry.docker.com:5000/ca.crt docker pull busybox:latest docker tag busybox registry.docker.com:5000/busybox:latest docker push registry.docker.com:5000/busybox:latest curl -X GET https://registry.docker.com:5000/v2/_catalog -k create random image FROM busybox:latest COPY test-data /test-data yum -y install buildah #!/bin bash tag=$1 for ((i=1;i\u003c=100;i++)); do echo busybox:v$tag-$i dd if=/dev/random of=test-data bs=2M count=1 buildah bud --tag busybox:v$tag-$i rm -rf test-data buildah push localhost/busybox:v$tag-$i docker-daemon:busybox:v$tag-$i done docker add proxy cat\u003e\u003e/etc/profile\u003c",
+  "wordCount" : "187",
   "inLanguage": "en",
   "datePublished": "2022-08-16T00:00:00Z",
   "dateModified": "2022-08-16T00:00:00Z",
@@ -201,12 +200,7 @@
     <div class="post-description">
       Docker tips for daily use
     </div>
-    <div class="post-meta"><span title='2022-08-16 00:00:00 +0000 UTC'>August 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr&nbsp;|&nbsp;Translations:
-<ul class="i18n_list">
-    <li>
-        <a href="https://sacredartr.github.io/zh/posts/docker-daily-tips/">Chinese</a>
-    </li>
-</ul>
+    <div class="post-meta"><span title='2022-08-16 00:00:00 +0000 UTC'>August 16, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr
 
 </div>
   </header> <div class="toc">
@@ -230,7 +224,9 @@
                 <li>
                     <a href="#use-docker-https-registry" aria-label="use docker https registry">use docker https registry</a></li>
                 <li>
-                    <a href="#create-random-image" aria-label="create random image">create random image</a>
+                    <a href="#create-random-image" aria-label="create random image">create random image</a></li>
+                <li>
+                    <a href="#docker-add-proxy" aria-label="docker add proxy">docker add proxy</a>
                 </li>
             </ul>
             </li>
@@ -272,6 +268,28 @@ echo &#34;54.175.43.85    registry-1.docker.io&#34; &gt;&gt; /etc/hosts
 </span></span><span class="line"><span class="cl">rm -rf test-data
 </span></span><span class="line"><span class="cl">buildah push localhost/busybox:v<span class="nv">$tag</span>-<span class="nv">$i</span> docker-daemon:busybox:v<span class="nv">$tag</span>-<span class="nv">$i</span>
 </span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></div><h2 id="docker-add-proxy">docker add proxy<a hidden class="anchor" aria-hidden="true" href="#docker-add-proxy">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cat&gt;&gt;/etc/profile<span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">export http_proxy=http://$IP:7890
+</span></span></span><span class="line"><span class="cl"><span class="s">export https_proxy=http://$IP:7890
+</span></span></span><span class="line"><span class="cl"><span class="s">export no_proxy=&#34;localhost, 127.0.0.1&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> /etc/profile
+</span></span><span class="line"><span class="cl">rm -rf /etc/clash/env
+</span></span><span class="line"><span class="cl">mkdir -pv /etc/clash
+</span></span><span class="line"><span class="cl">cat&gt;/etc/clash/env<span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">http_proxy=http://$IP:7890
+</span></span></span><span class="line"><span class="cl"><span class="s">https_proxy=http://$IP:7890
+</span></span></span><span class="line"><span class="cl"><span class="s">no_proxy=&#34;localhost, 127.0.0.1&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">mkdir -pv /etc/systemd/system/docker.service.d
+</span></span><span class="line"><span class="cl">rm -rf /etc/systemd/system/docker.service.d/proxy.conf
+</span></span><span class="line"><span class="cl">cat&gt;/etc/systemd/system/docker.service.d/proxy.conf<span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">[Service]
+</span></span></span><span class="line"><span class="cl"><span class="s">EnvironmentFile=/etc/clash/env
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">systemctl daemon-reload
+</span></span><span class="line"><span class="cl">systemctl restart docker
 </span></span></code></pre></div>
 
   </div>

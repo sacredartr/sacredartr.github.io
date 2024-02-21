@@ -9,7 +9,16 @@
       <link>https://sacredartr.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 18 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/zh/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/zh/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>keepalived</title>
+      <link>https://sacredartr.github.io/zh/posts/keepalived/</link>
+      <pubDate>Wed, 26 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/posts/keepalived/</guid>
+      <description>keepalived</description>
+    </item>
+    
     <item>
       <title>Fund Investment</title>
       <link>https://sacredartr.github.io/zh/posts/fund-investment/</link>
@@ -17,42 +26,6 @@
       
       <guid>https://sacredartr.github.io/zh/posts/fund-investment/</guid>
       <description>fund investment</description>
-    </item>
-    
-    <item>
-      <title>Kubernetes Daily Tips</title>
-      <link>https://sacredartr.github.io/zh/posts/kubernetes-daily-tips/</link>
-      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://sacredartr.github.io/zh/posts/kubernetes-daily-tips/</guid>
-      <description>Kubernetes tips for daily use</description>
-    </item>
-    
-    <item>
-      <title>Tools Daily Tips</title>
-      <link>https://sacredartr.github.io/zh/posts/tools-daily-tips/</link>
-      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://sacredartr.github.io/zh/posts/tools-daily-tips/</guid>
-      <description>Tools tips for daily use</description>
-    </item>
-    
-    <item>
-      <title>Docker Daily Tips</title>
-      <link>https://sacredartr.github.io/zh/posts/docker-daily-tips/</link>
-      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://sacredartr.github.io/zh/posts/docker-daily-tips/</guid>
-      <description>Docker tips for daily use</description>
-    </item>
-    
-    <item>
-      <title>Git Daily Tips</title>
-      <link>https://sacredartr.github.io/zh/posts/git-daily-tips/</link>
-      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://sacredartr.github.io/zh/posts/git-daily-tips/</guid>
-      <description>Git tips for daily use</description>
     </item>
     
     <item>

@@ -100,8 +100,8 @@
   "keywords": [
     "tools"
   ],
-  "articleBody": "bandit pip3 install bandit bandit -r project ",
-  "wordCount" : "7",
+  "articleBody": "bandit pip3 install bandit bandit -r project sonarqube mkdir -pv /usr/app/sonar/postgresql mkdir -pv /usr/app/sonar/data mkdir -pv /usr/app/sonar/extensions mkdir -pv /usr/app/sonar/conf chomd 777 /usr/app/sonar/postgresql chomd 777 /usr/app/sonar/data chomd 777 /usr/app/sonar/extensions chomd 777 /usr/app/sonar/conf kubectl apply -f pgo.yaml -n sonarqube kubectl apply -f sonarqube.yaml -n sonarqube sonar-scanner download: https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/sonarscanner/ export PATH=\"$PATH:/root/sonar-scanner/bin\" conf: sonar-project.properties start: sonar-scanner ",
+  "wordCount" : "53",
   "inLanguage": "en",
   "datePublished": "2024-02-01T00:00:00Z",
   "dateModified": "2024-02-01T00:00:00Z",
@@ -211,7 +211,11 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#bandit" aria-label="bandit">bandit</a>
+                    <a href="#bandit" aria-label="bandit">bandit</a></li>
+                <li>
+                    <a href="#sonarqube" aria-label="sonarqube">sonarqube</a></li>
+                <li>
+                    <a href="#sonar-scanner" aria-label="sonar-scanner">sonar-scanner</a>
                 </li>
             </ul>
         </div>
@@ -221,6 +225,22 @@
   <div class="post-content"><h2 id="bandit">bandit<a hidden class="anchor" aria-hidden="true" href="#bandit">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">pip3 install bandit
 </span></span></span><span class="line"><span class="cl"><span class="go">bandit -r project
+</span></span></span></code></pre></div><h2 id="sonarqube">sonarqube<a hidden class="anchor" aria-hidden="true" href="#sonarqube">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">mkdir -pv /usr/app/sonar/postgresql
+</span></span></span><span class="line"><span class="cl"><span class="go">mkdir -pv /usr/app/sonar/data
+</span></span></span><span class="line"><span class="cl"><span class="go">mkdir -pv /usr/app/sonar/extensions
+</span></span></span><span class="line"><span class="cl"><span class="go">mkdir -pv /usr/app/sonar/conf
+</span></span></span><span class="line"><span class="cl"><span class="go">chomd 777 /usr/app/sonar/postgresql
+</span></span></span><span class="line"><span class="cl"><span class="go">chomd 777 /usr/app/sonar/data
+</span></span></span><span class="line"><span class="cl"><span class="go">chomd 777 /usr/app/sonar/extensions
+</span></span></span><span class="line"><span class="cl"><span class="go">chomd 777 /usr/app/sonar/conf
+</span></span></span><span class="line"><span class="cl"><span class="go">kubectl apply -f pgo.yaml -n sonarqube
+</span></span></span><span class="line"><span class="cl"><span class="go">kubectl apply -f sonarqube.yaml -n sonarqube
+</span></span></span></code></pre></div><h2 id="sonar-scanner">sonar-scanner<a hidden class="anchor" aria-hidden="true" href="#sonar-scanner">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">download: https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/sonarscanner/
+</span></span></span><span class="line"><span class="cl"><span class="go">export PATH=&#34;$PATH:/root/sonar-scanner/bin&#34;
+</span></span></span><span class="line"><span class="cl"><span class="go">conf: sonar-project.properties
+</span></span></span><span class="line"><span class="cl"><span class="go">start: sonar-scanner
 </span></span></span></code></pre></div>
 
   </div>

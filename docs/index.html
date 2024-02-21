@@ -184,7 +184,7 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>bandit pip3 install bandit bandit -r project </p>
+    <p>bandit pip3 install bandit bandit -r project sonarqube mkdir -pv /usr/app/sonar/postgresql mkdir -pv /usr/app/sonar/data mkdir -pv /usr/app/sonar/extensions mkdir -pv /usr/app/sonar/conf chomd 777 /usr/app/sonar/postgresql chomd 777 /usr/app/sonar/data chomd 777 /usr/app/sonar/extensions chomd 777 /usr/app/sonar/conf kubectl apply -f pgo.yaml -n sonarqube kubectl apply -f sonarqube.yaml -n sonarqube sonar-scanner download: https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/sonarscanner/ export PATH=&#34;$PATH:/root/sonar-scanner/bin&#34; conf: sonar-project.properties start: sonar-scanner </p>
   </div>
   <footer class="entry-footer"><span title='2024-02-01 00:00:00 +0000 UTC'>February 1, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Testing Tools" href="https://sacredartr.github.io/posts/testing-tools/"></a>
@@ -200,18 +200,6 @@
   </div>
   <footer class="entry-footer"><span title='2023-08-23 00:00:00 +0000 UTC'>August 23, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to helm" href="https://sacredartr.github.io/posts/helm/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>keepalived
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>install keepalived yum install -y keepalived set keepalived.conf global_defs { router_id hostname # 标识本节点的字符串，设置为hostname即可 } # 定义脚本来检测服务健康状况 vrrp_script check_run { script &#34;/etc/keepalived/scripts/check.sh&#34; interval 5 # 每5秒检测一次 rise 3 # 连续成功3次才算成功 fall 2 # 连续失败2次才算失败 #weight -20 # 不配置权重值，检测失败就进入故障状态 } vrrp_instance VI_1 { state BACKUP # 节点状态，中心节点为 MASTER，协同节点为 BACKUP interface eth0 # VIP绑定的网卡接口 nopreempt # 设置非抢占模式 virtual_router_id 51 # 虚拟路由id，和备节点保持一致 priority 100 # 优先级，中心节点为 100，协同节点1 为 99，协同节点 2 为 98 mcast_src_ip 10....</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-04-26 00:00:00 +0000 UTC'>April 26, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;sacredartr</footer>
-  <a class="entry-link" aria-label="post link to keepalived" href="https://sacredartr.github.io/posts/keepalived/"></a>
 </article>
 
 <article class="post-entry"> 
@@ -236,6 +224,18 @@
   </div>
   <footer class="entry-footer"><span title='2023-02-17 00:00:00 +0000 UTC'>February 17, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Harbor Deploy" href="https://sacredartr.github.io/posts/harbor-deploy/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Ceph Deploy
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Ceph Deploy prepare 3 centos x86 |10.0.0.1|2C|4G|50G|mount 50G disk| |10.0.0.2|2C|4G|50G|mount 50G disk| |10.0.0.3|2C|4G|50G|mount50G disk| hostnamectl set-hostname node1 hostnamectl set-hostname node2 hostnamectl set-hostname node3 cat &gt;&gt; /etc/hosts &lt;&lt;EOF 10.0.0.1 node1 10.0.0.2 node2 10.0.0.3 node3 EOF install dependent packages on 3 machine cat &gt; /etc/yum.repos.d/ceph.repo &lt;&lt;EOF [noarch] name=Ceph noarch baseurl=https://mirrors.aliyun.com/ceph/rpm-nautilus/el7/noarch/ enabled=1 gpgcheck=0 [x86_64] name=Ceph x86_64 baseurl=https://mirrors.aliyun.com/ceph/rpm-nautilus/el7/x86_64/ enabled=1 gpgcheck=0 EOF systemctl disable --now firewalld setenforce 0 sed -i &#39;s/^SELINUX=.*/SELINUX=disabled/&#39; /etc/selinux/config yum install -y chrony epel-release wget yum-utils systemctl enable --now chronyd yum install -y openssl-devel openssl-static zlib-devel lzma tk-devel xz-devel bzip2-devel ncurses-devel gdbm-devel readline-devel sqlite-devel gcc libffi-devel lvm2 install python on 3 machine wget https://www....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-12-19 00:00:00 +0000 UTC'>December 19, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to Ceph Deploy" href="https://sacredartr.github.io/posts/ceph-deploy/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

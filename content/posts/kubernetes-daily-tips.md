@@ -13,31 +13,6 @@ TocOpen: true
 
 # Kubernetes Daily Tips
 
-## docker add proxy
-```shell
-cat>>/etc/profile<<EOF
-export http_proxy=http://$IP:7890
-export https_proxy=http://$IP:7890
-export no_proxy="localhost, 127.0.0.1"
-EOF
-source /etc/profile
-rm -rf /etc/clash/env
-mkdir -pv /etc/clash
-cat>/etc/clash/env<<EOF
-http_proxy=http://$IP:7890
-https_proxy=http://$IP:7890
-no_proxy="localhost, 127.0.0.1"
-EOF
-mkdir -pv /etc/systemd/system/docker.service.d
-rm -rf /etc/systemd/system/docker.service.d/proxy.conf
-cat>/etc/systemd/system/docker.service.d/proxy.conf<<EOF
-[Service]
-EnvironmentFile=/etc/clash/env
-EOF
-systemctl daemon-reload
-systemctl restart docker
-```
-
 ## containerd add proxy
 ```shell
 cat>>/etc/profile<<EOF
@@ -80,11 +55,9 @@ crictl rmi docker.io/busybox:latest
 ctr -n k8s.io image export busybox.tar.gz docker.io/busybox:latest
 ctr -n k8s.io image import busybox.tar.gz
 ctr -n k8s.io image pull docker.io/busybox:latest
-```
-
-## rollout
-```shell
-kubectl rollout restart deploy busybox
+nerdctl -n k8s.io save -o images.tar.gz docker.io/busybox:latest
+nerdctl -n k8s.io load -i images.tar.gz
+nerdctl -n k8s.io pull docker.io/busybox:latest
 ```
 
 ## namespace delete failed
@@ -109,4 +82,10 @@ find the nodes with a revision difference greater than 1000
 6.【healthy node】ETCDCTL_API=3 etcdctl --endpoints=https://${node1_ip}:2379,https://${node2_ip}:2379,https://${node3_ip}:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key endpoint health
 check etcd health
 7.【all node】mv ./manifests/* /etc/kubernetes/manifests/
+```
+
+## local-path storageclass
+```console
+mkdir -pv /data/local-path-provisioner
+kubectl apply -f local-path.yaml
 ```

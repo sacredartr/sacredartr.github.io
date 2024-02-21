@@ -9,49 +9,22 @@
       <link>https://sacredartr.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 18 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/zh/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/zh/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>keepalived</title>
+      <link>https://sacredartr.github.io/zh/series/keepalived/</link>
+      <pubDate>Wed, 26 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/zh/series/keepalived/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Fund Investment</title>
       <link>https://sacredartr.github.io/zh/series/fund-investment/</link>
       <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
       
       <guid>https://sacredartr.github.io/zh/series/fund-investment/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes Tips</title>
-      <link>https://sacredartr.github.io/zh/series/kubernetes-tips/</link>
-      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://sacredartr.github.io/zh/series/kubernetes-tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tools Tips</title>
-      <link>https://sacredartr.github.io/zh/series/tools-tips/</link>
-      <pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://sacredartr.github.io/zh/series/tools-tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker Tips</title>
-      <link>https://sacredartr.github.io/zh/series/docker-tips/</link>
-      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://sacredartr.github.io/zh/series/docker-tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git Tips</title>
-      <link>https://sacredartr.github.io/zh/series/git-tips/</link>
-      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://sacredartr.github.io/zh/series/git-tips/</guid>
       <description></description>
     </item>
     

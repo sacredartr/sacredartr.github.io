@@ -66,3 +66,28 @@ rm -rf test-data
 buildah push localhost/busybox:v$tag-$i docker-daemon:busybox:v$tag-$i
 done
 ```
+
+## docker add proxy
+```shell
+cat>>/etc/profile<<EOF
+export http_proxy=http://$IP:7890
+export https_proxy=http://$IP:7890
+export no_proxy="localhost, 127.0.0.1"
+EOF
+source /etc/profile
+rm -rf /etc/clash/env
+mkdir -pv /etc/clash
+cat>/etc/clash/env<<EOF
+http_proxy=http://$IP:7890
+https_proxy=http://$IP:7890
+no_proxy="localhost, 127.0.0.1"
+EOF
+mkdir -pv /etc/systemd/system/docker.service.d
+rm -rf /etc/systemd/system/docker.service.d/proxy.conf
+cat>/etc/systemd/system/docker.service.d/proxy.conf<<EOF
+[Service]
+EnvironmentFile=/etc/clash/env
+EOF
+systemctl daemon-reload
+systemctl restart docker
+```
