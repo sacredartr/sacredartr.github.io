@@ -89,3 +89,19 @@ check etcd health
 mkdir -pv /data/local-path-provisioner
 kubectl apply -f local-path.yaml
 ```
+
+## Update Kubernetes certificates
+```console
+kubeadm certs check-expiration
+mkdir -pv /etc/kubernetes-bak
+cp -r /etc/kubernetes/* /etc/kubernetes-bak
+kubeadm certs renew all --v=5
+mv $HOME/.kube/config $HOME/.kube/config.old
+cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+chown $(id -u):$(id -g) $HOME/.kube/config
+mkdir /root/bak
+mv /etc/kubernetes/manifests/* /root/bak/
+mv /root/bak/* /etc/kubernetes/manifests/
+rm -rf /root/bak
+kubeadm certs check-expiration
+```

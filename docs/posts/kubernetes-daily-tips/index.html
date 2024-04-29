@@ -101,7 +101,7 @@
     "kubernetes"
   ],
   "articleBody": "Kubernetes Daily Tips containerd add proxy cat\u003e\u003e/etc/profile\u003c",
-  "wordCount" : "265",
+  "wordCount" : "309",
   "inLanguage": "en",
   "datePublished": "2022-08-18T00:00:00Z",
   "dateModified": "2022-08-18T00:00:00Z",
@@ -226,7 +226,9 @@
                 <li>
                     <a href="#recover-split-brain" aria-label="recover split-brain">recover split-brain</a></li>
                 <li>
-                    <a href="#local-path-storageclass" aria-label="local-path storageclass">local-path storageclass</a>
+                    <a href="#local-path-storageclass" aria-label="local-path storageclass">local-path storageclass</a></li>
+                <li>
+                    <a href="#update-kubernetes-certificates" aria-label="Update Kubernetes certificates">Update Kubernetes certificates</a>
                 </li>
             </ul>
             </li>
@@ -292,6 +294,19 @@
 </span></span></span></code></pre></div><h2 id="local-path-storageclass">local-path storageclass<a hidden class="anchor" aria-hidden="true" href="#local-path-storageclass">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">mkdir -pv /data/local-path-provisioner
 </span></span></span><span class="line"><span class="cl"><span class="go">kubectl apply -f local-path.yaml
+</span></span></span></code></pre></div><h2 id="update-kubernetes-certificates">Update Kubernetes certificates<a hidden class="anchor" aria-hidden="true" href="#update-kubernetes-certificates">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">kubeadm certs check-expiration
+</span></span></span><span class="line"><span class="cl"><span class="go">mkdir -pv /etc/kubernetes-bak
+</span></span></span><span class="line"><span class="cl"><span class="go">cp -r /etc/kubernetes/* /etc/kubernetes-bak
+</span></span></span><span class="line"><span class="cl"><span class="go">kubeadm certs renew all --v=5
+</span></span></span><span class="line"><span class="cl"><span class="go">mv $HOME/.kube/config $HOME/.kube/config.old
+</span></span></span><span class="line"><span class="cl"><span class="go">cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+</span></span></span><span class="line"><span class="cl"><span class="go">chown $(id -u):$(id -g) $HOME/.kube/config
+</span></span></span><span class="line"><span class="cl"><span class="go">mkdir /root/bak
+</span></span></span><span class="line"><span class="cl"><span class="go">mv /etc/kubernetes/manifests/* /root/bak/
+</span></span></span><span class="line"><span class="cl"><span class="go">mv /root/bak/* /etc/kubernetes/manifests/
+</span></span></span><span class="line"><span class="cl"><span class="go">rm -rf /root/bak
+</span></span></span><span class="line"><span class="cl"><span class="go">kubeadm certs check-expiration
 </span></span></span></code></pre></div>
 
   </div>
