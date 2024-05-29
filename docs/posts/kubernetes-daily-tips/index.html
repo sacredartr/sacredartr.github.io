@@ -101,7 +101,7 @@
     "kubernetes"
   ],
   "articleBody": "Kubernetes Daily Tips containerd add proxy cat\u003e\u003e/etc/profile\u003c",
-  "wordCount" : "309",
+  "wordCount" : "375",
   "inLanguage": "en",
   "datePublished": "2022-08-18T00:00:00Z",
   "dateModified": "2022-08-18T00:00:00Z",
@@ -291,11 +291,25 @@
 </span></span></span><span class="line"><span class="cl"><span class="go">6.【healthy node】ETCDCTL_API=3 etcdctl --endpoints=https://${node1_ip}:2379,https://${node2_ip}:2379,https://${node3_ip}:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key endpoint health
 </span></span></span><span class="line"><span class="cl"><span class="go">check etcd health
 </span></span></span><span class="line"><span class="cl"><span class="go">7.【all node】mv ./manifests/* /etc/kubernetes/manifests/
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">node02 broken
+</span></span></span><span class="line"><span class="cl"><span class="go">1. 【node01】kubectl drain node02
+</span></span></span><span class="line"><span class="cl"><span class="go">2. 【node01】kubectl delete node node02
+</span></span></span><span class="line"><span class="cl"><span class="go">3. 【node02】kubeadm reset -f
+</span></span></span><span class="line"><span class="cl"><span class="go">4. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -&gt; apiserver.cluster.local:node01IP
+</span></span></span><span class="line"><span class="cl"><span class="go">5. 【node01】kubeadm token create --print-join-command
+</span></span></span><span class="line"><span class="cl"><span class="go">6. 【node01】kubeadm init phase upload-certs --upload-certs --v=5
+</span></span></span><span class="line"><span class="cl"><span class="go">7. 【node02】join apiserver.cluster.local:6443 --token xxxxx --discovery-token-ca-cert-hash xxxxxxx --control-plane --certificate-key xxxxxxxx --v=5
+</span></span></span><span class="line"><span class="cl"><span class="go">8. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -&gt; apiserver.cluster.local:node01IP
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">node02 broken
+</span></span></span><span class="line"><span class="cl"><span class="go">1. 【node02】mv /etc/kubernetes/manifests/* ./manifests/
+</span></span></span><span class="line"><span class="cl"><span class="go">2. 【node02】rm -rf /var/lib/etcd/*
+</span></span></span><span class="line"><span class="cl"><span class="go">3. 【node02】mv ./manifests/* /etc/kubernetes/manifests/
 </span></span></span></code></pre></div><h2 id="local-path-storageclass">local-path storageclass<a hidden class="anchor" aria-hidden="true" href="#local-path-storageclass">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">mkdir -pv /data/local-path-provisioner
 </span></span></span><span class="line"><span class="cl"><span class="go">kubectl apply -f local-path.yaml
 </span></span></span></code></pre></div><h2 id="update-kubernetes-certificates">Update Kubernetes certificates<a hidden class="anchor" aria-hidden="true" href="#update-kubernetes-certificates">#</a></h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">kubeadm certs check-expiration
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">【all node】
+</span></span></span><span class="line"><span class="cl"><span class="go">kubeadm certs check-expiration
 </span></span></span><span class="line"><span class="cl"><span class="go">mkdir -pv /etc/kubernetes-bak
 </span></span></span><span class="line"><span class="cl"><span class="go">cp -r /etc/kubernetes/* /etc/kubernetes-bak
 </span></span></span><span class="line"><span class="cl"><span class="go">kubeadm certs renew all --v=5
