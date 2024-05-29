@@ -83,6 +83,23 @@ find the nodes with a revision difference greater than 1000
 check etcd health
 7.【all node】mv ./manifests/* /etc/kubernetes/manifests/
 ```
+```console
+node02 broken
+1. 【node01】kubectl drain node02
+2. 【node01】kubectl delete node node02
+3. 【node02】kubeadm reset -f
+4. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -> apiserver.cluster.local:node01IP
+5. 【node01】kubeadm token create --print-join-command
+6. 【node01】kubeadm init phase upload-certs --upload-certs --v=5
+7. 【node02】join apiserver.cluster.local:6443 --token xxxxx --discovery-token-ca-cert-hash xxxxxxx --control-plane --certificate-key xxxxxxxx --v=5
+8. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -> apiserver.cluster.local:node01IP
+```
+```console
+node02 broken
+1. 【node02】mv /etc/kubernetes/manifests/* ./manifests/
+2. 【node02】rm -rf /var/lib/etcd/*
+3. 【node02】mv ./manifests/* /etc/kubernetes/manifests/
+```
 
 ## local-path storageclass
 ```console
@@ -92,6 +109,7 @@ kubectl apply -f local-path.yaml
 
 ## Update Kubernetes certificates
 ```console
+【all node】
 kubeadm certs check-expiration
 mkdir -pv /etc/kubernetes-bak
 cp -r /etc/kubernetes/* /etc/kubernetes-bak
