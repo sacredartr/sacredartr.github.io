@@ -91,7 +91,7 @@ node02 broken
 4. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -> apiserver.cluster.local:node01IP
 5. 【node01】kubeadm token create --print-join-command
 6. 【node01】kubeadm init phase upload-certs --upload-certs --v=5
-7. 【node02】join apiserver.cluster.local:6443 --token xxxxx --discovery-token-ca-cert-hash xxxxxxx --control-plane --certificate-key xxxxxxxx --v=5
+7. 【node02】kubeadm join apiserver.cluster.local:6443 --token xxxxx --discovery-token-ca-cert-hash xxxxxxx --control-plane --certificate-key xxxxxxxx --v=5
 8. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -> apiserver.cluster.local:node01IP
 ```
 ```console

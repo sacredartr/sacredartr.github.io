@@ -101,7 +101,7 @@
     "kubernetes"
   ],
   "articleBody": "Kubernetes Daily Tips containerd add proxy cat\u003e\u003e/etc/profile\u003c",
-  "wordCount" : "375",
+  "wordCount" : "376",
   "inLanguage": "en",
   "datePublished": "2022-08-18T00:00:00Z",
   "dateModified": "2022-08-18T00:00:00Z",
@@ -298,7 +298,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="go">4. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -&gt; apiserver.cluster.local:node01IP
 </span></span></span><span class="line"><span class="cl"><span class="go">5. 【node01】kubeadm token create --print-join-command
 </span></span></span><span class="line"><span class="cl"><span class="go">6. 【node01】kubeadm init phase upload-certs --upload-certs --v=5
-</span></span></span><span class="line"><span class="cl"><span class="go">7. 【node02】join apiserver.cluster.local:6443 --token xxxxx --discovery-token-ca-cert-hash xxxxxxx --control-plane --certificate-key xxxxxxxx --v=5
+</span></span></span><span class="line"><span class="cl"><span class="go">7. 【node02】kubeadm join apiserver.cluster.local:6443 --token xxxxx --discovery-token-ca-cert-hash xxxxxxx --control-plane --certificate-key xxxxxxxx --v=5
 </span></span></span><span class="line"><span class="cl"><span class="go">8. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -&gt; apiserver.cluster.local:node01IP
 </span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">node02 broken
 </span></span></span><span class="line"><span class="cl"><span class="go">1. 【node02】mv /etc/kubernetes/manifests/* ./manifests/
