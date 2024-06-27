@@ -9,7 +9,16 @@
       <link>https://sacredartr.github.io/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 01 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jun 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://sacredartr.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tekton</title>
+      <link>https://sacredartr.github.io/tags/tekton/</link>
+      <pubDate>Tue, 25 Jun 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://sacredartr.github.io/tags/tekton/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>tools</title>
       <link>https://sacredartr.github.io/tags/tools/</link>

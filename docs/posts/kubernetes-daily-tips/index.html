@@ -101,7 +101,7 @@
     "kubernetes"
   ],
   "articleBody": "Kubernetes Daily Tips containerd add proxy cat\u003e\u003e/etc/profile\u003c",
-  "wordCount" : "376",
+  "wordCount" : "524",
   "inLanguage": "en",
   "datePublished": "2022-08-18T00:00:00Z",
   "dateModified": "2022-08-18T00:00:00Z",
@@ -200,7 +200,7 @@
     <div class="post-description">
       Kubernetes tips for daily use
     </div>
-    <div class="post-meta"><span title='2022-08-18 00:00:00 +0000 UTC'>August 18, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;sacredartr
+    <div class="post-meta"><span title='2022-08-18 00:00:00 +0000 UTC'>August 18, 2022</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;sacredartr
 
 </div>
   </header> <div class="toc">
@@ -228,7 +228,11 @@
                 <li>
                     <a href="#local-path-storageclass" aria-label="local-path storageclass">local-path storageclass</a></li>
                 <li>
-                    <a href="#update-kubernetes-certificates" aria-label="Update Kubernetes certificates">Update Kubernetes certificates</a>
+                    <a href="#update-kubernetes-certificates" aria-label="update Kubernetes certificates">update Kubernetes certificates</a></li>
+                <li>
+                    <a href="#migrate-containerd" aria-label="migrate containerd">migrate containerd</a></li>
+                <li>
+                    <a href="#k8s-join-configure" aria-label="k8s join configure">k8s join configure</a>
                 </li>
             </ul>
             </li>
@@ -282,6 +286,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="go">   kubectl proxy
 </span></span></span><span class="line"><span class="cl"><span class="go">   curl -k -H &#34;Content-Type: application/json&#34; -X PUT --data-binary @monitoring.json http://127.0.0.1:8001/api/v1/namespaces/monitoring/finalize
 </span></span></span></code></pre></div><h2 id="recover-split-brain">recover split-brain<a hidden class="anchor" aria-hidden="true" href="#recover-split-brain">#</a></h2>
+<p>Method one</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">1.【all node】ETCDCTL_API=3 etcdctl --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/peer.crt --key=/etc/kubernetes/pki/etcd/peer.key --endpoints=https://node1_ip:2379,https://node2_ip:2379,https://node3_ip:2379 endpoint status --write-out=json | jq
 </span></span></span><span class="line"><span class="cl"><span class="go">find the nodes with a revision difference greater than 1000
 </span></span></span><span class="line"><span class="cl"><span class="go">2.【healthy node】ETCDCTL_API=3 etcdctl --endpoints=https://node_ip:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key snapshot save healthy.bak
@@ -291,23 +296,25 @@
 </span></span></span><span class="line"><span class="cl"><span class="go">6.【healthy node】ETCDCTL_API=3 etcdctl --endpoints=https://${node1_ip}:2379,https://${node2_ip}:2379,https://${node3_ip}:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key endpoint health
 </span></span></span><span class="line"><span class="cl"><span class="go">check etcd health
 </span></span></span><span class="line"><span class="cl"><span class="go">7.【all node】mv ./manifests/* /etc/kubernetes/manifests/
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">node02 broken
+</span></span></span></code></pre></div><p>Method two</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">node02 broken
 </span></span></span><span class="line"><span class="cl"><span class="go">1. 【node01】kubectl drain node02
 </span></span></span><span class="line"><span class="cl"><span class="go">2. 【node01】kubectl delete node node02
-</span></span></span><span class="line"><span class="cl"><span class="go">3. 【node02】kubeadm reset -f
+</span></span></span><span class="line"><span class="cl"><span class="go">3. 【node02】kubeadm reset -f (systemctl stop containerd  #if pedding)
 </span></span></span><span class="line"><span class="cl"><span class="go">4. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -&gt; apiserver.cluster.local:node01IP
 </span></span></span><span class="line"><span class="cl"><span class="go">5. 【node01】kubeadm token create --print-join-command
 </span></span></span><span class="line"><span class="cl"><span class="go">6. 【node01】kubeadm init phase upload-certs --upload-certs --v=5
 </span></span></span><span class="line"><span class="cl"><span class="go">7. 【node02】kubeadm join apiserver.cluster.local:6443 --token xxxxx --discovery-token-ca-cert-hash xxxxxxx --control-plane --certificate-key xxxxxxxx --v=5
 </span></span></span><span class="line"><span class="cl"><span class="go">8. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -&gt; apiserver.cluster.local:node01IP
-</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">node02 broken
+</span></span></span></code></pre></div><p>Method three</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">node02 broken
 </span></span></span><span class="line"><span class="cl"><span class="go">1. 【node02】mv /etc/kubernetes/manifests/* ./manifests/
 </span></span></span><span class="line"><span class="cl"><span class="go">2. 【node02】rm -rf /var/lib/etcd/*
 </span></span></span><span class="line"><span class="cl"><span class="go">3. 【node02】mv ./manifests/* /etc/kubernetes/manifests/
 </span></span></span></code></pre></div><h2 id="local-path-storageclass">local-path storageclass<a hidden class="anchor" aria-hidden="true" href="#local-path-storageclass">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">mkdir -pv /data/local-path-provisioner
 </span></span></span><span class="line"><span class="cl"><span class="go">kubectl apply -f local-path.yaml
-</span></span></span></code></pre></div><h2 id="update-kubernetes-certificates">Update Kubernetes certificates<a hidden class="anchor" aria-hidden="true" href="#update-kubernetes-certificates">#</a></h2>
+</span></span></span></code></pre></div><h2 id="update-kubernetes-certificates">update Kubernetes certificates<a hidden class="anchor" aria-hidden="true" href="#update-kubernetes-certificates">#</a></h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">【all node】
 </span></span></span><span class="line"><span class="cl"><span class="go">kubeadm certs check-expiration
 </span></span></span><span class="line"><span class="cl"><span class="go">mkdir -pv /etc/kubernetes-bak
@@ -321,6 +328,49 @@
 </span></span></span><span class="line"><span class="cl"><span class="go">mv /root/bak/* /etc/kubernetes/manifests/
 </span></span></span><span class="line"><span class="cl"><span class="go">rm -rf /root/bak
 </span></span></span><span class="line"><span class="cl"><span class="go">kubeadm certs check-expiration
+</span></span></span></code></pre></div><h2 id="migrate-containerd">migrate containerd<a hidden class="anchor" aria-hidden="true" href="#migrate-containerd">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">sudo systemctl stop containerd
+</span></span></span><span class="line"><span class="cl"><span class="go">cd /etc
+</span></span></span><span class="line"><span class="cl"><span class="go">tar -zcvf containerd.tar.gz containerd
+</span></span></span><span class="line"><span class="cl"><span class="go">tar -zxvf containerd.tar.gz -C /data
+</span></span></span><span class="line"><span class="cl"><span class="go">ln -s /data/containerd /etc/containerd
+</span></span></span><span class="line"><span class="cl"><span class="go">sudo systemctl start containerd
+</span></span></span></code></pre></div><h2 id="k8s-join-configure">k8s join configure<a hidden class="anchor" aria-hidden="true" href="#k8s-join-configure">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">systemctl stop firewalld || true
+</span></span></span><span class="line"><span class="cl"><span class="go">systemctl disable firewalld || true
+</span></span></span><span class="line"><span class="cl"><span class="go">setenforce 0
+</span></span></span><span class="line"><span class="cl"><span class="go">sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+</span></span></span><span class="line"><span class="cl"><span class="go">modprobe br_netfilter &amp;&amp; modprobe nf_conntrack
+</span></span></span><span class="line"><span class="cl"><span class="go">cat &gt; /etc/sysctl.d/98-k8s.conf &lt;&lt; EOF
+</span></span></span><span class="line"><span class="cl"><span class="go">net.netfilter.nf_conntrack_tcp_be_liberal = 1
+</span></span></span><span class="line"><span class="cl"><span class="go">net.netfilter.nf_conntrack_tcp_loose = 1
+</span></span></span><span class="line"><span class="cl"><span class="go">net.netfilter.nf_conntrack_max = 524288
+</span></span></span><span class="line"><span class="cl"><span class="go">net.netfilter.nf_conntrack_buckets = 131072
+</span></span></span><span class="line"><span class="cl"><span class="go">net.netfilter.nf_conntrack_tcp_timeout_established = 21600
+</span></span></span><span class="line"><span class="cl"><span class="go">net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120
+</span></span></span><span class="line"><span class="cl"><span class="go">net.ipv4.neigh.default.gc_thresh1 = 1024
+</span></span></span><span class="line"><span class="cl"><span class="go">net.ipv4.neigh.default.gc_thresh2 = 2048
+</span></span></span><span class="line"><span class="cl"><span class="go">net.ipv4.neigh.default.gc_thresh3 = 4096
+</span></span></span><span class="line"><span class="cl"><span class="go">vm.max_map_count = 262144
+</span></span></span><span class="line"><span class="cl"><span class="go">net.ipv4.ip_forward = 1
+</span></span></span><span class="line"><span class="cl"><span class="go">net.ipv4.tcp_timestamps = 1
+</span></span></span><span class="line"><span class="cl"><span class="go">net.bridge.bridge-nf-call-ip6tables = 1
+</span></span></span><span class="line"><span class="cl"><span class="go">net.bridge.bridge-nf-call-iptables = 1
+</span></span></span><span class="line"><span class="cl"><span class="go">net.ipv6.conf.all.forwarding=1
+</span></span></span><span class="line"><span class="cl"><span class="go">fs.file-max=1048576
+</span></span></span><span class="line"><span class="cl"><span class="go">fs.inotify.max_user_instances = 8192
+</span></span></span><span class="line"><span class="cl"><span class="go">fs.inotify.max_user_watches = 524288
+</span></span></span><span class="line"><span class="cl"><span class="go">EOF
+</span></span></span><span class="line"><span class="cl"><span class="go">cat &gt; /etc/security/limits.d/98-k8s.conf &lt;&lt; EOF
+</span></span></span><span class="line"><span class="cl"><span class="go">* soft nproc 65535
+</span></span></span><span class="line"><span class="cl"><span class="go">* hard nproc 65535
+</span></span></span><span class="line"><span class="cl"><span class="go">* soft nofile 65535
+</span></span></span><span class="line"><span class="cl"><span class="go">* hard nofile 65535
+</span></span></span><span class="line"><span class="cl"><span class="go">EOF
+</span></span></span><span class="line"><span class="cl"><span class="go">sysctl --system
+</span></span></span><span class="line"><span class="cl"><span class="go">sysctl -p
+</span></span></span><span class="line"><span class="cl"><span class="go">swapoff -a
+</span></span></span><span class="line"><span class="cl"><span class="go">sed -i /swap/d /etc/fstab
 </span></span></span></code></pre></div>
 
   </div>

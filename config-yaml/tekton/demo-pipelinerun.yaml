@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: demo-pipeline-run-
+spec:
+  params:
+  - name: revision
+    value: master
+  - name: ssh-host
+    value: xxx
+  - name: git-checkout-sha
+    value: ""
+  - name: docker-user
+    value: xxx
+  - name: docker-pass
+    value: xxx
+  - name: git-repourl
+    value: xxx
+  pipelineRef:
+    name: demo-pipeline
+  workspaces:
+  - name: ssh-credentials
+    secret:
+      secretName: demo-secret

@@ -1,0 +1,121 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: demo-pipeline
+spec:
+  params:
+  - name: ssh-host
+    default: xxx
+    type: string
+  - name: ssh-user
+    default: root
+    type: string
+  - name: git-repourl
+    type: string
+  - name: revision
+    default: master
+    type: string
+  - name: project-name
+    type: string
+    default: Demo
+  - name: git-checkout-sha
+    type: string
+  - name: docker-user
+    type: string
+  - name: docker-pass
+    type: string
+  - name: workdir
+    type: string
+    default: /tmp
+    description: The directory to clone the git repository to and run shell scripts
+  workspaces:
+    - name: ssh-credentials
+  tasks:
+  - name: git-clone
+    taskRef:
+      name: remote-ssh-commands
+      kind: ClusterTask
+    timeout: 5m
+    workspaces:
+      - name: credentials
+        workspace: ssh-credentials
+    params:
+      - name: HOST
+        value: $(params.ssh-host)
+      - name: USERNAME
+        value: $(params.ssh-user)
+      - name: SSH_SCRIPT
+        value: |
+          #!/bin/env bash
+          echo $(context.pipelineRun.uid)
+          OUT="$(params.workdir)/Demo/demo-$(context.pipelineRun.uid)"
+          mkdir -pv \$OUT
+          echo \"git clone successfully!\"
+  - name: build-and-push
+    taskRef:
+      name: remote-ssh-commands
+      kind: ClusterTask
+    timeout: 60m
+    runAfter: [git-clone]
+    workspaces:
+      - name: credentials
+        workspace: ssh-credentials
+    params:
+      - name: HOST
+        value: $(params.ssh-host)
+      - name: USERNAME
+        value: $(params.ssh-user)
+      - name: SSH_SCRIPT
+        value: |
+          #!/bin/env bash
+          set -e
+          echo $(context.pipelineRun.uid)
+          OUT="$(params.workdir)/Demo/demo-$(context.pipelineRun.uid)"
+          mkdir -pv \$OUT
+          pushd \$OUT
+          echo \"build and push successfully!\"
+          popd
+          rm -rf \$OUT
+  finally:
+    - name: send-success
+      when:
+        - input: $(tasks.status)
+          operator: in
+          values: ["Succeeded", "Completed"]
+      taskRef:
+        name: remote-ssh-commands
+        kind: ClusterTask
+      timeout: 5m
+      workspaces:
+        - name: credentials
+          workspace: ssh-credentials
+      params:
+        - name: HOST
+          value: $(params.ssh-host)
+        - name: USERNAME
+          value: $(params.ssh-user)
+        - name: SSH_SCRIPT
+          value: |
+            #!/bin/env bash
+            echo \"successful!\"
+    - name: send-failure
+      when:
+        - input: $(tasks.status)
+          operator: in
+          values: ["Failed", "None"]
+      taskRef:
+        name: remote-ssh-commands
+        kind: ClusterTask
+      timeout: 5m
+      workspaces:
+        - name: credentials
+          workspace: ssh-credentials
+      params:
+        - name: HOST
+          value: $(params.ssh-host)
+        - name: USERNAME
+          value: $(params.ssh-user)
+        - name: SSH_SCRIPT
+          value: |
+            #!/bin/env bash
+            echo \"failed!\"

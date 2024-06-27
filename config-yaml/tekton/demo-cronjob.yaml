@@ -1,0 +1,70 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  labels:
+    app: tekton-pipelinerun-creater
+  name: create-demo-pipelineruns
+spec:
+  concurrencyPolicy: Forbid
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - command:
+            - /bin/bash
+            - -c
+            - |
+              cat <<EOF | kubectl create -f -
+              apiVersion: tekton.dev/v1beta1
+              kind: PipelineRun
+              metadata:
+                generateName: demo-pipeline-run-
+              spec:
+                params:
+                - name: revision
+                  value: master
+                - name: ssh-host
+                  value: xxx
+                - name: git-checkout-sha
+                  value: ""
+                - name: docker-user
+                  value: xxx
+                - name: docker-pass
+                  value: xxx
+                - name: git-repourl
+                  value: xxx
+                pipelineRef:
+                  name: demo-pipeline
+                workspaces:
+                - name: ssh-credentials
+                  secret:
+                    secretName: demo-secret
+              EOF
+            image: docker.io/alpine/k8s:1.20.7
+            imagePullPolicy: IfNotPresent
+            name: kubectl
+            resources:
+              limits:
+                cpu: 100m
+                memory: 128Mi
+              requests:
+                cpu: 50m
+                memory: 32Mi
+            terminationMessagePath: /dev/termination-log
+            terminationMessagePolicy: File
+          dnsPolicy: ClusterFirst
+          restartPolicy: OnFailure
+          schedulerName: default-scheduler
+          securityContext: {}
+          serviceAccount: tekton-pipelinerun-creater
+          serviceAccountName: tekton-pipelinerun-creater
+          terminationGracePeriodSeconds: 30
+  schedule: 00 00 * * *
+  successfulJobsHistoryLimit: 3
+  suspend: false

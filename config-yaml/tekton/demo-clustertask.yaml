@@ -1,0 +1,47 @@
+apiVersion: tekton.dev/v1beta1
+kind: ClusterTask
+metadata:
+  name: remote-ssh-commands
+spec:
+  description: |-
+    The following task can be used to execute commands on remote machine.
+    The following task takes host and required credentials as input along with the script and execute them on respective host machine and produce the output.
+  params:
+  - description: Remote host to connect
+    name: HOST
+    type: string
+  - description: SSH username
+    name: USERNAME
+    type: string
+  - default: "22"
+    description: SSH port, default is 22
+    name: PORT
+    type: string
+  - description: The script which you want to execute on remote server
+    name: SSH_SCRIPT
+    type: string
+  - default: "false"
+    description: include more ciphers with use_insecure_cipher
+    name: USE_INSECURE_CIPHER
+    type: string
+  steps:
+  - image: docker.io/appleboy/drone-ssh:1.6.1@sha256:8252f5232316d832e14f259ed7b217d8d5f620d4668419d88ed47e1a48c0896a
+    name: ssh
+    resources: {}
+    script: |2
+
+      export script="$(params.SSH_SCRIPT)"
+      cmd=""
+      [[ -f ./privatekey ]] && cmd="$cmd -i ./privatekey"
+      [[ -f ./password ]] && cmd="$cmd -P $(cat ./password)"
+      [[ -f ./passphrase ]] && cmd="$cmd --ssh-passphrase $(cat ./passphrase)"
+      [[ -f ./fingerprint ]] && cmd="$cmd --fingerprint $(cat ./fingerprint)"
+      [[ -f ./ciphers ]] && cmd="$cmd --ciphers $(cat ./ciphers)"
+      [[ $(params.USE_INSECURE_CIPHER) == "true" ]] && cmd="$cmd --useInsecureCipher true"
+
+      drone-ssh -H $(params.HOST) -p $(params.PORT) -u $(params.USERNAME) -T 1h -s "$script" $cmd
+    workingDir: $(workspaces.credentials.path)
+  workspaces:
+  - description: The workspace contains secrets can be used to authenticate with the
+      HOST.
+    name: credentials

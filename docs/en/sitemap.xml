@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://sacredartr.github.io/categories/</loc>
-    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://sacredartr.github.io/posts/</loc>
-    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>https://sacredartr.github.io/</loc>
-    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -42,7 +42,7 @@
                 />
   </url><url>
     <loc>https://sacredartr.github.io/series/</loc>
-    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -55,7 +55,7 @@
                 />
   </url><url>
     <loc>https://sacredartr.github.io/tags/</loc>
-    <lastmod>2024-02-01T00:00:00+00:00</lastmod>
+    <lastmod>2024-06-25T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
@@ -66,6 +66,18 @@
                 hreflang="en"
                 href="https://sacredartr.github.io/tags/"
                 />
+  </url><url>
+    <loc>https://sacredartr.github.io/tags/tekton/</loc>
+    <lastmod>2024-06-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sacredartr.github.io/series/tekton/</loc>
+    <lastmod>2024-06-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sacredartr.github.io/categories/tekton/</loc>
+    <lastmod>2024-06-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://sacredartr.github.io/posts/tekton/</loc>
+    <lastmod>2024-06-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://sacredartr.github.io/posts/testing-tools/</loc>
     <lastmod>2024-02-01T00:00:00+00:00</lastmod>

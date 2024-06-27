@@ -72,6 +72,7 @@ nerdctl -n k8s.io pull docker.io/busybox:latest
 ```
 
 ## recover split-brain
+Method one
 ```console
 1.【all node】ETCDCTL_API=3 etcdctl --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/peer.crt --key=/etc/kubernetes/pki/etcd/peer.key --endpoints=https://node1_ip:2379,https://node2_ip:2379,https://node3_ip:2379 endpoint status --write-out=json | jq
 find the nodes with a revision difference greater than 1000
@@ -83,17 +84,19 @@ find the nodes with a revision difference greater than 1000
 check etcd health
 7.【all node】mv ./manifests/* /etc/kubernetes/manifests/
 ```
+Method two
 ```console
 node02 broken
 1. 【node01】kubectl drain node02
 2. 【node01】kubectl delete node node02
-3. 【node02】kubeadm reset -f
+3. 【node02】kubeadm reset -f (systemctl stop containerd  #if pedding)
 4. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -> apiserver.cluster.local:node01IP
 5. 【node01】kubeadm token create --print-join-command
 6. 【node01】kubeadm init phase upload-certs --upload-certs --v=5
 7. 【node02】kubeadm join apiserver.cluster.local:6443 --token xxxxx --discovery-token-ca-cert-hash xxxxxxx --control-plane --certificate-key xxxxxxxx --v=5
 8. 【node02】edit node02 /etc/hosts，apiserver.cluster.local:node02IP -> apiserver.cluster.local:node01IP
 ```
+Method three
 ```console
 node02 broken
 1. 【node02】mv /etc/kubernetes/manifests/* ./manifests/
@@ -107,7 +110,7 @@ mkdir -pv /data/local-path-provisioner
 kubectl apply -f local-path.yaml
 ```
 
-## Update Kubernetes certificates
+## update Kubernetes certificates
 ```console
 【all node】
 kubeadm certs check-expiration
@@ -122,4 +125,53 @@ mv /etc/kubernetes/manifests/* /root/bak/
 mv /root/bak/* /etc/kubernetes/manifests/
 rm -rf /root/bak
 kubeadm certs check-expiration
+```
+
+## migrate containerd
+```console
+sudo systemctl stop containerd
+cd /etc
+tar -zcvf containerd.tar.gz containerd
+tar -zxvf containerd.tar.gz -C /data
+ln -s /data/containerd /etc/containerd
+sudo systemctl start containerd
+```
+
+## k8s join configure
+```console
+systemctl stop firewalld || true
+systemctl disable firewalld || true
+setenforce 0
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+modprobe br_netfilter && modprobe nf_conntrack
+cat > /etc/sysctl.d/98-k8s.conf << EOF
+net.netfilter.nf_conntrack_tcp_be_liberal = 1
+net.netfilter.nf_conntrack_tcp_loose = 1
+net.netfilter.nf_conntrack_max = 524288
+net.netfilter.nf_conntrack_buckets = 131072
+net.netfilter.nf_conntrack_tcp_timeout_established = 21600
+net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120
+net.ipv4.neigh.default.gc_thresh1 = 1024
+net.ipv4.neigh.default.gc_thresh2 = 2048
+net.ipv4.neigh.default.gc_thresh3 = 4096
+vm.max_map_count = 262144
+net.ipv4.ip_forward = 1
+net.ipv4.tcp_timestamps = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv6.conf.all.forwarding=1
+fs.file-max=1048576
+fs.inotify.max_user_instances = 8192
+fs.inotify.max_user_watches = 524288
+EOF
+cat > /etc/security/limits.d/98-k8s.conf << EOF
+* soft nproc 65535
+* hard nproc 65535
+* soft nofile 65535
+* hard nofile 65535
+EOF
+sysctl --system
+sysctl -p
+swapoff -a
+sed -i /swap/d /etc/fstab
 ```

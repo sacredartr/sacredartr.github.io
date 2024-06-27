@@ -166,6 +166,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>tekton
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Tekton Deploy # kubectl version # ... GitVersion:&#34;v1.23.6&#34; ... # config-yaml/* curl -Ls https://github.com/tektoncd/pipeline/releases/download/v0.44.4/release.yaml -o TektonCD-Pipelines.yaml kubectl apply -f TektonCD-Pipelines.yaml curl -ls https://storage.googleapis.com/tekton-releases/triggers/previous/v0.22.2/release.yaml -o TektonCD-Triggers.yaml curl -ls https://storage.googleapis.com/tekton-releases/triggers/previous/v0.22.2/interceptors.yaml -o TektonCD-Triggers-interceptors.yaml kubectl apply -f TektonCD-Triggers.yaml kubectl apply -f TektonCD-Triggers-interceptors.yaml curl -ls https://storage.googleapis.com/tekton-releases/dashboard/previous/v0.35.1/release-full.yaml -o TektonCD-Dashboard-full.yaml kubectl apply -f TektonCD-Dashboard-full.yaml Use kubectl create ns demo # pipeline kubectl apply -f tekton/demo-pipeline.yaml -n demo # pipeline Ref task kubectl apply -f tekton/demo-clustertask.yaml # ssh secret kubectl apply -f tekton/demo-secret....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-06-25 00:00:00 +0000 UTC'>June 25, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
+  <a class="entry-link" aria-label="post link to tekton" href="https://sacredartr.github.io/posts/tekton/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Testing Tools
     </h2>
   </header>
@@ -210,18 +222,6 @@
   </div>
   <footer class="entry-footer"><span title='2023-02-17 00:00:00 +0000 UTC'>February 17, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Harbor Deploy" href="https://sacredartr.github.io/posts/harbor-deploy/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Ceph Deploy
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Ceph Deploy prepare 3 centos x86 |10.0.0.1|2C|4G|50G|mount 50G disk| |10.0.0.2|2C|4G|50G|mount 50G disk| |10.0.0.3|2C|4G|50G|mount50G disk| hostnamectl set-hostname node1 hostnamectl set-hostname node2 hostnamectl set-hostname node3 cat &gt;&gt; /etc/hosts &lt;&lt;EOF 10.0.0.1 node1 10.0.0.2 node2 10.0.0.3 node3 EOF install dependent packages on 3 machine cat &gt; /etc/yum.repos.d/ceph.repo &lt;&lt;EOF [noarch] name=Ceph noarch baseurl=https://mirrors.aliyun.com/ceph/rpm-nautilus/el7/noarch/ enabled=1 gpgcheck=0 [x86_64] name=Ceph x86_64 baseurl=https://mirrors.aliyun.com/ceph/rpm-nautilus/el7/x86_64/ enabled=1 gpgcheck=0 EOF systemctl disable --now firewalld setenforce 0 sed -i &#39;s/^SELINUX=.*/SELINUX=disabled/&#39; /etc/selinux/config yum install -y chrony epel-release wget yum-utils systemctl enable --now chronyd yum install -y openssl-devel openssl-static zlib-devel lzma tk-devel xz-devel bzip2-devel ncurses-devel gdbm-devel readline-devel sqlite-devel gcc libffi-devel lvm2 install python on 3 machine wget https://www....</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-12-19 00:00:00 +0000 UTC'>December 19, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;sacredartr</footer>
-  <a class="entry-link" aria-label="post link to Ceph Deploy" href="https://sacredartr.github.io/posts/ceph-deploy/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
