@@ -30,6 +30,7 @@ kubectl create secret -n prow generic github-token --from-file=cert=/path/to/git
 ```
 
 ## deploy
+[prow](https://github.com/sacredartr/sacredartr.github.io/tree/master/config-yaml/prow)
 ```shell
 kubectl apply -f config-yaml/prow-deploy.yaml
 ```

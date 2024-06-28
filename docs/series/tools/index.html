@@ -154,7 +154,8 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>bandit pip3 install bandit bandit -r project sonarqube mkdir -pv /usr/app/sonar/postgresql mkdir -pv /usr/app/sonar/data mkdir -pv /usr/app/sonar/extensions mkdir -pv /usr/app/sonar/conf chomd 777 /usr/app/sonar/postgresql chomd 777 /usr/app/sonar/data chomd 777 /usr/app/sonar/extensions chomd 777 /usr/app/sonar/conf kubectl apply -f pgo.yaml -n sonarqube kubectl apply -f sonarqube.yaml -n sonarqube sonar-scanner download: https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/sonarscanner/ export PATH=&#34;$PATH:/root/sonar-scanner/bin&#34; conf: sonar-project.properties start: sonar-scanner </p>
+    <p>bandit pip3 install bandit bandit -r project sonarqube sonarqube
+mkdir -pv /usr/app/sonar/postgresql mkdir -pv /usr/app/sonar/data mkdir -pv /usr/app/sonar/extensions mkdir -pv /usr/app/sonar/conf chomd 777 /usr/app/sonar/postgresql chomd 777 /usr/app/sonar/data chomd 777 /usr/app/sonar/extensions chomd 777 /usr/app/sonar/conf kubectl apply -f pgo.yaml -n sonarqube kubectl apply -f sonarqube.yaml -n sonarqube sonar-scanner download: https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/sonarscanner/ export PATH=&#34;$PATH:/root/sonar-scanner/bin&#34; conf: sonar-project.properties start: sonar-scanner </p>
   </div>
   <footer class="entry-footer"><span title='2024-02-01 00:00:00 +0000 UTC'>February 1, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Testing Tools" href="https://sacredartr.github.io/posts/testing-tools/"></a>

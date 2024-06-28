@@ -18,6 +18,7 @@ bandit -r project
 ```
 
 ## sonarqube
+[sonarqube](https://github.com/sacredartr/sacredartr.github.io/tree/master/config-yaml/sonarqube)
 ```console
 mkdir -pv /usr/app/sonar/postgresql
 mkdir -pv /usr/app/sonar/data

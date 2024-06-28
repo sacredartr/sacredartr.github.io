@@ -100,8 +100,8 @@
   "keywords": [
     "prow"
   ],
-  "articleBody": "Prow Deploy prepare kubernetes cluster github organization + app + webhook user kubectl create clusterrolebinding cluster-admin-binding-\"${USER}\" --clusterrole=cluster-admin --user=\"${USER}\" secret openssl rand -hex 20 \u003e /path/to/hook/secret kubectl create secret -n prow generic hmac-token --from-file=hmac=/path/to/hook/secret kubectl create secret -n prow generic github-token --from-file=cert=/path/to/github/cert --from-literal=appid=\u003c\u003e deploy kubectl apply -f config-yaml/prow-deploy.yaml set config edit and install app at organization add webhook at github organization/pro update update-config: kubectl -n prow create configmap config --from-file=config.yaml=config.yaml --dry-run -o yaml | kubectl -n prow replace configmap config -f - update-plugins: kubectl -n prow create configmap plugins --from-file=plugins.yaml=plugins.yaml --dry-run -o yaml | kubectl -n prow replace configmap plugins -f - update-label-config: kubectl -n test-pods create configmap label-config --from-file=labels.yaml=labels.yaml --dry-run -o yaml | kubectl -n test-pods replace configmap label-config -f - ",
-  "wordCount" : "125",
+  "articleBody": "Prow Deploy prepare kubernetes cluster github organization + app + webhook user kubectl create clusterrolebinding cluster-admin-binding-\"${USER}\" --clusterrole=cluster-admin --user=\"${USER}\" secret openssl rand -hex 20 \u003e /path/to/hook/secret kubectl create secret -n prow generic hmac-token --from-file=hmac=/path/to/hook/secret kubectl create secret -n prow generic github-token --from-file=cert=/path/to/github/cert --from-literal=appid=\u003c\u003e deploy prow\nkubectl apply -f config-yaml/prow-deploy.yaml set config edit and install app at organization add webhook at github organization/pro update update-config: kubectl -n prow create configmap config --from-file=config.yaml=config.yaml --dry-run -o yaml | kubectl -n prow replace configmap config -f - update-plugins: kubectl -n prow create configmap plugins --from-file=plugins.yaml=plugins.yaml --dry-run -o yaml | kubectl -n prow replace configmap plugins -f - update-label-config: kubectl -n test-pods create configmap label-config --from-file=labels.yaml=labels.yaml --dry-run -o yaml | kubectl -n test-pods replace configmap label-config -f - ",
+  "wordCount" : "126",
   "inLanguage": "en",
   "datePublished": "2023-03-09T00:00:00Z",
   "dateModified": "2023-03-09T00:00:00Z",
@@ -244,6 +244,7 @@ github organization + app + webhook
 </span></span><span class="line"><span class="cl">kubectl create secret -n prow generic hmac-token --from-file<span class="o">=</span><span class="nv">hmac</span><span class="o">=</span>/path/to/hook/secret
 </span></span><span class="line"><span class="cl">kubectl create secret -n prow generic github-token --from-file<span class="o">=</span><span class="nv">cert</span><span class="o">=</span>/path/to/github/cert --from-literal<span class="o">=</span><span class="nv">appid</span><span class="o">=</span>&lt;&lt;The ID of your app&gt;&gt;
 </span></span></code></pre></div><h2 id="deploy">deploy<a hidden class="anchor" aria-hidden="true" href="#deploy">#</a></h2>
+<p><a href="https://github.com/sacredartr/sacredartr.github.io/tree/master/config-yaml/prow">prow</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">kubectl apply -f config-yaml/prow-deploy.yaml
 </span></span></code></pre></div><h2 id="set-config">set config<a hidden class="anchor" aria-hidden="true" href="#set-config">#</a></h2>
 <pre tabindex="0"><code>edit and install app at organization

@@ -154,7 +154,8 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Harbor Deploy prepare kubernetes cluster helm crictl harbor.tar.xz redis.tar.xz pgo.tar.xz deploy pgo-ha # ctr -n k8s.io image import all pakage cd chart # created pgo namespace kubectl create ns pgo # install pgo controller CRD helm install -n pgo pgo . # check pod kubectl -n pgo get pod NAME READY STATUS RESTARTS AGE pgo-694f6b79bc-gpw2h 1/1 Running 0 16s pgo-694f6b79bc-lw9pl 1/1 Running 0 16s pgo-upgrade-76fdb74df8-ldzcr 1/1 Running 0 16s pgo-upgrade-76fdb74df8-zqrft 1/1 Running 0 16s # install ha-postgres kubectl create ns postgres kubectl -n postgres apply -f ha-postgres....</p>
+    <p>Harbor Deploy prepare harbor artifacthub
+kubernetes cluster helm crictl harbor.tar.xz redis.tar.xz pgo.tar.xz deploy pgo-ha # ctr -n k8s.io image import all pakage cd chart # created pgo namespace kubectl create ns pgo # install pgo controller CRD helm install -n pgo pgo . # check pod kubectl -n pgo get pod NAME READY STATUS RESTARTS AGE pgo-694f6b79bc-gpw2h 1/1 Running 0 16s pgo-694f6b79bc-lw9pl 1/1 Running 0 16s pgo-upgrade-76fdb74df8-ldzcr 1/1 Running 0 16s pgo-upgrade-76fdb74df8-zqrft 1/1 Running 0 16s # install ha-postgres kubectl create ns postgres kubectl -n postgres apply -f ha-postgres....</p>
   </div>
   <footer class="entry-footer"><span title='2023-02-17 00:00:00 +0000 UTC'>February 17, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;sacredartr</footer>
   <a class="entry-link" aria-label="post link to Harbor Deploy" href="https://sacredartr.github.io/posts/harbor-deploy/"></a>

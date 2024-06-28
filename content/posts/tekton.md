@@ -14,12 +14,12 @@ TocOpen: true
 # Tekton
 
 ## Deploy
+[tekton](https://github.com/sacredartr/sacredartr.github.io/tree/master/config-yaml/tekton)
 ```console
 # kubectl version
 # ... GitVersion:"v1.23.6" ...
-# config-yaml/*
-curl -Ls https://github.com/tektoncd/pipeline/releases/download/v0.44.4/release.yaml -o TektonCD-Pipelines.yaml
 kubectl apply -f TektonCD-Pipelines.yaml
+curl -Ls https://github.com/tektoncd/pipeline/releases/download/v0.44.4/release.yaml -o TektonCD-Pipelines.yaml
 curl -ls https://storage.googleapis.com/tekton-releases/triggers/previous/v0.22.2/release.yaml -o TektonCD-Triggers.yaml
 curl -ls https://storage.googleapis.com/tekton-releases/triggers/previous/v0.22.2/interceptors.yaml -o TektonCD-Triggers-interceptors.yaml
 kubectl apply -f TektonCD-Triggers.yaml
@@ -29,6 +29,7 @@ kubectl apply -f TektonCD-Dashboard-full.yaml
 ```
 
 ## Use
+[tekton](https://github.com/sacredartr/sacredartr.github.io/tree/master/config-yaml/tekton)
 ```console
 kubectl create ns demo
 # pipeline

@@ -100,7 +100,7 @@
   "keywords": [
     "tekton"
   ],
-  "articleBody": "Tekton Deploy # kubectl version # ... GitVersion:\"v1.23.6\" ... # config-yaml/* curl -Ls https://github.com/tektoncd/pipeline/releases/download/v0.44.4/release.yaml -o TektonCD-Pipelines.yaml kubectl apply -f TektonCD-Pipelines.yaml curl -ls https://storage.googleapis.com/tekton-releases/triggers/previous/v0.22.2/release.yaml -o TektonCD-Triggers.yaml curl -ls https://storage.googleapis.com/tekton-releases/triggers/previous/v0.22.2/interceptors.yaml -o TektonCD-Triggers-interceptors.yaml kubectl apply -f TektonCD-Triggers.yaml kubectl apply -f TektonCD-Triggers-interceptors.yaml curl -ls https://storage.googleapis.com/tekton-releases/dashboard/previous/v0.35.1/release-full.yaml -o TektonCD-Dashboard-full.yaml kubectl apply -f TektonCD-Dashboard-full.yaml Use kubectl create ns demo # pipeline kubectl apply -f tekton/demo-pipeline.yaml -n demo # pipeline Ref task kubectl apply -f tekton/demo-clustertask.yaml # ssh secret kubectl apply -f tekton/demo-secret.yaml -n demo # pipelinerun kubectl apply -f tekton/demo-pipelinerun.yaml -n demo ... tekton/* ",
+  "articleBody": "Tekton Deploy tekton\n# kubectl version # ... GitVersion:\"v1.23.6\" ... kubectl apply -f TektonCD-Pipelines.yaml curl -Ls https://github.com/tektoncd/pipeline/releases/download/v0.44.4/release.yaml -o TektonCD-Pipelines.yaml curl -ls https://storage.googleapis.com/tekton-releases/triggers/previous/v0.22.2/release.yaml -o TektonCD-Triggers.yaml curl -ls https://storage.googleapis.com/tekton-releases/triggers/previous/v0.22.2/interceptors.yaml -o TektonCD-Triggers-interceptors.yaml kubectl apply -f TektonCD-Triggers.yaml kubectl apply -f TektonCD-Triggers-interceptors.yaml curl -ls https://storage.googleapis.com/tekton-releases/dashboard/previous/v0.35.1/release-full.yaml -o TektonCD-Dashboard-full.yaml kubectl apply -f TektonCD-Dashboard-full.yaml Use tekton\nkubectl create ns demo # pipeline kubectl apply -f tekton/demo-pipeline.yaml -n demo # pipeline Ref task kubectl apply -f tekton/demo-clustertask.yaml # ssh secret kubectl apply -f tekton/demo-secret.yaml -n demo # pipelinerun kubectl apply -f tekton/demo-pipelinerun.yaml -n demo ... tekton/* ",
   "wordCount" : "87",
   "inLanguage": "en",
   "datePublished": "2024-06-25T00:00:00Z",
@@ -227,11 +227,11 @@
 
   <div class="post-content"><h1 id="tekton">Tekton<a hidden class="anchor" aria-hidden="true" href="#tekton">#</a></h1>
 <h2 id="deploy">Deploy<a hidden class="anchor" aria-hidden="true" href="#deploy">#</a></h2>
+<p><a href="https://github.com/sacredartr/sacredartr.github.io/tree/master/config-yaml/tekton">tekton</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="gp">#</span> kubectl version
 </span></span><span class="line"><span class="cl"><span class="gp">#</span> ... GitVersion:<span class="s2">&#34;v1.23.6&#34;</span> ...
-</span></span><span class="line"><span class="cl"><span class="gp">#</span> config-yaml/*
-</span></span><span class="line"><span class="cl"><span class="go">curl -Ls https://github.com/tektoncd/pipeline/releases/download/v0.44.4/release.yaml -o TektonCD-Pipelines.yaml
-</span></span></span><span class="line"><span class="cl"><span class="go">kubectl apply -f TektonCD-Pipelines.yaml
+</span></span><span class="line"><span class="cl"><span class="go">kubectl apply -f TektonCD-Pipelines.yaml
+</span></span></span><span class="line"><span class="cl"><span class="go">curl -Ls https://github.com/tektoncd/pipeline/releases/download/v0.44.4/release.yaml -o TektonCD-Pipelines.yaml
 </span></span></span><span class="line"><span class="cl"><span class="go">curl -ls https://storage.googleapis.com/tekton-releases/triggers/previous/v0.22.2/release.yaml -o TektonCD-Triggers.yaml
 </span></span></span><span class="line"><span class="cl"><span class="go">curl -ls https://storage.googleapis.com/tekton-releases/triggers/previous/v0.22.2/interceptors.yaml -o TektonCD-Triggers-interceptors.yaml
 </span></span></span><span class="line"><span class="cl"><span class="go">kubectl apply -f TektonCD-Triggers.yaml
@@ -239,6 +239,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="go">curl -ls https://storage.googleapis.com/tekton-releases/dashboard/previous/v0.35.1/release-full.yaml -o TektonCD-Dashboard-full.yaml
 </span></span></span><span class="line"><span class="cl"><span class="go">kubectl apply -f TektonCD-Dashboard-full.yaml
 </span></span></span></code></pre></div><h2 id="use">Use<a hidden class="anchor" aria-hidden="true" href="#use">#</a></h2>
+<p><a href="https://github.com/sacredartr/sacredartr.github.io/tree/master/config-yaml/tekton">tekton</a></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">kubectl create ns demo
 </span></span></span><span class="line"><span class="cl"><span class="go"></span><span class="gp">#</span> pipeline
 </span></span><span class="line"><span class="cl"><span class="go">kubectl apply -f tekton/demo-pipeline.yaml -n demo

@@ -105,6 +105,7 @@ node02 broken
 ```
 
 ## local-path storageclass
+[local-path.yaml](https://github.com/sacredartr/sacredartr.github.io/blob/master/config-yaml/storageclass/local-path.yaml)
 ```console
 mkdir -pv /data/local-path-provisioner
 kubectl apply -f local-path.yaml
